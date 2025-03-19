@@ -6,6 +6,6 @@ class ProductController
     {
         $productModel =  new  ProductModel();
         $listproduct = $productModel->getProductDashboard();
-        include 'App/Views/Admin';
+        include 'App/Views/Admin/products.php';
     }
 }

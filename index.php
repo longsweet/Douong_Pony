@@ -2,9 +2,8 @@
 
 include 'App/Databases/Database.php';
 
-include 'App/Models/ProductModel.php.php';
-include 'App/Controllers/Users/DashboardController.php';
-
+include 'App/Models/ProductModel.php';
+include 'App/Controllers/Admins/ProductController.php';
 
 
 const BASE_URL = "http://localhost/Douong_Pony/";

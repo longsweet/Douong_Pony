@@ -786,125 +786,46 @@
 
                                         <!--  mịa -->
                                         <ul class="flex flex-column">
-                                            <li class="wg-product item-row gap20">
-                                                <div class="name">
-                                                    <div class="image">
-                                                        <img src="images/products/product-1.jpg" alt="">
+                                                <?php foreach($listProduct as $key => $value): ?>
+                                                    <li class="wg-product item-row gap20">
+                                                    <div class="body-text text-main-dark mt-4"><?= $key+ 1?></div>
+                                                    <div class="body-text text-main-dark mt-4"><?= $value->name?></div>
+                                                    <div class="body-text text-main-dark mt-4">
+                                                        <img src="<?= $value->image_main?>" alt="" width="50">
                                                     </div>
-                                                    <div class="title line-clamp-2 mb-0">
-                                                        <a href="#" class="body-text">Công thức chế biến thức ăn cho chó, thịt gà và gan gà...
-                                                        </a>
+                                                    <div class="body-text text-main-dark mt-4"></div>
+                                                    <div class="body-text text-main-dark mt-4">
+                                                        <?= number_format($value->price) ?> VNĐ
+                                                        <?php 
+                                                            if($value->price_sale != null){
+                                                                echo "-" . "<p style='color:red;'>" .  number_format($value->price_sale) . "VNĐ" . "</p>";
+                                                            }
+                                                        ?>
                                                     </div>
-                                                </div>
-                                                <div class="body-text text-main-dark mt-4">#7712309</div>
-                                                <div class="body-text text-main-dark mt-4">$1,452.500</div>
-                                                <div class="body-text text-main-dark mt-4">1,638</div>
-                                                <div class="body-text text-main-dark mt-4">20</div>
-                                                <div>
-                                                    <div class="block-stock bg-1 fw-7">Hết hàng
+                                                    <div class="body-text text-main-dark mt-4">
+                                                        <?= $value->stock ?>
                                                     </div>
-                                                </div>
-                                                <div class="body-text text-main-dark mt-4">08/24/2024</div>
-                                                <div class="list-icon-function">
-                                                    <div class="item eye">
-                                                        <i class="icon-eye"></i>
-                                                    </div>
-                                                    <div class="item edit">
-                                                        <i class="icon-edit-3"></i>
-                                                    </div>
-                                                    <div class="item trash">
-                                                        <i class="icon-trash-2"></i>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="wg-product item-row gap20">
-                                                <div class="name">
-                                                    <div class="image">
-                                                        <img src="images/products/product-2.jpg" alt="">
-                                                    </div>
-                                                    <div class="title line-clamp-2 mb-0">
-                                                        <a href="#" class="body-text">Thức ăn khô không chứa ngũ cốc cho chó </a>
-                                                    </div>
-                                                </div>
-                                                <div class="body-text text-main-dark mt-4">#7712309</div>
-                                                <div class="body-text text-main-dark mt-4">$1,452.500</div>
-                                                <div class="body-text text-main-dark mt-4">1,638</div>
-                                                <div class="body-text text-main-dark mt-4">20</div>
-                                                <div>
-                                                    <div class="block-available bg-1 fw-7">Tình trạng không ổn</div>
-                                                </div>
-                                                <div class="body-text text-main-dark mt-4">08/24/2024</div>
-                                                <div class="list-icon-function">
-                                                    <div class="item eye">
-                                                        <i class="icon-eye"></i>
-                                                    </div>
-                                                    <div class="item edit">
-                                                        <i class="icon-edit-3"></i>
-                                                    </div>
-                                                    <div class="item trash">
-                                                        <i class="icon-trash-2"></i>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="wg-product item-row gap20">
-                                                <div class="name">
-                                                    <div class="image">
-                                                        <img src="images/products/product-3.jpg" alt="">
-                                                    </div>
-                                                    <div class="title line-clamp-2 mb-0">
-                                                        <a href="#" class="body-text">Weruva Pumpkin Patch Up! Pumpkin With Ginger... </a>
-                                                    </div>
-                                                </div>
-                                                <div class="body-text text-main-dark mt-4">#7712309</div>
-                                                <div class="body-text text-main-dark mt-4">$1,452.500</div>
-                                                <div class="body-text text-main-dark mt-4">1,638</div>
-                                                <div class="body-text text-main-dark mt-4">20</div>
-                                                <div>
-                                                    <div class="block-available bg-1 fw-7">In Stock</div>
-                                                </div>
-                                                <div class="body-text text-main-dark mt-4">08/24/2024</div>
-                                                <div class="list-icon-function">
-                                                    <div class="item eye">
-                                                        <i class="icon-eye"></i>
-                                                    </div>
-                                                    <div class="item edit">
-                                                        <i class="icon-edit-3"></i>
-                                                    </div>
-                                                    <div class="item trash">
-                                                        <i class="icon-trash-2"></i>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="wg-product item-row gap20">
-                                                <div class="name">
-                                                    <div class="image">
-                                                        <img src="images/products/product-4.jpg" alt="">
-                                                    </div>
-                                                    <div class="title line-clamp-2 mb-0">
-                                                        <a href="#" class="body-text">Milk-Bone Mini's Flavor Snacks Dog Treats, 15 Ounce </a>
-                                                    </div>
-                                                </div>
-                                                <div class="body-text text-main-dark mt-4">#7712309</div>
-                                                <div class="body-text text-main-dark mt-4">$1,452.500</div>
-                                                <div class="body-text text-main-dark mt-4">1,638</div>
-                                                <div class="body-text text-main-dark mt-4">20</div>
-                                                <div>
-                                                    <div class="block-available bg-1 fw-7">In Stock</div>
-                                                </div>
-                                                <div class="body-text text-main-dark mt-4">08/24/2024</div>
-                                                <div class="list-icon-function">
-                                                    <div class="item eye">
-                                                        <i class="icon-eye"></i>
-                                                    </div>
-                                                    <div class="item edit">
-                                                        <i class="icon-edit-3"></i>
-                                                    </div>
-                                                    <div class="item trash">
-                                                        <i class="icon-trash-2"></i>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
+                                                    <div class="list-icon-function">
+                                                            <div class="item eye">
+                                                                <a href="<?= BASE_URL ?>?role=admin&act=show-product&id=<?= $value->id ?>">
+                                                                    <i class="icon-eye" style="color: orange;"></i>
+                                                                </a>
+                                                            </div>
+                                                            <div class="item edit">
+                                                                <a href="<?= BASE_URL ?>?role=admin&act=update-product&id=<?= $value->id ?>">
+                                                                    <i class="icon-edit-3" style="color: green;"></i>
+                                                                </a>
+                                                            </div>
+                                                            <div class="item trash">
+                                                                <a href="<?= BASE_URL ?>?role=admin&act=delete-product&id=<?= $value->id ?>">
+                                                                    <i class="icon-trash-2" style="color: red;"></i>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </li>
+                                                <?php endforeach; ?>
+                                            </ul>
 
                                         <!-- products gitgit-->
                                     </div>

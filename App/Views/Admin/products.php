@@ -824,7 +824,7 @@
                                                         </div>
                                                         
                                                     </li>
-                                                <?php endforeach; ?>
+                                                <?php endforeach;?>
                                             </ul>
 
                                         <!-- products gitgit-->

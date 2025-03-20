@@ -2,7 +2,7 @@
 
 include 'App/Databases/Database.php';
 
-include 'App/Models/ProductModel.php';
+include 'App/Models/Admin/ProductModel.php';
 include 'App/Controllers/Admins/ProductController.php';
 
 

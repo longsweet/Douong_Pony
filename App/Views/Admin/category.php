@@ -1,4 +1,4 @@
-.<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
@@ -19,10 +19,10 @@
 
     <!-- Theme Style -->
     <link rel="stylesheet" type="text/css" href="/Douong_Pony/Assets/Admin/css/animate.min.css">
-<link rel="stylesheet" type="text/css" href="/Douong_Pony/Assets/Admin/css/animation.css">
-<link rel="stylesheet" type="text/css" href="/Douong_Pony/Assets/Admin/css/bootstrap.css">
-<link rel="stylesheet" type="text/css" href="/Douong_Pony/Assets/Admin/css/bootstrap-select.min.css">
-<link rel="stylesheet" type="text/css" href="/Douong_Pony/Assets/Admin/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="/Douong_Pony/Assets/Admin/css/animation.css">
+    <link rel="stylesheet" type="text/css" href="/Douong_Pony/Assets/Admin/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/Douong_Pony/Assets/Admin/css/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="/Douong_Pony/Assets/Admin/css/styles.css">
 
 
 
@@ -933,11 +933,11 @@
     <!-- /#wrapper -->
 
     <!-- Javascript -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/bootstrap-select.min.js"></script>
-    <script src="js/zoom.js"></script>
-    <script src="js/switcher.js"></script>
+    <script src="/Douong_Pony/Assets/Admin/js/jquery.min.js"></script>
+    <script src="/Douong_Pony/Assets/Admin/js/bootstrap.min.js"></script>
+    <script src="/Douong_Pony/Assets/Admin/js/bootstrap-select.min.js"></script>
+    <script src="/Douong_Pony/Assets/Admin/js/zoom.js"></script>
+    <script src="/Douong_Pony/Assets/Admin/js/switcher.js"></script>
     <script defer src="js/theme-settings.js"></script>
     <script defer src="js/main.js"></script>
 

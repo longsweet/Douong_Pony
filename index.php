@@ -3,7 +3,6 @@
 include 'App/Databases/Database.php';
 
 include 'App/Models/Admin/ProductModel.php'; // model
-include 'App/Models/Admin/OrderModel.php';
 include 'App/Models/Admin/CategoryModel.php';
 
 include 'App/Controllers/Admins/ProductController.php'; // controller 

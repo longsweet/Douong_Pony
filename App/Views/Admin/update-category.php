@@ -698,145 +698,75 @@
                     </div>
                     <!-- /header-dashboard -->
                     <!-- main-content -->
+
                     <div class="main-content">
                         <!-- main-content-wrap -->
                         <div class="main-content-inner">
                             <!-- main-content-wrap -->
                             <div class="main-content-wrap">
                                 <div class="flex items-center flex-wrap justify-between gap20 mb-30">
-                                    <h3>Tất cả danh mục</h3>
+                                    <h3>Sửa danh mục</h3>
                                     <ul class="breadcrumbs flex items-center flex-wrap justify-start gap10">
                                         <li>
-                                            <a href="index.html">
-                                                <div class="text-tiny">Trang chủ</div>
+                                            <a href="<?= BASE_URL ?>?role=admin&act=home">
+                                                <div class="text-tiny">Bảng điều khiển</div>
                                             </a>
                                         </li>
                                         <li>
                                             <i class="icon-chevron-right"></i>
                                         </li>
                                         <li>
-                                            <a href="#">
-                                                <div class="text-tiny">Sản phẩm</div>
+                                            <a href="<?= BASE_URL ?>?role=admin&act=all-category">
+                                                <div class="text-tiny">Danh mục</div>
                                             </a>
                                         </li>
                                         <li>
                                             <i class="icon-chevron-right"></i>
                                         </li>
                                         <li>
-                                            <div class="text-tiny">Tất cả danh mục</div>
+                                            <div class="text-tiny">Sửa danh mục</div>
                                         </li>
                                     </ul>
                                 </div>
-                                <!-- all-category -->
                                 <div class="wg-box">
-                                    <div class="flex items-center justify-between gap10 flex-wrap">
-                                        <div class="wg-filter flex-grow">
-                                            <div class="show">
-                                                <div class="text-tiny">Đang hiển thị</div>
-                                                <div class="select">
-                                                    <select class="">
-                                                        <option>10</option>
-                                                        <option>20</option>
-                                                        <option>30</option>
-                                                    </select>
-                                                </div>
-                                                <div class="text-tiny">Mục</div>
-                                            </div>
-                                            <form class="form-search">
-                                                <fieldset class="name">
-                                                    <input type="text" placeholder="Tìm kiếm ở đây..." class="" name="name" tabindex="2" value="" aria-required="true" required="">
-                                                </fieldset>
-                                                <div class="button-submit">
-                                                    <button class="" type="submit"><i class="icon-search"></i></button>
-                                                </div>
-                                            </form>
+                                    <?php
+
+                                    if (isset($_SESSION['message'])) {
+                                        echo "<p>" . $_SESSION['message'] . "</p>";
+                                        unset($_SESSION['message']);
+                                    }
+                                    if (isset($_SESSION['error'])) {
+                                        echo "<p>" . $_SESSION['error'] . "</p>";
+                                        unset($_SESSION['error']);
+                                    }
+
+                                    ?>
+
+                                    <form action="<?= BASE_URL ?>?role=admin&act=category-update&id=<?= $_GET['id'] ?>" method="post">
+                                        <div class="mb-5">
+                                            <div class="body-title mb-10">Danh mục <span class="tf-color-1">*</span></div>
+                                            <input type="text" name="name" id="name" placeholder="Name" class="form-control"
+                                                class="form-control" value="<?= $categories->name ?>">
                                         </div>
-                                        <a class="tf-button style-1 w208" href="<?= BASE_URL ?>?role=admin&act=category-add"><i class="icon-plus"></i>Thêm mới</a>
-                                    </div>
-                                    <div class="wg-table table-all-category">
-                                        <ul class="table-title flex gap20 mb-14">
-                                            <li>
-                                                <div class="body-title">STT</div>
-                                            </li>
-                                            <li>
-                                                <div class="body-title">Name</div>
-                                            </li>
-                                            <li>
-                                                <div class="body-title">Thao Tác</div>
-                                            </li>
+                                        <hr>
+                                        <div class="cols gap10">
+                                            <button class="tf-button w380" type="submit">Lưu lại</button>
+                                            <a href="<?= BASE_URL ?>?role=admin&act=category" class="tf-button style-3 w380" type="submit">Hủy bỏ</a>
+                                        </div>
 
-                                        </ul>
-                                        <ul class="flex flex-column">
-                                            <?php foreach ($listProduct as $key => $value) : ?>
-                                                <li class="wg-product item-row gap20">
 
-                                                    <div class="body-text text-main-dark mt-4"><?= $key + 1 ?></div>
-                                                    <div class="body-text text-main-dark mt-4"><?= $value->name ?></div>
-                                                    <div class="list-icon-function">
-                                                        <!-- viết nhầm đường đẫn lên sai mịa nó -->
-                                                        <div class="item trash">
-                                                            <a
-                                                                onclick="return confirm('Bạn có muốn xóa không?')" 
-                                                                href="<?= BASE_URL ?>?role=admin&act=category-delete&id=<?= $value->id ?>">
-                                                                <i class="icon-trash-2" style="color: red;">xoa</i>
-                                                            </a>
-                                                        </div>
-
-                                                        <div class="item edit">
-                                                            <a
-                                                                href="<?= BASE_URL ?>?role=admin&act=category-form&id=<?= $value->id ?>">
-                                                                <i class="icon-trash-2" style="color: red;">edit</i>
-                                                            </a>
-                                                        </div>
-
-                                                        <div class="item show">
-                                                            <a
-                                                                href="<?= BASE_URL ?>?role=admin&act=category-show&id=<?= $value->id ?>">
-                                                                <i class="icon-trash-2" style="color: red;">show</i>
-                                                            </a>
-                                                        </div>
-
-                                                    </div>
-
-                                                </li>
-
-                                            <?php endforeach; ?>
-
-                                        </ul>
-                                    </div>
-                                    <div class="divider"></div>
-                                    <div class="flex items-center justify-between flex-wrap gap10">
-                                        <div class="text-tiny">Xem 10 mục kế tiếp</div>
-                                        <ul class="wg-pagination">
-                                            <li>
-                                                <a href="#"><i class="icon-chevron-left"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="#">1</a>
-                                            </li>
-                                            <li class="active">
-                                                <a href="#">2</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">3</a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="icon-chevron-right"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                    </form>
                                 </div>
-                                <!-- /all-category -->
                             </div>
                             <!-- /main-content-wrap -->
                         </div>
                         <!-- /main-content-wrap -->
                         <!-- bottom-page -->
                         <div class="bottom-page">
-                            <div class="body-text">Copyright © 2024 <a href="https://themesflat.co/html/ecomus/index.html">Poly Tea</a>.</div>
-                        </div>
-                        <!-- /bottom-page -->
+                            <div class="body-text">Copyright © 2024 <a href="https://themesflat.co/html/ecomus/index.html">Poly Tea</a></div>
+                        </div>                        <!-- /bottom-page -->
                     </div>
+
                     <!-- /main-content -->
                 </div>
                 <!-- /section-content-right -->
@@ -848,11 +778,11 @@
     <!-- /#wrapper -->
 
     <!-- Javascript -->
-    <script src="/Douong_Pony/Assets/Admin/js/jquery.min.js"></script>
-    <script src="/Douong_Pony/Assets/Admin/js/bootstrap.min.js"></script>
-    <script src="/Douong_Pony/Assets/Admin/js/bootstrap-select.min.js"></script>
-    <script src="/Douong_Pony/Assets/Admin/js/zoom.js"></script>
-    <script src="/Douong_Pony/Assets/Admin/js/switcher.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-select.min.js"></script>
+    <script src="js/zoom.js"></script>
+    <script src="js/switcher.js"></script>
     <script defer src="js/theme-settings.js"></script>
     <script defer src="js/main.js"></script>
 

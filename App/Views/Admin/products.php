@@ -149,7 +149,7 @@
                                         </a>
                                         <ul class="sub-menu">
                                             <li class="sub-menu-item">
-                                            <a href="orders.php" class="">
+                                            <a href="<?= BASE_URL ?>?role=admin&act=orders" class="">
                                                     <div class="text">Order list</div>
                                                 </a>
                                             </li>

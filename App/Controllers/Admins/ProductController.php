@@ -9,3 +9,5 @@ class ProductController
         include 'App/Views/Admin/products.php';
     }
 }
+
+?>

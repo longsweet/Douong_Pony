@@ -5,9 +5,13 @@ include 'App/Databases/Database.php';
 
 include 'App/Models/Admin/ProductModel.php'; // model
 include 'App/Models/Admin/CategoryModel.php';
+include 'App/Models/Admin/OrderModel.php';
+
 
 include 'App/Controllers/Admins/ProductController.php'; // controller 
 include 'App/Controllers/Admins/CategoryController.php';
+include 'App/Controllers/Admins/OrderController.php'; 
+
 
 
 const BASE_URL = "http://localhost/Douong_Pony/";

@@ -49,4 +49,8 @@ switch ($act) {
     case 'category-show'; {
         (new CategoryController())->ShowCategory();
     }
+    case 'orders'; { // http://localhost/Douong_Pony/?role=admin&act=orders
+        (new OrderController())->showAllOrders();
+        break;
+    }
 }

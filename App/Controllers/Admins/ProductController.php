@@ -8,6 +8,7 @@ class ProductController
         $listProduct = $productModel->getProductDashboard();
         include 'App/Views/Admin/products.php';
     }
+
     //Lấy danh sách danh mục
     public function addProduct()
     {

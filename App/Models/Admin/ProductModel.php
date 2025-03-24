@@ -14,7 +14,9 @@ class ProductModel
         $result = $query->fetchAll();
         return $result;
     }
+
     //Lấy tất cả sản phẩm và thông tin danh mục
+
     public function getAllProduct()
     {
         $sql = "SELECT * FROM products.id, product.name, products.price, products.price_sale, products.stock,
@@ -23,7 +25,9 @@ class ProductModel
         $result = $query->fetchAll();
         return $result;
     }
+
     //Thêm sản phẩm vào CSDL
+
     public function addProductToDB($destPath)
     {
         $name = $_POST['name'];
@@ -57,7 +61,9 @@ class ProductModel
         }
     }
 
+
     //Thêm ảnh thư viện của sản phẩm
+
     public function addGararyImage($destPathImage, $idProduct)
     {
         $sql = "INSERT INTO `product_image`(`product_id`, `image`)
@@ -68,6 +74,7 @@ class ProductModel
         $stmt->bindParam(':image', $destPathImage);
         return $stmt->execute();
     }
+
     // Lấy sản phẩm theo ID
     public function getProductByID()
     {
@@ -82,6 +89,8 @@ class ProductModel
     }
 
     public function getProductImageByID()
+
+
     {
         $id = $_GET['id'];
         $sql = "SELECT * FROM product_image WHERE product_id = :product_id";
@@ -93,6 +102,7 @@ class ProductModel
         return false;
     }
     //Xóa sản phẩm
+
     public function deleteProductToDB()
     {
         $id = $_GET['id'];
@@ -108,6 +118,7 @@ class ProductModel
             return false;
         }
     }
+
     //Cập nhật sản phẩm
     public function updateProductToDB($destPath)
     {

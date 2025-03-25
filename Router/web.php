@@ -8,7 +8,7 @@ switch ($act) {
 
     case ''; {
             $dashBoardController = new ProductController();
-            $dashBoardController->showAllproduct();
+            $dashBoardController->getProductDashboard();
 
             break;
         }
@@ -47,10 +47,56 @@ switch ($act) {
             (new CategoryController)->updateCategory();
         }
     case 'category-show'; {
-        (new CategoryController())->ShowCategory();
-    }
+            (new CategoryController())->ShowCategory();
+        }
     case 'orders'; { // http://localhost/Douong_Pony/?role=admin&act=orders
-        (new OrderController())->showAllOrders();
-        break;
-    }
+            (new OrderController())->showAllOrders();
+            break;
+        }
+    case 'all-product': {
+            $productController = new ProductController();
+            $productController->getProductDashboard();
+            break;
+        }
+
+    case 'add-product': {
+            $productController = new ProductController();
+            $productController->addProduct();
+            break;
+        }
+
+    case 'add-post-product': {
+            $productController = new ProductController();
+            $productController->addPostProduct();
+            break;
+        }
+
+    case 'delete-product': {
+            $productController = new ProductController();
+            $productController->deleteProduct();
+            break;
+        }
+
+    case 'update-product': {
+            $productController = new ProductController();
+            $productController->updateProduct();
+            break;
+        }
+    case 'update-post-product': {
+            $productController = new ProductController();
+            $productController->updatePostProduct();
+            break;
+        }
+
+    case 'show-product'; {
+            $productController = new ProductController();
+            $productController->showProduct();
+            break;
+        }
+
+        // case 'comment-product'; {
+        //         $commentRatingController = new CommentRatingController();
+        //         $commentRatingController->showComment();
+        //         break;
+        //     }
 }

@@ -15,16 +15,6 @@ class ProductModel
         return $result;
     }
 
-    //Lấy tất cả sản phẩm và thông tin danh mục
-
-    public function getAllProduct()
-    {
-        $sql = "SELECT * FROM products.id, product.name, products.price, products.price_sale, products.stock,
-        product.image_main, category_main, categories.name AS categoryName FROM `products` join categories on products.category_id = categories.id";
-        $query = $this->db->pdo->query($sql);
-        $result = $query->fetchAll();
-        return $result;
-    }
 
     //Thêm sản phẩm vào CSDL
 
@@ -79,9 +69,9 @@ class ProductModel
     public function getProductByID()
     {
         $id = $_GET['id'];
-        $sql = "SELECT * FROM product_image WHERE product_id = :product_id";
+        $sql = "SELECT * FROM products WHERE id = :id";
         $stmt = $this->db->pdo->prepare($sql);
-        $stmt->bindParam(':product_id', $id);
+        $stmt->bindParam(':id', $id);
         if ($stmt->execute()) {
             return $stmt->fetch();
         }
@@ -89,8 +79,6 @@ class ProductModel
     }
 
     public function getProductImageByID()
-
-
     {
         $id = $_GET['id'];
         $sql = "SELECT * FROM product_image WHERE product_id = :product_id";
@@ -126,7 +114,7 @@ class ProductModel
         $name = $_POST['name'];
         $category = $_POST['category'];
         $price = $_POST['price'];
-        $price_sale = $_POST['price_sale'];
+        $price_sale = $_POST['price_sale'] != "" ? $_POST['price_sale'] : null;
         $stock = $_POST['stock'];
         $description = $_POST['description'];
         $now = date('Y-m-d H:i:s');
@@ -143,8 +131,9 @@ class ProductModel
         $stmt->bindParam(':price_sale', $price_sale);
         $stmt->bindParam(':stock', $stock);
         $stmt->bindParam(':image_main', $imageDes);
-        $stmt->bindParam(':update_at', $now);
+        $stmt->bindParam(':updated_at', $now);
         $stmt->bindParam(':id', $id);
+
         return $stmt->execute();
     }
     //Xóa hình ảnh thư viện

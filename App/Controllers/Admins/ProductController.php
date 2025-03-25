@@ -2,21 +2,21 @@
 
 class ProductController
 {
-    public function showAllproduct()
+    //Lấy danh sách danh mục
+    public function getProductDashboard()
     {
         $productModel =  new  ProductModel();
         $listProduct = $productModel->getProductDashboard();
         include 'App/Views/Admin/products.php';
     }
-
-    //Lấy danh sách danh mục
-    public function addProduct()
+    public function addProduct()  // da xong
     {
         $categoryModel = new CategoryModel();
-        $lisCategory = $categoryModel->allCategory();
+        $listCategory = $categoryModel->allCategory();
+
         include 'App/Views/Admin/add-product.php';
     }
-    //ktra da nhap day du thong tin chua
+
     public function checkValidate()
     {
         $name = $_POST['name'];
@@ -27,18 +27,19 @@ class ProductController
         if ($name != "" && $category != "" && $price != "" && $stock != "") {
             return true;
         } else {
-            $_SESSION['error'] = "ban nhap thieu thong tin!";
+            $_SESSION['error'] = "Bạn nhập thiếu thông tin!";
             return false;
         }
     }
-    //Xử lý yêu cầu thêm mới sản phẩm 
+
     public function addPostProduct()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if (!$this->checkValidate()) {
-                header("location:" . BASE_URL . "?role=admin&act=add-product");
+                header("Location: " . BASE_URL . "?role=admin&act=add-product");
                 exit;
-            } // them anh main
+            }
+            //thêm ảnh main
             $uploadDir = 'assets/Admin/upload/';
             $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
             $destPath = "";
@@ -56,14 +57,17 @@ class ProductController
                     }
                 }
             }
+
             $productModel = new ProductModel();
             $idProduct = $productModel->addProductToDB($destPath);
-            if ($idProduct) {
+
+            if (!$idProduct) {
                 $_SESSION['message'] = "Thêm mới không thành công!";
-                header("location:" . BASE_URL . "?role=admin&act=add-product");
+                header("Location: " . BASE_URL . "?role=admin&act=add-product");
                 exit;
             }
-            //them thu vien anh
+
+            //Thêm thư viện ảnh
             if (isset($_FILES['image'])) {
                 foreach ($_FILES['image']['name'] as $key => $name) {
                     $destPathImage = "";
@@ -87,15 +91,27 @@ class ProductController
             header("Location: " . BASE_URL . "?role=admin&act=all-product");
             exit;
         }
+    }
+
+    public function deleteProduct()
+    {
+        if (!isset($_GET['id'])) {
+            $_SESSION['message'] = "Vui lòng chọn sản phẩm cần xóa!";
+            header("Location: " . BASE_URL . "?role=admin&act=all-product");
+            exit;
+        }
         $productModel = new ProductModel();
-        //xoa anh chinh
+        //xóa ảnh chính 
         $product = $productModel->getProductByID();
         if ($product->image_main != null) {
-            unlink($product->image_main);
-            //Nếu người dùng tải lên ảnh mới, ảnh cũ sẽ bị xóa
+
+            if (file_exists($product->image_main)) {
+                unlink($product->image_main);
+            };
         }
-        //xoa anh trong product_image
-        $listImage = $productModel->getProductImageById();
+
+        //xóa ảnh trong product_image
+        $listImage = $productModel->getProductImageByID();
         foreach ($listImage as $key => $value) {
             if ($value->image != null) {
                 unlink($value->image);
@@ -105,15 +121,19 @@ class ProductController
         $message = $productModel->deleteProductToDB();
 
         if ($message) {
-            $_SESSION['message'] = "xoa thanh cong!";
+            $_SESSION['message'] = "Xóa thành công!";
             header("Location: " . BASE_URL . "?role=admin&act=all-product");
             exit;
         } else {
-            $_SESSION['message'] = "xoa khong thanh cong!";
+            $_SESSION['message'] = "Xóa không thành công!";
             header("Location: " . BASE_URL . "?role=admin&act=all-product");
             exit;
         }
     }
+
+
+
+
     public function updateProduct()
     {
         if (!isset($_GET['id'])) {
@@ -121,15 +141,17 @@ class ProductController
             header("Location: " . BASE_URL . "?role=admin&act=all-product");
             exit;
         }
+
         $categoryModel = new CategoryModel();
-        $lisCategory = $categoryModel->allCategory();
+        $listCategory = $categoryModel->allCategory();
 
         $productModel = new ProductModel();
         $product = $productModel->getProductByID();
         $listProductImage = $productModel->getProductImageByID();
 
-        include 'App/Views/Admin/update-product.php';
+        include 'app/Views/Admin/update-product.php';
     }
+
     public function updatePostProduct()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -215,8 +237,8 @@ class ProductController
             exit;
         }
         $productModel = new ProductModel();
-        $product = $productModel->getProductById();
+        $product = $productModel->getProductByID();
 
-        include 'app/Views/Admin/show-product.php';
+        include 'App/Views/Admin/show-product.php';
     }
 }

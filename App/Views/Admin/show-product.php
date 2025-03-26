@@ -55,12 +55,12 @@
         </div>
         <!-- /preload -->
         <!-- section-menu-left -->
-        <?php include 'app/Views/Admin/layouts/sidebar.php' ?>
+
         <!-- /section-menu-left -->
         <!-- section-content-right -->
         <div class="section-content-right">
           <!-- header-dashboard -->
-          <?php include 'app/Views/Admin/layouts/header.php' ?>
+
           <!-- /header-dashboard -->
           <!-- main-content -->
           <div class="main-content">
@@ -145,7 +145,7 @@
             </div>
             <!-- /main-content-wrap -->
             <!-- bottom-page -->
-            <?php include 'app/Views/Admin/layouts/footer.php' ?>
+
             <!-- /bottom-page -->
           </div>
           <!-- /main-content -->

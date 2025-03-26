@@ -205,7 +205,7 @@
                                         </a>
                                         <ul class="sub-menu">
                                             <li class="sub-menu-item">
-                                                <a href="https://themesflat.co/html/ecomus/index.html" class="">
+                                                <a href="" class="">
                                                     <div class="text">View Store</div>
                                                 </a>
                                             </li>

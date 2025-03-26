@@ -11,10 +11,14 @@ include 'App/Models/Admin/ProductModel.php'; // model
 include 'App/Models/Admin/CategoryModel.php';
 include 'App/Models/Admin/OrderModel.php';
 
+include 'App/Models/User/ProductUserModel.php';
+
 
 include 'App/Controllers/Admins/ProductController.php'; // controller 
 include 'App/Controllers/Admins/CategoryController.php';
 include 'App/Controllers/Admins/OrderController.php';
+
+include 'App/Controllers/Users/DashboardController.php';
 
 
 

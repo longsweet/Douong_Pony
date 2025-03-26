@@ -47,10 +47,52 @@ switch ($act) {
             (new CategoryController)->updateCategory();
         }
     case 'category-show'; {
-        (new CategoryController())->ShowCategory();
-    }
-    case 'orders'; { // http://localhost/Douong_Pony/?role=admin&act=orders
-        (new OrderController())->showAllOrders();
-        break;
-    }
+            (new CategoryController())->ShowCategory();
+        }
+    case 'orders'; {
+            // http://localhost/Douong_Pony/?role=admin&act=orders
+            (new OrderController())->showAllOrders();
+            break;
+        }
+
+        //comment 
+
+    case 'comment-all'; {
+            (new CommentRatingController())->showComment();
+            break;
+        }
+
+    case 'comment-detail'; {
+            (new CommentRatingController)->commentDetail();
+            break;
+
+        }
+    case 'comment-reply'; {
+            (new CommentRatingController)->commentReply();
+            break;
+
+        }
+    case 'comment-delete'; {
+            (new CommentRatingController)->commentDelete();
+            break;
+
+        }
+
+        //userAdminuserAdmin
+    case 'login-admin'; {
+            (new LoginController)->loginAdmin();
+            break;
+
+        }
+
+    case 'login-post'; {
+            (new LoginController)->LoginPost();
+            break;
+
+        }
+
+    case 'logout'; {
+            (new LoginController)->Logout();
+            break;
+        }
 }

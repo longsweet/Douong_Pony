@@ -14,13 +14,23 @@ class ProductModel
         $result = $query->fetchAll();
         return $result;
     }
-    public function getAllProduct()
-    {
-        $sql = "SELECT * FROM products.id, product.name, products.price, products.price_sale, products.stock,
-        product.image_main, category_main, categories.name AS categoryName FROM `products` join categories on products.category_id = categories.id";
+    public function getAllProduct(){
+        $sql = "SELECT products.id, products.name, products.price, products.price_sale, products.category_id, products.stock,
+         products.image_main, categories.name AS categoryName FROM `products` join categories on products.category_id = categories.id";
         $query = $this->db->pdo->query($sql);
         $result = $query->fetchAll();
         return $result;
+    }
+
+    public function getProductByID(){
+        $id = $_GET['id'];
+        $sql = "SELECT * FROM products WHERE id = :id";
+        $stmt = $this->db->pdo->prepare($sql);
+        $stmt->bindParam(':id', $id);
+        if($stmt->execute()){
+            return $stmt->fetch();
+        }
+        return false;
     }
     public function addProductToDB($destPath)
     {

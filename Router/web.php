@@ -9,12 +9,12 @@ switch ($act) {
 
 
 
-    case '': {
-            $dashBoardController = new ProductController();
-            $dashBoardController->getProductDashboard();
+    // case '': {
+    //         $dashBoardController = new ProductController();
+    //         $dashBoardController->getProductDashboard();
 
-            break;
-        }
+    //         break;
+    //     }
         // hiển thị category
     case 'category': { //http://localhost/Douong_Pony/?role=admin&act=long 
             $dashBoardController = new CategoryController();
@@ -50,24 +50,12 @@ switch ($act) {
             (new CategoryController)->updateCategory();
             break;
         }
-<<<<<<< HEAD
+
     case 'category-show'; {
             (new CategoryController())->ShowCategory();
-        }
-    case 'orders'; {
-            // http://localhost/Douong_Pony/?role=admin&act=orders
-=======
-    case 'category-show': {
-            (new CategoryController())->ShowCategory();
-            break;
-        }
-    case 'orders': { // http://localhost/Douong_Pony/?role=admin&act=orders
->>>>>>> b4386be2e0ed97ff341367676478caf15c7ed17a
-            (new OrderController())->showAllOrders();
             break;
         }
 
-<<<<<<< HEAD
         //comment 
 
     case 'comment-all'; {
@@ -108,7 +96,14 @@ switch ($act) {
             (new LoginController)->Logout();
             break;
         }
-=======
+
+
+        case 'orders': { 
+            (new OrderController())->showAllOrders();
+            break;
+        }
+            
+
     case 'order-detail': { // http://localhost/Douong_Pony/?role=admin&act=order-detail
             (new OrderController())->showOrderDetail();
             break;
@@ -168,5 +163,5 @@ switch ($act) {
         //         $commentRatingController->showComment();
         //         break;
         //     }
->>>>>>> b4386be2e0ed97ff341367676478caf15c7ed17a
+
 }

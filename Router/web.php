@@ -53,6 +53,11 @@ switch ($act) {
             (new OrderController())->showAllOrders();
             break;
         }
+
+    case 'order-detail'; { // http://localhost/Douong_Pony/?role=admin&act=order-detail
+            (new OrderController())->showOrderDetail();
+            break;
+        }
     case 'all-product': {
             $productController = new ProductController();
             $productController->getProductDashboard();

@@ -150,7 +150,7 @@
                                         </a>
                                         <ul class="sub-menu">
                                             <li class="sub-menu-item">
-                                            <a href="<?= BASE_URL ?>?role=admin&act=orders" class="">
+                                                <a href="<?= BASE_URL ?>?role=admin&act=orders" class="">
                                                     <div class="text">Order list</div>
                                                 </a>
                                             </li>
@@ -800,7 +800,10 @@
                                                     <div class="body-text text-main-dark mt-4"><?= date('d/m/Y', strtotime($order->created_at)) ?></div>
                                                     <div class="list-icon-function">
                                                         <div class="item eye">
-                                                            <a href="<?= BASE_URL ?>?role=admin&act=show-order&id=<?= $order->order_id ?>"><i class="icon-eye"></i></a>
+                                                            <a href="?role=admin&act=order-detail&id=<?= $order->order_id ?>">
+                                                                <i class="icon-eye"></i>
+                                                            </a>
+
                                                         </div>
                                                         <div class="item edit">
                                                             <a href="<?= BASE_URL ?>?role=admin&act=edit-order&id=<?= $order->order_id ?>"><i class="icon-edit-3"></i></a>

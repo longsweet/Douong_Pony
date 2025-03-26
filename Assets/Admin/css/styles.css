@@ -4108,7 +4108,7 @@ select option {
 }
 .wg-table.table-recent-orders .item > *:nth-child(1),
 .wg-table.table-recent-orders ul.table-title > *:nth-child(1) {
-  width: 300px;
+  width: 150px;
 }
 .wg-table.table-recent-orders .item > *:nth-child(2),
 .wg-table.table-recent-orders ul.table-title > *:nth-child(2) {

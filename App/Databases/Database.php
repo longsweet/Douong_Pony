@@ -17,7 +17,7 @@ class Database
             $this->pdo = new PDO($dsn, $user, $password);
             if($this->pdo){
                 $this->pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_OBJ);
-                echo "Kết nối database thành công!"; // Hiển thị thông báo thành công
+                // echo "Kết nối database thành công!"; // Hiển thị thông báo thành công
 
             }
         }catch(PDOException $e){

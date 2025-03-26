@@ -89,7 +89,7 @@
                                         </a>
                                         <ul class="sub-menu" style="display: block;">
                                             <li class="sub-menu-item active">
-                                                <a href="product-list.html" class="">
+                                            <a href="<?= BASE_URL ?>?role=admin&act=products" class="">
                                                     <div class="text"> Danh sách sản phẩm</div>
                                                 </a>
                                             </li>

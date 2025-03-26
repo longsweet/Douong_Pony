@@ -1,19 +1,22 @@
 <?php
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 $act = isset($_GET['act']) ? $_GET['act'] : "";
 
 switch ($act) {
 
 
 
-    case ''; {
+    case '': {
             $dashBoardController = new ProductController();
             $dashBoardController->getProductDashboard();
 
             break;
         }
         // hiển thị category
-    case 'category'; { //http://localhost/Douong_Pony/?role=admin&act=long 
+    case 'category': { //http://localhost/Douong_Pony/?role=admin&act=long 
             $dashBoardController = new CategoryController();
             $dashBoardController->showAllproduct();
 
@@ -21,43 +24,54 @@ switch ($act) {
         }
 
         // form thêm danh mục
-    case 'category-add'; {
+    case 'category-add': {
             $dashBoardController = new CategoryController();
             $dashBoardController->addCategory();
 
             break;
         }
         //dữ liệu để thêm một danh mục
-    case 'category-post'; {
+    case 'category-post': {
             (new CategoryController())->PostCategory();
             break;
         }
         // xóa dữ liệu theo idid
-    case 'category-delete'; {
+    case 'category-delete': {
             (new CategoryController())->deleteCatefory();
             break;
         }
         //hiển thị form sửa sản phẩm
-    case 'category-form'; {
+    case 'category-form': {
             (new CategoryController())->formCategory();
             break;
         }
         //Hiển thị chức năng update
-    case 'category-update'; {
+    case 'category-update': {
             (new CategoryController)->updateCategory();
+            break;
         }
-    case 'category-show'; {
+    case 'category-show': {
             (new CategoryController())->ShowCategory();
+            break;
         }
-    case 'orders'; { // http://localhost/Douong_Pony/?role=admin&act=orders
+    case 'orders': { // http://localhost/Douong_Pony/?role=admin&act=orders
             (new OrderController())->showAllOrders();
             break;
         }
 
-    case 'order-detail'; { // http://localhost/Douong_Pony/?role=admin&act=order-detail
+    case 'order-detail': { // http://localhost/Douong_Pony/?role=admin&act=order-detail
             (new OrderController())->showOrderDetail();
             break;
         }
+    case 'edit-order': {
+            (new OrderController())->editOrder();
+            break;
+        }
+    case 'update-order': {
+            (new OrderController())->updateOrder();
+            break;
+        }
+
     case 'all-product': {
             $productController = new ProductController();
             $productController->getProductDashboard();
@@ -93,7 +107,7 @@ switch ($act) {
             break;
         }
 
-    case 'show-product'; {
+    case 'show-product': {
             $productController = new ProductController();
             $productController->showProduct();
             break;

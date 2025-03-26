@@ -1,4 +1,6 @@
+
 <?php
+
 session_start();
 
 include 'App/Databases/Database.php';

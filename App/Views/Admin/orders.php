@@ -155,11 +155,6 @@
                                                 </a>
                                             </li>
                                             <li class="sub-menu-item">
-                                                <a href="oder-detail.html" class="">
-                                                    <div class="text">Order detail</div>
-                                                </a>
-                                            </li>
-                                            <li class="sub-menu-item">
                                                 <a href="oder-tracking.html" class="">
                                                     <div class="text">Order tracking</div>
                                                 </a>
@@ -806,7 +801,11 @@
 
                                                         </div>
                                                         <div class="item edit">
-                                                            <a href="<?= BASE_URL ?>?role=admin&act=edit-order&id=<?= $order->order_id ?>"><i class="icon-edit-3"></i></a>
+                                                            <a href="?role=admin&act=edit-order&id=<?= $order->order_id ?>">
+                                                                <i class="icon-edit-3"></i>
+                                                            </a>
+
+
                                                         </div>
                                                         <div class="item trash">
                                                             <a href="<?= BASE_URL ?>?role=admin&act=delete-order&id=<?= $order->order_id ?>" onclick="return confirm('Xóa đơn hàng này?')">

@@ -1,12 +1,3 @@
-<?php
-
-if (!isset($orderDetail) || empty($orderDetail)) {
-    echo "<p>Không có dữ liệu đơn hàng.</p>";
-    exit;
-}
-$orderInfo = $orderDetail[0];
-?>
-
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
@@ -21,6 +12,8 @@ $orderInfo = $orderDetail[0];
     <meta charset="utf-8">
     <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
     <title> Admin Dashboard </title>
+
+    
 
     <meta name="author" content="themesflat.com">
 
@@ -163,7 +156,11 @@ $orderInfo = $orderDetail[0];
                                                     <div class="text">Order list</div>
                                                 </a>
                                             </li>
-                                
+                                            <li class="sub-menu-item">
+                                                <a href="oder-detail.html" class="">
+                                                    <div class="text">Order detail</div>
+                                                </a>
+                                            </li>
                                             <li class="sub-menu-item">
                                                 <a href="oder-tracking.html" class="">
                                                     <div class="text">Order tracking</div>
@@ -711,144 +708,66 @@ $orderInfo = $orderDetail[0];
                         <div class="main-content-inner">
                             <!-- main-content-wrap -->
                             <div class="main-content-wrap">
-                                <div class="flex items-center flex-wrap justify-between gap20 mb-30">
-                                    <h3>Đơn hàng #<?= isset($_GET['id']) ? htmlspecialchars($_GET['id']) : 'Không xác định' ?></h3>
-                                    <ul class="breadcrumbs flex items-center flex-wrap justify-start gap10">
-                                        <li><a href="index.php">
-                                                <div class="text-tiny">Trang chủ</div>
-                                            </a></li>
-                                        <li><i class="icon-chevron-right"></i></li>
-                                        <li><a href="?role=admin&act=orders">
-                                                <div class="text-tiny">Đơn hàng</div>
-                                            </a></li>
-                                        <li><i class="icon-chevron-right"></i></li>
-                                        <li>
-                                            <div class="text-tiny">Chi tiết đơn hàng</div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div> <!-- Thêm thẻ đóng để tránh lỗi giao diện -->
+                                <?php if (!empty($order)): ?>
+                                    <h3>Chỉnh sửa đơn hàng #<?= htmlspecialchars($order->order_id) ?></h3>
+                                <?php else: ?>
+                                    <p>Không tìm thấy đơn hàng.</p>
+                                <?php endif; ?>
+
+                                <form action="?role=admin&act=update-order" method="POST">
+                                
+
+                                    <input type="hidden" name="order_id" value="<?= htmlspecialchars($order->order_id) ?>">
+
+                                    <label for="customer_name">Tên khách hàng:</label>
+                                    <input type="text" name="customer_name" value="<?= htmlspecialchars($order->customer_name) ?>" required>
+
+                                    <label for="customer_address">Địa chỉ:</label>
+                                    <input type="text" name="customer_address" value="<?= htmlspecialchars($order->customer_address ?? '') ?>" required>
+
+                                    <label for="phone">Số điện thoại:</label>
+                                    <input type="text" name="phone" value="<?= htmlspecialchars($order->phone ?? '') ?>" required>
+
+                                    <label for="email">Email:</label>
+                                    <input type="email" name="email" value="<?= htmlspecialchars($order->email ?? '') ?>">
+
+                                    <label for="shipping_method">Phương thức giao hàng:</label>
+                                    <input type="text" name="shipping_method" value="<?= htmlspecialchars($order->shipping_method ?? '') ?>" required>
+
+                                    <label for="status">Trạng thái:</label>
+                                    <select name="status">
+                                        <option value="pending" <?= $order->status == 'pending' ? 'selected' : '' ?>>Đang xử lý</option>
+                                        <option value="completed" <?= $order->status == 'completed' ? 'selected' : '' ?>>Hoàn thành</option>
+                                        <option value="canceled" <?= $order->status == 'canceled' ? 'selected' : '' ?>>Hủy</option>
+                                    </select>
+
+                                    <label for="notes">Ghi chú:</label>
+                                    <textarea name="notes"> <?= htmlspecialchars($order->notes ?? '') ?> </textarea>
+
+                                    <button type="submit" class="btn btn-primary">Cập nhật đơn hàng</button>
+                                    <a href="?role=admin&act=order" class="btn btn-secondary">Hủy</a>
+                                </form>
 
 
-                            <div class="wg-order-detail">
-                                <div class="left flex-grow">
-                                    <div class="wg-box mb-20">
-                                        <div class="wg-table table-order-detail">
-                                            <ul class="table-title flex items-center justify-between gap20 mb-24">
-                                                <li>
-                                                    <div class="body-title">Tất cả sản phẩm</div>
-                                                </li>
-                                            </ul>
-                                            <ul class="flex flex-column">
-                                                <?php foreach ($orderDetail as $item): ?>
-                                                    <li class="wg-product">
-                                                        <div class="name">
-                                                            <div class="image">
-                                                                <img src="<?= htmlspecialchars($item->product_image) ?>" alt="<?= htmlspecialchars($item->product_name) ?>">
-                                                            </div>
-                                                            <div>
-                                                                <div class="text-tiny">Tên sản phẩm</div>
-                                                                <div class="title">
-                                                                    <a href="#" class="body-title-2"><?= htmlspecialchars($item->product_name) ?></a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div>
-                                                            <div class="text-tiny">Số lượng</div>
-                                                            <div class="title">
-                                                                <div class="body-title-2"><?= htmlspecialchars($item->quantity) ?></div>
-                                                            </div>
-                                                        </div>
-                                                        <div>
-                                                            <div class="text-tiny">Giá</div>
-                                                            <div class="title">
-                                                                <div class="body-title-2"><?= number_format($item->price, 0, ',', '.') ?> VNĐ</div>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                <?php endforeach; ?>
-                                            </ul>
-                                        </div>
-                                    </div>
 
-                                    <div class="wg-box">
-                                        <div class="wg-table table-cart-totals">
-                                            <ul class="table-title flex mb-24">
-                                                <li>
-                                                    <div class="body-title">Tổng giỏ hàng</div>
-                                                </li>
-                                            </ul>
-                                            <ul class="flex flex-column gap14">
-                                                <li class="cart-totals-item">
-                                                    <span class="body-text">Tổng phụ:</span>
-                                                    <span class="body-title-2"><?= number_format($orderTotal ?? 0, 0, ',', '.') ?> VNĐ</span>
-                                                </li>
-                                                <li class="divider"></li>
-                                                <li class="cart-totals-item">
-                                                    <span class="body-text">Vận chuyển:</span>
-                                                    <span class="body-title-2"><?= number_format($shippingFee ?? 0, 0, ',', '.') ?> VNĐ</span>
-                                                </li>
-                                                <li class="divider"></li>
-                                                <li class="cart-totals-item">
-                                                    <span class="body-title">Tổng hóa đơn:</span>
-                                                    <span class="body-title tf-color-1"><?= number_format(($orderTotal ?? 0) + ($shippingFee ?? 0), 0, ',', '.') ?> VNĐ</span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="right">
-                                    <div class="wg-box mb-20 gap10">
-                                        <div class="body-title">Tóm tắt</div>
-                                        <div class="summary-item">
-                                            <div class="body-text">ID đơn hàng</div>
-                                            <div class="body-title-2">#<?= htmlspecialchars($_GET['id']) ?></div>
-                                        </div>
-                                        <div class="summary-item">
-                                            <div class="body-text">Ngày</div>
-                                            <div class="body-title-2"><?= date('d/m/Y', strtotime($orderDetail[0]->created_at)) ?></div>
-                                        </div>
-                                        <div class="summary-item">
-                                            <div class="body-text">Tổng</div>
-                                            <div class="body-title-2 tf-color-1"><?= number_format($orderTotal + $shippingFee, 0, ',', '.') ?> VNĐ</div>
-                                        </div>
-                                    </div>
-                                    <div class="wg-box mb-20 gap10">
-                                        <div class="body-title">Địa chỉ</div>
-                                        <div class="body-text"><?= htmlspecialchars($orderDetail[0]->customer_address ?? 'Không có địa chỉ') ?></div>
-                                    </div>
-                                    <div class="wg-box mb-20 gap10">
-                                        <div class="body-title">Phương thức giao hàng</div>
-                                        <div class="body-text"><?= htmlspecialchars($orderDetail[0]->shipping_method ?? 'Chưa cập nhật') ?></div>
-                                    </div>
-                                    <div class="wg-box gap10">
-                                        <div class="body-title">Ngày dự kiến ​​giao hàng</div>
-                                        <div class="body-title-2 tf-color-2">20/11/2023</div>
-                                        <a class="tf-button style-1 w-full" href="order-tracking.php?id=<?= htmlspecialchars($_GET['id']) ?>">
-                                            <i class="icon-truck"></i>Theo dõi đơn hàng
-                                        </a>
-                                    </div>
-                                </div>
                             </div>
-                        </div>
 
-                        <!-- /order-list -->
+                            <!-- /order-list -->
+                        </div>
+                        <!-- /main-content-wrap -->
                     </div>
                     <!-- /main-content-wrap -->
+                    <!-- bottom-page -->
+                    <div class="bottom-page">
+                        <div class="body-text">Copyright © 2024 <a href="https://themesflat.co/html/ecomus/index.html">Poly Tea</a></div>
+                    </div>
+                    <!-- /bottom-page -->
                 </div>
-                <!-- /main-content-wrap -->
-                <!-- bottom-page -->
-                <div class="bottom-page">
-                    <div class="body-text">Copyright © 2024 <a href="https://themesflat.co/html/ecomus/index.html">Poly Tea</a></div>
-                </div>
-                <!-- /bottom-page -->
+                <!-- /main-content -->
             </div>
-            <!-- /main-content -->
+            <!-- /section-content-right -->
         </div>
-        <!-- /section-content-right -->
-    </div>
-    <!-- /layout-wrap -->
+        <!-- /layout-wrap -->
     </div>
     <!-- /#page -->
     </div>

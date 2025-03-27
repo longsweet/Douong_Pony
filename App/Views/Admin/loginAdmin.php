@@ -17,13 +17,22 @@
     <div class="error">
         <?php
         if (isset($_SESSION['error'])) {
-            echo "<p>" . $_SESSION['error'] . "</p>";
+            echo "<script>
+                var errorMessage = '" . addslashes($_SESSION['error']) . "';
+                var errorDiv = document.createElement('div');
+                errorDiv.style.backgroundColor = '#f8d7da';
+                errorDiv.style.color = '#721c24';
+                errorDiv.style.padding = '10px';
+                errorDiv.style.margin = '10px 0';
+                errorDiv.style.border = '1px solid #f5c6cb';
+                errorDiv.textContent = errorMessage;
+                document.body.prepend(errorDiv);
+              </script>";
             unset($_SESSION['error']);
         }
-
         ?>
-
     </div>
+
     <form action="<?= BASE_URL ?>?act=login-post" accept-charset="utf-8" method="post">
         <h3>Login Admin</h3>
 

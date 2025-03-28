@@ -33,7 +33,7 @@
         ?>
     </div>
 
-    <form action="<?= BASE_URL ?>?act=login-post" accept-charset="utf-8" method="post">
+    <form action="<?= BASE_URL_ADMIN ?>act=login-post" accept-charset="utf-8" method="post">
         <h3>Login Admin</h3>
 
 

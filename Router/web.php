@@ -7,14 +7,20 @@ $act = isset($_GET['act']) ? $_GET['act'] : "";
 
 if ($role == "user") {
 
-    switch ($atc) {
+    switch ($act) {
+        //?act= 
+
+        case '' : {
+            (new DashboardController)->Dashboar();
+        }
+
     }
 } else {
 
     switch ($act) {
 
-
-        case '': {
+        //?role=admin&act=login-admin Vidu chạychạy
+        case 'home': {
                 (new HomeController)->long();
                 break;
             }
@@ -192,10 +198,6 @@ if ($role == "user") {
             //     }
 
 
-            default:{
-                (new HomeController)->long();
-                break;
-            }
 
     }
 }

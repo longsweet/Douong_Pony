@@ -33,7 +33,7 @@ class CategoryController
             if (!$this->checkValidate()) {
                 // var_dump("Before redirect");
 
-                header("Location: " . BASE_URL . "?role=admin&act=category-add");
+                header("Location: " . BASE_URL_ADMIN . "?role=admin&act=category-add");
                 exit;
             }
 

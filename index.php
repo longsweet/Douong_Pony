@@ -22,9 +22,12 @@ include 'App/Controllers/Admins/LoginController.php'; //LoginAmin
 include 'App/Controllers/Admins/HomeController.php';
 include 'App/Controllers/Admins/UserController.php';
 
+include 'App/Controllers/Users/DashboardController.php';
+
 
 
 
 const BASE_URL = "http://localhost/Douong_Pony/";
+const BASE_URL_ADMIN = "http://localhost/Douong_Pony/?role=admin&";
 
 include 'Router/web.php';

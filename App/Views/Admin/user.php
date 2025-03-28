@@ -797,8 +797,8 @@
                                                             </a>
                                                         </div>
                                                         <div class="item edit">
-                                                            <a href="<?= BASE_URL ?>?role=admin&act=&id=<?= $value->id ?>">
-                                                                <i class="icon-edit-3" style="color: green;"></i>
+                                                            <a href="<?= BASE_URL ?>?role=admin&act=user-form-update&id=<?= $value->id ?>">
+                                                                <i class="icon-edit-3" style="color: green;">edit</i>
                                                             </a>
                                                         </div>
                                                         <div class="item trash">

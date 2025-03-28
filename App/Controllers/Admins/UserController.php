@@ -87,6 +87,74 @@ class UserController
         include 'App/Views/Admin/show-user.php';
     }
 
+    public function userUpdateForm()
+    {
+        if(!isset($_GET['id'])){
+            $_SESSION['message'] = "Vui lòng chọn tài khoản cần sửa!";
+            header("Location: " . BASE_URL . "?role=admin&act=all-user");
+            exit;
+        }
+        $userModel = new UserModel();
+        $user = $userModel->getUserById();
+        if(!$user){
+            $_SESSION['message'] = "Không tìm thấy dữ liệu!";
+            header("Location: " . BASE_URL . "?role=admin&act=all-user");
+            exit;
+        }
 
+        include 'App/Views/Admin/update-user.php';
+    }
+
+    public function updatePostUser(){
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            if(!isset($_GET['id'])){
+                $_SESSION['message'] = "Vui lòng chọn tài khoản cần sửa!";
+                header("Location: " . BASE_URL . "?role=admin&act=user-all");
+                exit;
+            }
+            if(!$this->validete()){
+                header("Location: " . BASE_URL . "?role=admin&act=update-user&id=" . $_GET['id']);
+                exit;
+            }
+            $userModel = new UserModel();
+            $user = $userModel->getUserById();
+
+            //Them anh
+            $uploadDir = 'assets/Admin/upload/';
+            $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
+            $destPath = $user->image;
+
+            if(!empty($_FILES['image']['name'])){
+                $fileTmpPath = $_FILES['image']['tmp_name'];
+                $fileType = mime_content_type($fileTmpPath);
+                $fileName = basename($_FILES['image']['name']);
+                $fileExtension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+
+                $newFileName = uniqid() . '.' . $fileExtension;
+                if(in_array($fileType, $allowedTypes)){
+                    $destPath = $uploadDir . $newFileName;
+                    if(!move_uploaded_file($fileTmpPath, $destPath)){
+                        $destPath = "";
+                    }
+                    //xóa ảnh cũ
+                    unlink($user->image);
+                }
+            }
+
+            $userModel = new UserModel();
+            $message = $userModel->updateUserToDB($destPath);
+
+
+            if($message){
+                $_SESSION['message'] = "Cập nhật thành công!";
+                header("Location: " . BASE_URL . "?role=admin&act=user-all");
+                exit;
+            }else{
+                $_SESSION['message'] = "Cập nhật không thành công!";
+                header("Location: " . BASE_URL . "?role=admin&act=update-user&id=" . $_GET['id']);
+                exit;
+            }
+        }
+    }
     
 }

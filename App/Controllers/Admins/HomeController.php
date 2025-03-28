@@ -2,7 +2,7 @@
 
         class HomeController
         {
-            public function home()
+            public function long()
             {
                 include 'App/Views/Admin/index.php';
             }

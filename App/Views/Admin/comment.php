@@ -1,46 +1,7 @@
-<!DOCTYPE html>
-<!--[if IE 8 ]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!-->
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
-<!--<![endif]-->
 
-
-<!-- Mirrored from themesflat.co/html/ecomus/admin-ecomus/product-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 06 Nov 2024 14:58:56 GMT -->
-
-<head>
-    <!-- Basic Page Needs -->
-    <meta charset="utf-8">
-    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
-    <title> Admin Dashboard </title>
-
-    <meta name="author" content="themesflat.com">
-
-    <!-- Mobile Specific Metas -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-
-    <link rel="stylesheet" type="text/css" href="/Douong_Pony/Assets/Admin/css/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="/Douong_Pony/Assets/Admin/css/animation.css">
-    <link rel="stylesheet" type="text/css" href="/Douong_Pony/Assets/Admin/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="/Douong_Pony/Assets/Admin/css/bootstrap-select.min.css">
-    <link rel="stylesheet" type="text/css" href="/Douong_Pony/Assets/Admin/css/styles.css">
-
-
-
-
-
-    <!-- Font -->
-    <link rel="stylesheet" href="/Douong_Pony/Assets/Admin/font/fonts.css">
-
-    <!-- Icon -->
-    <link rel="stylesheet" href="/Douong_Pony/Assets/Admin/icon/style.css">
-
-    <!-- Favicon and Touch Icons  -->
-    <link rel="shortcut icon" href="images/favicon.png">
-    <link rel="apple-touch-icon-precomposed" href="images/favicon.png">
-
-</head>
-
+<?php 
+    include('../Douong_Pony/App/Views/layout/head.php');
+?>
 <body class="body">
 
     <!-- #wrapper -->
@@ -152,6 +113,11 @@
                                             <li class="sub-menu-item">
                                                 <a href="<?= BASE_URL ?>?role=admin&act=orders" class="">
                                                     <div class="text">Order list</div>
+                                                </a>
+                                            </li>
+                                            <li class="sub-menu-item">
+                                                <a href="oder-detail.html" class="">
+                                                    <div class="text">Order detail</div>
                                                 </a>
                                             </li>
                                             <li class="sub-menu-item">
@@ -702,11 +668,11 @@
                             <!-- main-content-wrap -->
                             <div class="main-content-wrap">
                                 <div class="flex items-center flex-wrap justify-between gap20 mb-30">
-                                    <h3>Danh sách đơn hàng</h3>
+                                    <h3>Danh sách sản phẩm</h3>
                                     <ul class="breadcrumbs flex items-center flex-wrap justify-start gap10">
                                         <li>
                                             <a href="index.html">
-                                                <div class="text-tiny">Trang chủ</div>
+                                                <div class="text-tiny">Dashboard</div>
                                             </a>
                                         </li>
                                         <li>
@@ -714,153 +680,153 @@
                                         </li>
                                         <li>
                                             <a href="#">
-                                                <div class="text-tiny">Đơn hàng</div>
+                                                <div class="text-tiny">Sản phẩm</div>
                                             </a>
                                         </li>
                                         <li>
                                             <i class="icon-chevron-right"></i>
                                         </li>
                                         <li>
-                                            <div class="text-tiny">Danh sách đơn hàng</div>
+                                            <div class="text-tiny">Danh sách sản phẩm</div>
                                         </li>
                                     </ul>
                                 </div>
-                                <!-- order-list -->
+                                <!-- product-list -->
                                 <div class="wg-box">
+
+                                    <?php
+                                    if (isset($_SESSION['message'])) {
+                                        echo "<p>" . $_SESSION['message'] . "</p>";
+                                        unset($_SESSION['message']);
+                                    }
+                                    ?>
+
                                     <div class="flex items-center justify-between gap10 flex-wrap">
                                         <div class="wg-filter flex-grow">
+                                            <div class="show">
+                                                <div class="text-tiny">Hiển thị</div>
+                                                <div class="select">
+                                                    <select class="">
+                                                        <option>10</option>
+                                                        <option>20</option>
+                                                        <option>30</option>
+                                                    </select>
+                                                </div>
+                                                <div class="text-tiny">Mục nhập</div>
+                                            </div>
                                             <form class="form-search">
                                                 <fieldset class="name">
-                                                    <input type="text" placeholder="Search here..." class="" name="name" tabindex="2" value="" aria-required="true" required="">
+                                                    <input type="text" placeholder="Tìm kiếm ở đây" class="" name="name" tabindex="2" value="" aria-required="true" required="">
                                                 </fieldset>
                                                 <div class="button-submit">
                                                     <button class="" type="submit"><i class="icon-search"></i></button>
                                                 </div>
                                             </form>
                                         </div>
-                                        <a class="tf-button style-1 w208" href="oder-detail.html"><i class="icon-file-text"></i>Xuất tất cả đơn hàng</a>
                                     </div>
-                                    <div class="wg-table table-all-category">
+                                    <div class="wg-table table-product-list">
                                         <ul class="table-title flex gap20 mb-14">
-                                            <li style="width: 120px !important; max-width: 120px !important; min-width: 120px !important; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-                                                <div class="body-title">Khách hàng</div>
+                                            <li>
+                                                <div class="body-title">STT</div>
                                             </li>
-
+                                            <li>
+                                                <div class="body-title">Tên sản phẩm</div>
+                                            </li>
                                             <li>
                                                 <div class="body-title">Ảnh</div>
                                             </li>
                                             <li>
-                                                <div class="body-title">Sản phẩm</div>
+                                                <div class="body-title">Giá</div>
                                             </li>
                                             <li>
-                                                <div class="body-title">Tổng tiền</div>
+                                                <div class="body-title">Giá bán</div>
                                             </li>
                                             <li>
-                                                <div class="body-title">Số lượng</div>
+                                                <div class="body-title">Đánh giá trung bình</div>
                                             </li>
                                             <li>
-                                                <div class="body-title">Giá từng sản phẩm</div>
+                                                <div class="body-title">Tổng bình luận</div>
                                             </li>
                                             <li>
-                                                <div class="body-title">Trạng thái</div>
-                                            </li>
-                                            <li>
-                                                <div class="body-title">Ngày đặt</div>
-                                            </li>
-                                            <li>
-                                                <div class="body-title">Hành động</div>
+                                                <div class="body-title">Thao tác</div>
                                             </li>
                                         </ul>
-
                                         <ul class="flex flex-column">
-                                            <?php foreach ($orders as $order): ?>
+                                            <?php foreach ($listProduct as $key => $value): ?>
                                                 <li class="wg-product item-row gap20">
-                                                    <div class="body-text text-main-dark mt-4"
-                                                        style="width: 120px !important; max-width: 120px !important; min-width: 120px !important; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-                                                        <?= htmlspecialchars($order->customer_name) ?>
+                                                    <div class="body-text text-main-dark mt-4"><?= $key + 1 ?></div>
+                                                    <div class="body-text text-main-dark mt-4"><?= $value->name ?></div>
+                                                    <div class="body-text text-main-dark mt-4">
+                                                        <img src="<?= $value->image_main ?>" alt="" width="100">
                                                     </div>
+                                                    <div class="body-text text-main-dark mt-4"><?= number_format($value->price) ?> VNĐ</div>
+                                                    <div class="body-text text-main-dark mt-4">
+                                                        <?php
+                                                        if ($value->price_sale != null) {
+                                                            echo "<p style='color:red;'>" .  number_format($value->price_sale) . "VNĐ" . "</p>";
+                                                        }
+                                                        ?>
+                                                    </div>
+                                                    <div class="body-text text-main-dark mt-4"><?= $value->avRating ?> <i class="icon icon-star text-warning"></i></div>
 
                                                     <div class="body-text text-main-dark mt-4">
-                                                        <img src="<?= htmlspecialchars($order->product_image) ?>" alt="<?= htmlspecialchars($order->product_name) ?>" width="50">
+                                                        <?= isset($value->countComment) ? $value->countComment : 0 ?>
+                                                        <i class="icon-message-square text-primary"></i>
                                                     </div>
-                                                    <div class="body-text text-main-dark mt-4"><?= htmlspecialchars($order->product_name) ?></div>
-                                                    <div class="body-text text-main-dark mt-4"><?= number_format($order->total, 0, ',', '.') ?> VNĐ</div>
-                                                    <div class="body-text text-main-dark mt-4"><?= htmlspecialchars($order->quantity) ?></div>
-                                                    <div class="body-text text-main-dark mt-4"><?= number_format($order->price, 0, ',', '.') ?> VNĐ</div>
-                                                    <div class="body-text text-main-dark mt-4">
-                                                        <div class="<?= ($order->status == 'completed') ? 'block-available bg-1 fw-7' : 'block-pending bg-1 fw-7' ?>">
-                                                            <?= ucfirst($order->status) ?>
-                                                        </div>
-                                                    </div>
-                                                    <div class="body-text text-main-dark mt-4"><?= date('d/m/Y', strtotime($order->created_at)) ?></div>
+
+
                                                     <div class="list-icon-function">
                                                         <div class="item eye">
-                                                            <a href="?role=admin&act=order-detail&id=<?= $order->order_id ?>">
-                                                                <i class="icon-eye"></i>
-                                                            </a>
-
-                                                        </div>
-                                                        <div class="item edit">
-                                                            <a href="?role=admin&act=edit-order&id=<?= $order->order_id ?>">
-                                                                <i class="icon-edit-3"></i>
-                                                            </a>
-
-
-                                                        </div>
-                                                        <div class="item trash">
-                                                            <a href="<?= BASE_URL ?>?role=admin&act=delete-order&id=<?= $order->order_id ?>" onclick="return confirm('Xóa đơn hàng này?')">
-                                                                <i class="icon-trash-2"></i>
+                                                            <a href="<?= BASE_URL ?>?role=admin&act=comment-detail&id=<?= $value->id ?>">
+                                                                <i class="icon-eye" style="color: orange;"></i>
                                                             </a>
                                                         </div>
                                                     </div>
+
                                                 </li>
                                             <?php endforeach; ?>
                                         </ul>
-
-
                                     </div>
-
-                                    </ul>
-
-                                </div>
-                                <div class="divider"></div>
-                                <div class="flex items-center justify-between flex-wrap gap10">
-                                    <div class="text-tiny">Showing 10 entries</div>
-                                    <ul class="wg-pagination">
-                                        <li>
-                                            <a href="#"><i class="icon-chevron-left"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#">1</a>
-                                        </li>
-                                        <li class="active">
-                                            <a href="#">2</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">3</a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><i class="icon-chevron-right"></i></a>
-                                        </li>
-                                    </ul>
+                                    <div class="divider"></div>
+                                    <div class="flex items-center justify-between flex-wrap gap10">
+                                        <div class="text-tiny">Hiển thị 10 mục</div>
+                                        <ul class="wg-pagination">
+                                            <li>
+                                                <a href="#"><i class="icon-chevron-left"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="#">1</a>
+                                            </li>
+                                            <li class="active">
+                                                <a href="#">2</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">3</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"><i class="icon-chevron-right"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                            <!-- /order-list -->
                         </div>
-                        <!-- /main-content-wrap -->
+                        <!-- /product-list -->
                     </div>
                     <!-- /main-content-wrap -->
-                    <!-- bottom-page -->
-                    <div class="bottom-page">
-                        <div class="body-text">Copyright © 2024 <a href="https://themesflat.co/html/ecomus/index.html">Poly Tea</a></div>
-                    </div>
-                    <!-- /bottom-page -->
                 </div>
-                <!-- /main-content -->
+                <!-- /main-content-wrap -->
+                <!-- bottom-page -->
+                <div class="bottom-page">
+                    <div class="body-text">Copyright © 2024 <a href="https://themesflat.co/html/ecomus/index.html">Poly Tea</a></div>
+                </div>
+                <!-- /bottom-page -->
             </div>
-            <!-- /section-content-right -->
+            <!-- /main-content -->
         </div>
-        <!-- /layout-wrap -->
+        <!-- /section-content-right -->
+    </div>
+    <!-- /layout-wrap -->
     </div>
     <!-- /#page -->
     </div>

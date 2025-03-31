@@ -17,6 +17,26 @@ class ProductModel
         return $result;
     }
 
+    public function getAllProduct(){
+        $sql = "SELECT products.id, products.name, products.price, products.price_sale, products.category_id, products.stock,
+         products.image_main, categories.name AS categoryName FROM `products` join categories on products.category_id = categories.id";
+        $query = $this->db->pdo->query($sql);
+        $result = $query->fetchAll();
+        return $result;
+    }
+
+    public function getProductByID(){
+        $id = $_GET['id'];
+        $sql = "SELECT * FROM products WHERE id = :id";
+        $stmt = $this->db->pdo->prepare($sql);
+        $stmt->bindParam(':id', $id);
+        if($stmt->execute()){
+            return $stmt->fetch();
+        }
+        return false;
+    }
+
+
 
     //Thêm sản phẩm vào CSDL
 
@@ -72,17 +92,7 @@ class ProductModel
     }
 
     // Lấy sản phẩm theo ID
-    public function getProductByID()
-    {
-        $id = $_GET['id'];
-        $sql = "SELECT * FROM products WHERE id = :id";
-        $stmt = $this->db->pdo->prepare($sql);
-        $stmt->bindParam(':id', $id);
-        if ($stmt->execute()) {
-            return $stmt->fetch();
-        }
-        return false;
-    }
+    
 
     public function getProductImageByID()
     {

@@ -731,31 +731,7 @@
                                     </ul>
                                 </div>
                                 <!-- new-category -->
-                                <div class="wg-box">
-                                    <?php
-                                    if (isset($_SESSION['message'])) {
-                                        echo "<p>" . $_SESSION['message'] . "</p>";
-                                        unset($_SESSION['message']);
-                                    }
-                                    if (isset($_SESSION['error'])) {
-                                        echo "<p>" . $_SESSION['error'] . "</p>";
-                                        unset($_SESSION['error']);
-                                    }
-                                    ?>
-                                    <form action="<?= BASE_URL ?>?role=admin&act=category-post" method="post">
-                                        <div class="mb-5">
-                                        <div class="body-title mb-10">Tiêu đề danh mục <span class="tf-color-1">*</span></div>
-                                        <input class="mb-10" type="text" name="name" id="name" placeholder="Nhập tiêu đề" class="form-control">
-                                        </div>
-                                        <hr>
-                                        <div class="cols gap10">
-                                            <button class="tf-button w380" type="submit">Thêm danh mục</button>
-                                            <a href="<?= BASE_URL ?>?role=admin&act=category" class="tf-button style-3 w380" type="submit">Hủy bỏ</a>
-                                        </div>
-                                        
-                                        
-                                    </form>
-                                </div>
+
                                 <!-- /new-category -->
                             </div>
                             <!-- /main-content-wrap -->

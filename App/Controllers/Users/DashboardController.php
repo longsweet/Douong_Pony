@@ -4,12 +4,17 @@ class DashboardController
 {
     public function dashboard()
     {
+
         $categoryModel = new CategoryUserModel();
         $listCategory = $categoryModel->getCategoryDashboard();
 
         $productModel = new ProductUserModel();
         $listProduct = $productModel->getProductDashboard();
         include 'App/Views/User/index.php';
+
+
+
+        include 'App/Views/Client/index.php';
     }
     public function showShop()
     {

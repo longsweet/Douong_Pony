@@ -9,7 +9,7 @@ class DashboardController
 
         $productModel = new ProductUserModel();
         $listProduct = $productModel->getProductDashboard();
-        include 'app/Views/Users/index.php';
+        include 'App/Views/User/index.php';
     }
     public function showShop()
     {
@@ -58,6 +58,6 @@ class DashboardController
             $listProduct = $productModel->getDataShopName();
         }
 
-        include 'app/Views/Users/shop.php';
+        include 'App/Views/User/shop.php';
     }
 }

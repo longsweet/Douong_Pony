@@ -122,6 +122,14 @@
 
                     </div>
                     <div class="mb-5">
+                      <label>Kích thước</label>
+                      <select name="size" class="form-control" required>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                      </select>
+                    </div>
+                    <div class="mb-5">
                       <div class="body-title mb-10">Mô tả <span class="tf-color-1">*</span></div>
                       <textarea class="mb-10" name="description" id="description" placeholder="Mô tả ngắn gọn về sản phẩm" tabindex="0" aria-required="true" required="" class="form-control" readonly><?= $product->description ?></textarea>
                     </div>

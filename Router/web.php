@@ -93,10 +93,18 @@ switch ($act) {
             $productController->showProduct();
             break;
         }
+    case 'shop'; {
+            $dashBoardController = new DashboardController();
+            $dashBoardController->showShop();
+            break;
+        }
+
+
 
         // case 'comment-product'; {
         //         $commentRatingController = new CommentRatingController();
         //         $commentRatingController->showComment();
         //         break;
         //     }
+
 }

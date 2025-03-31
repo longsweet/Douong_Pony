@@ -1,4 +1,6 @@
 <?php
+// require_once 'ProductVariantModel.php';
+
 class ProductModel
 {
     public $db;
@@ -26,6 +28,8 @@ class ProductModel
         $price_sale = isset($_POST['price_sale']) && $_POST['price_sale'] !== '' ? (int)$_POST['price_sale'] : null;
 
         $stock = $_POST['stock'];
+        $size = $_POST['size'];
+
         $description = $_POST['description'];
         $now = date('Y-m-d H:i:s');
         $imageDes = $destPath;
@@ -36,12 +40,14 @@ class ProductModel
         $stmt->bindParam(':category_id', $category);
         $stmt->bindParam(':description', $description);
         $stmt->bindParam(':price', $price);
+        // $stmt->bindParam(':size', $size);
         $stmt->bindParam(':price_sale', $price_sale);
         $stmt->bindParam(':stock', $stock);
         $stmt->bindParam(':image_main', $imageDes);
         $stmt->bindParam(':image_main', $imageDes);
         $stmt->bindParam(':created_at', $now);
         $stmt->bindParam(':updated_at', $now);
+
         if ($stmt->execute()) {
             //lấy id của sản phẩm mới thêm
             $lastInsertId = $this->db->pdo->lastInsertId();
@@ -141,8 +147,39 @@ class ProductModel
     {
         $id = $_GET['id'];
         $sqlProductImage = "DELETE `product_Image` WHERE product_id = :product_id";
+
         $stmt = $this->db->pdo->prepare($sqlProductImage);
-        $stmt->bindParam(':product-id', $id);
+        $stmt->bindParam(':product_id', $id);
+        return $stmt->execute();
+    }
+    public function addProductVariant($productId, $size, $stock)
+    {
+        $sql = "INSERT INTO `product_variants`(`product_id`, `size`, `stock`) 
+                VALUES (:product_id, :size, :stock)";
+        $stmt = $this->db->pdo->prepare($sql);
+        $stmt->bindParam(':product_id', $productId);
+        $stmt->bindParam(':size', $size);
+        $stmt->bindParam(':stock', $stock);
+        return $stmt->execute();
+    }
+
+    // Lấy danh sách biến thể theo sản phẩm
+    public function getProductVariants($productId)
+    {
+        $sql = "SELECT * FROM product_variants WHERE product_id = :product_id";
+        $stmt = $this->db->pdo->prepare($sql);
+        $stmt->bindParam(':product_id', $productId);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+    // Cập nhật số lượng tồn kho của biến thể
+    public function updateProductVariantStock($variantId, $stock)
+    {
+        $sql = "UPDATE product_variants SET stock = :stock WHERE id = :id";
+        $stmt = $this->db->pdo->prepare($sql);
+        $stmt->bindParam(':stock', $stock);
+        $stmt->bindParam(':id', $variantId);
         return $stmt->execute();
     }
 }

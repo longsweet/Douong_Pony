@@ -13,7 +13,6 @@ if ($role == "user") {
             (new DashboardController)->dashboard();
             break;
         }
-
         case 'shop' : {
             (new DashboardController)->showShop();
             break;
@@ -59,7 +58,6 @@ if ($role == "user") {
                 $productController->getProductDashboard();
                 break;
             }
-
         case 'add-product': {
                 $productController = new ProductController();
                 $productController->addProduct();
@@ -229,4 +227,5 @@ if ($role == "user") {
 
 
     }
+
 }

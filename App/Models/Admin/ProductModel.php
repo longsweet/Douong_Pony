@@ -36,7 +36,9 @@ class ProductModel
 
 
 
+
     //Thêm sản phẩm vào CSDL
+
 
     public function addProductToDB($destPath)
     {
@@ -86,7 +88,6 @@ class ProductModel
     }
 
     // Lấy sản phẩm theo ID
-    
 
     public function getProductImageByID()
     {

@@ -10,8 +10,37 @@ if ($role == "user") {
     switch ($act) {
         //?act= 
 
+        // case '' : {
+        //     (new DashboardController)->Dashboar();
+        // }
+
         case '' : {
-            (new DashboardController)->Dashboar();
+            (new LoginUserController)->index();
+            break;
+        }
+
+        case 'login' : {
+            (new LoginUserController)->login();
+            break;
+        }
+
+        case 'post-login' : {
+            (new LoginUserController)->postLogin();
+            break;
+        }
+
+        case 'logout' : {
+            (new LoginUserController)->logout();
+            break;
+        }
+
+        case 'register' : {
+            (new LoginUserController)->register();
+            break;
+        }
+        case 'post-register' : {
+            (new LoginUserController)->postRegister();
+            break;
         }
 
     }

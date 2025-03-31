@@ -12,6 +12,8 @@ include 'App/Models/Admin/CommentRatingModel.php'; // CommentModelModel
 include 'App/Models/Admin/HomeModel.php'; // homeModel
 include 'App/Models/Admin/UserModel.php';
 
+include 'App/Models/User/LoginModel.php';
+
 
 
 include 'App/Controllers/Admins/ProductController.php'; // controller 
@@ -22,7 +24,8 @@ include 'App/Controllers/Admins/LoginController.php'; //LoginAmin
 include 'App/Controllers/Admins/HomeController.php';
 include 'App/Controllers/Admins/UserController.php';
 
-include 'App/Controllers/Users/DashboardController.php';
+include 'App/Controllers/Users/LoginUserController.php';
+
 
 
 

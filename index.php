@@ -19,19 +19,13 @@ include 'App/Models/User/ProductUserModel.php';
 
 include 'App/Controllers/Admins/ProductController.php'; // controller 
 include 'App/Controllers/Admins/CategoryController.php';
-include 'App/Controllers/Admins/OrderController.php'; 
+include 'App/Controllers/Admins/OrderController.php';
 include 'App/Controllers/Admins/CommentRatingController.php';
 include 'App/Controllers/Admins/LoginController.php'; //LoginAmin
 include 'App/Controllers/Admins/HomeController.php';
 include 'App/Controllers/Admins/UserController.php';
 
 include 'App/Controllers/Users/DashboardController.php';
-
-
-
-include 'App/Controllers/Users/DashboardController.php';
-
-
 
 
 const BASE_URL = "http://localhost/Douong_Pony/";

@@ -8,14 +8,14 @@ $act = isset($_GET['act']) ? $_GET['act'] : "";
 if ($role == "user") {
 
     switch ($act) {
-        //?act= 
-
-        // case '' : {
-        //     (new DashboardController)->Dashboar();
-        // }
 
         case '' : {
-            (new LoginUserController)->index();
+            (new DashboardController)->dashboard();
+            break;
+        }
+
+        case 'shop' : {
+            (new DashboardController)->showShop();
             break;
         }
 

@@ -12,7 +12,10 @@ include 'App/Models/Admin/CommentRatingModel.php'; // CommentModelModel
 include 'App/Models/Admin/HomeModel.php'; // homeModel
 include 'App/Models/Admin/UserModel.php';
 
+// userModel
 include 'App/Models/User/LoginModel.php';
+include 'App/Models/User/CategoryUserModel.php';
+include 'App/Models/User/ProductUserModel.php';
 
 
 
@@ -24,7 +27,9 @@ include 'App/Controllers/Admins/LoginController.php'; //LoginAmin
 include 'App/Controllers/Admins/HomeController.php';
 include 'App/Controllers/Admins/UserController.php';
 
+//controller Model
 include 'App/Controllers/Users/LoginUserController.php';
+include 'App/Controllers/Users/DashboardController.php';
 
 
 

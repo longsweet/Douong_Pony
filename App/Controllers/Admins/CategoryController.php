@@ -1,6 +1,6 @@
 <?php
 
-class CategoryController
+class CategoryController 
 {
     public function showAllproduct()
     {

@@ -155,4 +155,12 @@ class ProductModel
         $stmt->bindParam(':product-id', $id);
         return $stmt->execute();
     }
+
+    public function getDataShopName(){
+        $productName = $_GET['product-name'];
+        $sql = "SELECT * FROM products WHERE name like '%$productName%'";
+        $query = $this->db->pdo->query($sql);
+        $result = $query->fetchAll();
+        return $result;
+    }
 }

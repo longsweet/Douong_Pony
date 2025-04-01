@@ -71,11 +71,8 @@
                                         <div class="collection-item style-left hover-img">
                                             <div class="collection-inner">
                                                 <a href="<?= BASE_URL ?>?act=shop&category_id=<?= $value->id ?>" class="collection-image img-style">
-                                                    <img class="lazyload"
-                                                    
-                                                        src="/Douong_Pony/Assets/Admin/images/products/Oolong-Dao-Que-Hoa-Kem-Cheese.png"
-                                                        alt="collection-img"> </a>
-
+                                                    <img class="lazyload" data-src="https://gongcha.com.vn/wp-content/uploads/2018/02/Tr%C3%A0-s%E1%BB%AFa-Tr%C3%A2n-ch%C3%A2u-%C4%91en-1.png" src="https://th.bing.com/th/id/OIP.tI8sC0w0p_aPRMkeL2wOXQHaIj?rs=1&pid=ImgDetMain" alt="collection-img">
+                                                </a>
                                                 <div class="collection-content">
                                                     <a href="<?= BASE_URL ?>?act=shop&category_id=<?= $value->id ?>" class="tf-btn collection-title hover-icon fs-15"><span>
                                                             <?= $value->name ?>
@@ -99,6 +96,7 @@
             </div>
         </section>
         <!-- /Categories -->
+        <!-- Seller -->
 
         <section class="flat-spacing-5 pt_0 flat-seller">
             <div class="container">
@@ -111,15 +109,15 @@
                     <?php foreach ($listProduct as $key => $value): ?>
                         <div class="card-product fl-item">
                             <div class="card-product-wrapper">
-                                <a href="<?= BASE_URL?>?act=product-detail&product_id=<?= $value->id?>&category_id=<?= $value->category_id?>" class="product-img">
+                                <a href="<?= BASE_URL ?>?act=product-detail&product_id=<?= $value->id ?>&category_id=<?= $value->category_id ?>" class="product-img">
                                     <img class="lazyload img-product" data-src="<?= $value->image_main ?>" src="<?= $value->image_main ?>" alt="image-product">
                                     <img class="lazyload img-hover" data-src="<?= $value->image_main ?>" src="<?= $value->image_main ?>" alt="image-product">
                                 </a>
                                 <div class="list-product-btn">
-                                    <a href="#quick_add" data-bs-toggle="modal" class="box-icon bg_white quick-add tf-btn-loading">
+                                    <!-- <a href="#quick_add" data-bs-toggle="modal" class="box-icon bg_white quick-add tf-btn-loading">
                                         <span class="icon icon-bag"></span>
                                         <span class="tooltip">Thêm vào giỏ hàng</span>
-                                    </a>
+                                    </a> -->
                                     <a href="javascript:void(0);" class="box-icon bg_white wishlist btn-icon-action">
                                         <span class="icon icon-heart"></span>
                                         <span class="tooltip">Thêm vào yêu thích</span>
@@ -136,7 +134,7 @@
                                 </div>
                             </div>
                             <div class="card-product-info">
-                                <a href="<?= BASE_URL?>?act=product-detail&product_id=<?= $value->id?>&category_id=<?= $value->category_id?>" class="title link"><?= $value->name ?></a>
+                                <a href="<?= BASE_URL ?>?act=product-detail&product_id=<?= $value->id ?>&category_id=<?= $value->category_id ?>" class="title link"><?= $value->name ?></a>
                                 <div style="display: flex;">
                                     <?php if ($value->price_sale != null): ?>
                                         <span class="price" style="margin-right: 5px; text-decoration: line-through;">
@@ -152,7 +150,7 @@
                                         </span>
                                     <?php endif; ?>
                                 </div>
-                            </div>           
+                            </div>
                         </div>
                     <?php endforeach; ?>
                 </div>

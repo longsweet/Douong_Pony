@@ -9,8 +9,8 @@
                 </a>
             </div>
             <div class="col-xl-3 col-md-4 col-6">
-                <a href="<?= BASE_URL?>" class="logo-header">
-                    <img src="assets/Users/images/logo/logowhite-removebg.png" alt="logo" class="logo">
+                <a href="<?= BASE_URL ?>" class="logo-header">
+                    <img src="https://th.bing.com/th/id/OIP.adUAuiFPnlbpOHja_pBUVgHaHa?rs=1&pid=ImgDetMain" alt="logo" class="logo">
                 </a>
             </div>
             <div class="col-xl-6 tf-md-hidden">
@@ -24,162 +24,67 @@
                                         <div class="demo-item">
                                             <a href="index.html">
                                                 <div class="demo-image position-relative">
-                                                    <img class="lazyload" data-src="assets/Users/images/demo/home-01.jpg" src="assets/Users/images/demo/home-01.jpg" alt="home-01">
+                                                    <img class="lazyload" data-src="https://hunufa.vn/wp-content/uploads/2024/10/hinh-ly-tra-sua-dep-49.webp" src="assets/Users/images/demo/home-01.jpg" alt="home-01">
                                                     <div class="demo-label">
                                                         <span class="demo-new">New</span>
                                                         <span>Trend</span>
                                                     </div>
                                                 </div>
-                                                <span class="demo-name">Home Fashion 01</span>
+                                                <span class="demo-name">TRÀ SỮA</span>
                                             </a>
                                         </div>
-                                        <div class="demo-item">
-                                            <a href="home-multi-brand.html">
-                                                <div class="demo-image position-relative">
-                                                    <img class="lazyload" data-src="assets/Users/images/demo/home-multi-brand.jpg" src="assets/Users/images/demo/home-multi-brand.jpg" alt="home-multi-brand">
-                                                    <div class="demo-label">
-                                                        <span class="demo-new">New</span>
-                                                        <span class="demo-hot">Hot</span>
-                                                    </div>
-                                                </div>
-                                                <span class="demo-name">Home Multi Brand</span>
-                                            </a>
-                                        </div>
+
                                         <div class="demo-item">
                                             <a href="home-02.html">
                                                 <div class="demo-image position-relative">
-                                                    <img class="lazyload" data-src="assets/Users/images/demo/home-02.jpg" src="assets/Users/images/demo/home-02.jpg" alt="home-02">
+                                                    <img class="lazyload" data-src="https://vietblend.vn/wp-content/uploads/2018/12/homemade-peach-tea-600x600.jpg" src="assets/Users/images/demo/home-02.jpg" alt="home-02">
                                                     <div class="demo-label">
                                                         <span class="demo-hot">Hot</span>
                                                     </div>
                                                 </div>
-                                                <span class="demo-name">Home Fashion 02</span>
+                                                <span class="demo-name">TRÀ ĐÀO</span>
                                             </a>
                                         </div>
-                                        <div class="demo-item">
-                                            <a href="home-03.html">
-                                                <div class="demo-image">
-                                                    <img class="lazyload" data-src="assets/Users/images/demo/home-03.jpg" src="assets/Users/images/demo/home-03.jpg" alt="home-03">
-                                                </div>
-                                                <span class="demo-name">Home Fashion 03</span>
-                                            </a>
-                                        </div>
+
                                         <div class="demo-item">
                                             <a href="home-04.html">
                                                 <div class="demo-image">
-                                                    <img class="lazyload" data-src="assets/Users/images/demo/home-04.jpg" src="assets/Users/images/demo/home-04.jpg" alt="home-04">
+                                                    <img class="lazyload" data-src="https://cdn.tgdd.vn/2020/07/CookProductThumb/Untitled-1-620x620-531.jpg" src="assets/Users/images/demo/home-04.jpg" alt="home-04">
                                                 </div>
-                                                <span class="demo-name">Home Fashion 04</span>
+                                                <span class="demo-name">TOPPING </span>
                                             </a>
-                                        </div>
-                                        <div class="demo-item">
-                                            <a href="home-05.html">
-                                                <div class="demo-image">
-                                                    <img class="lazyload" data-src="assets/Users/images/demo/home-05.jpg" src="assets/Users/images/demo/home-05.jpg" alt="home-05">
-                                                </div>
-                                                <span class="demo-name">Home Fashion 05</span>
-                                            </a>
-                                        </div>
-                                        <div class="demo-item">
-                                            <a href="home-06.html">
-                                                <div class="demo-image position-relative">
-                                                    <img class="lazyload" data-src="assets/Users/images/demo/home-06.jpg" src="assets/Users/images/demo/home-06.jpg" alt="home-06">
-                                                    <div class="demo-label">
-                                                        <span class="demo-new">New</span>
-                                                    </div>
-                                                </div>
-                                                <span class="demo-name">Home Fashion 06</span>
-                                            </a>
-                                        </div>
-                                        <div class="demo-item">
-                                            <a href="home-07.html">
-                                                <div class="demo-image">
-                                                    <img class="lazyload" data-src="assets/Users/images/demo/home-07.jpg" src="assets/Users/images/demo/home-07.jpg" alt="home-07">
-                                                </div>
-                                                <span class="demo-name">Home Fashion 07</span>
-                                            </a>
-                                        </div>
-                                        <div class="demo-item">
-                                            <a href="home-08.html">
-                                                <div class="demo-image">
-                                                    <img class="lazyload" data-src="assets/Users/images/demo/home-08.jpg" src="assets/Users/images/demo/home-08.jpg" alt="home-08">
-                                                </div>
-                                                <span class="demo-name">Home Fashion 08</span>
-                                            </a>
-                                        </div>
-                                        <div class="demo-item">
-                                            <a href="home-skincare.html">
-                                                <div class="demo-image">
-                                                    <img class="lazyload" data-src="assets/Users/images/demo/home-skincare.jpg" src="assets/Users/images/demo/home-skincare.jpg" alt="home-skincare">
-                                                </div>
-                                                <span class="demo-name">Home Skincare</span>
-                                            </a>
-                                        </div>
-                                        <div class="demo-item">
-                                            <a href="home-headphone.html">
-                                                <div class="demo-image">
-                                                    <img class="lazyload" data-src="assets/Users/images/demo/home-headphone.jpg" src="assets/Users/images/demo/home-headphone.jpg" alt="home-headphone">
-                                                </div>
-                                                <span class="demo-name">Home Headphone</span>
-                                            </a>
-                                        </div>
-                                        <div class="demo-item">
-                                            <a href="home-giftcard.html">
-                                                <div class="demo-image">
-                                                    <img class="lazyload" data-src="assets/Users/images/demo/home-giftcard.jpg" src="assets/Users/images/demo/home-giftcard.jpg" alt="home-gift-card">
-                                                </div>
-                                                <span class="demo-name">Home Gift Card</span>
-                                            </a>
+
+
                                         </div>
                                     </div>
-                                    <div class="text-center view-all-demo">
-                                        <a href="#modalDemo" data-bs-toggle="modal" class="tf-btn btn-xl btn-fill radius-3 animate-hover-btn fw-6"><span>View all demos (34+)</span><i class="icon icon-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
                         </li>
                         <li class="menu-item">
                             <a href="#" class="item-link">Shop<i class="icon icon-arrow-down"></i></a>
                             <div class="sub-menu mega-menu">
                                 <div class="container">
                                     <div class="row">
+
                                         <div class="col-lg-2">
                                             <div class="mega-menu-item">
-                                                <div class="menu-heading">Shop layouts</div>
+                                                <div class="menu-heading">Thành phần Trà đào</div>
                                                 <ul class="menu-list">
-                                                    <li><a href="shop-default.html" class="menu-link-text link">Default</a></li>
-                                                    <li><a href="shop-left-sidebar.html" class="menu-link-text link">Left sidebar</a></li>
-                                                    <li><a href="shop-right-sidebar.html" class="menu-link-text link">Right sidebar</a></li>
-                                                    <li><a href="shop-fullwidth.html" class="menu-link-text link">Fullwidth</a></li>
-                                                    <li><a href="shop-collection-sub.html" class="menu-link-text link">Sub collection</a></li>
-                                                    <li><a href="shop-collection-list.html" class="menu-link-text link">Collections list</a></li>
+                                                    <li><a href="product-style-list.html" class="menu-link-text link">Trà nền: Trà đen trà xanh</a></li>
+                                                    <li><a href="product-style-01.html" class="menu-link-text link">Đào: Đào tươi, đào ngâm hoặc mứt đào</a></li>
+                                                    <li><a href="product-style-02.html" class="menu-link-text link">Nước cốt chanh/cam (tùy công thức)</a></li>
+                                                    <li><a href="product-style-07.html" class="menu-link-text link">Topping (tùy chọn): Trân châu đen, trân châu trắng, pudding, thạch rau câu, thạch trái cây, kem cheese</a></li>
+
                                                 </ul>
                                             </div>
                                         </div>
                                         <div class="col-lg-2">
                                             <div class="mega-menu-item">
-                                                <div class="menu-heading">Features</div>
+                                                <div class="menu-heading">Thành phần Trà sữa</div>
                                                 <ul class="menu-list">
-                                                    <li><a href="shop-link.html" class="menu-link-text link">Pagination links</a></li>
-                                                    <li><a href="shop-loadmore.html" class="menu-link-text link">Pagination loadmore</a></li>
-                                                    <li><a href="shop-infinite-scrolling.html" class="menu-link-text link">Pagination infinite scrolling</a></li>
-                                                    <li><a href="shop-filter-sidebar.html" class="menu-link-text link">Filter sidebar</a></li>
-                                                    <li><a href="shop-filter-hidden.html" class="menu-link-text link">Filter hidden</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-2">
-                                            <div class="mega-menu-item">
-                                                <div class="menu-heading">Product styles</div>
-                                                <ul class="menu-list">
-                                                    <li><a href="product-style-list.html" class="menu-link-text link">Product style list</a></li>
-                                                    <li><a href="product-style-01.html" class="menu-link-text link">Product style 01</a></li>
-                                                    <li><a href="product-style-02.html" class="menu-link-text link">Product style 02</a></li>
-                                                    <li><a href="product-style-03.html" class="menu-link-text link">Product style 03</a></li>
-                                                    <li><a href="product-style-04.html" class="menu-link-text link">Product style 04</a></li>
-                                                    <li><a href="product-style-05.html" class="menu-link-text link">Product style 05</a></li>
-                                                    <li><a href="product-style-06.html" class="menu-link-text link">Product style 06</a></li>
-                                                    <li><a href="product-style-07.html" class="menu-link-text link">Product style 07</a></li>
+
+                                                    <li><a href="product-style-04.html" class="menu-link-text link">Chất tạo ngọt: Đường, mật ong hoặc syrup hương vị</a></li>
+                                                    <li><a href="product-style-05.html" class="menu-link-text link">Sữa: Sữa tươi, sữa đặc, bột sữa hoặc kem béo</a></li>
+                                                    <li><a href="product-style-06.html" class="menu-link-text link">Đá viên</a></li>
+                                                    <li><a href="product-style-07.html" class="menu-link-text link">Topping (tùy chọn): Trân châu đen, trân châu trắng, pudding, thạch rau câu, thạch trái cây, kem cheese</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -187,10 +92,10 @@
                                             <div class="collection-item hover-img">
                                                 <div class="collection-inner">
                                                     <a href="shop-men.html" class="collection-image img-style">
-                                                        <img class="lazyload" data-src="assets/Users/images/collections/collection-1.jpg" src="assets/Users/images/collections/collection-1.jpg" alt="collection-demo-1">
+                                                        <img class="lazyload" data-src="https://sort.vn/upload_images/images/23/08/11/659d5f9665551a03251c386659_cach-lam-tra-dao-mat-lanh-don-gian-chi-trong-tich-tac-cach-lam-tra-dao-mat-lanh-don-gian-chi-trong-tich-tac-3.jpg" src="assets/Users/images/collections/collection-1.jpg" alt="collection-demo-1">
                                                     </a>
                                                     <div class="collection-content">
-                                                        <a href="shop-men.html" class="tf-btn hover-icon btn-xl collection-title fs-16"><span>Men</span><i class="icon icon-arrow1-top-left"></i></a>
+                                                        <a href="shop-men.html" class="tf-btn hover-icon btn-xl collection-title fs-16"><span>Trà đào</span><i class="icon icon-arrow1-top-left"></i></a>
 
                                                     </div>
                                                 </div>
@@ -200,10 +105,10 @@
                                             <div class="collection-item hover-img">
                                                 <div class="collection-inner">
                                                     <a href="shop-women.html" class="collection-image img-style">
-                                                        <img class="lazyload" data-src="assets/Users/images/collections/collection-2.jpg" src="assets/Users/images/collections/collection-2.jpg" alt="collection-demo-1">
+                                                        <img class="lazyload" data-src="https://mekoong.com/wp-content/uploads/2022/09/a62937e91a60d28210dd03bc111fe939.jpg" src="assets/Users/images/collections/collection-2.jpg" alt="collection-demo-1">
                                                     </a>
                                                     <div class="collection-content">
-                                                        <a href="shop-women.html" class="tf-btn btn-xl collection-title fs-16 hover-icon"><span>Women</span><i class="icon icon-arrow1-top-left"></i></a>
+                                                        <a href="shop-women.html" class="tf-btn btn-xl collection-title fs-16 hover-icon"><span>Trà sữa</span><i class="icon icon-arrow1-top-left"></i></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -213,74 +118,45 @@
                             </div>
                         </li>
                         <li class="menu-item">
-                            <a href="<?= BASE_URL?>?act=shop" class="item-link">Sản phẩm<i class="icon icon-arrow-down"></i></a>
+                            <a href="<?= BASE_URL ?>?act=shop" class="item-link">Sản phẩm<i class="icon icon-arrow-down"></i></a>
                             <div class="sub-menu mega-menu">
                                 <div class="container">
                                     <div class="row">
                                         <div class="col-lg-2">
                                             <div class="mega-menu-item">
-                                                <div class="menu-heading">Product layouts</div>
+                                                <div class="menu-heading">Menu Trà Đào</div>
                                                 <ul class="menu-list">
-                                                    <li><a href="product-detail.html" class="menu-link-text link">Product default</a></li>
-                                                    <li><a href="product-grid-1.html" class="menu-link-text link">Product grid 1</a></li>
+                                                    <li><a href="product-detail.html" class="menu-link-text link">Trà Đào Truyền Thống</a></li>
+                                                    <li><a href="product-grid-1.html" class="menu-link-text link">Trà Đào Cam Sả</a></li>
                                                     <li><a href="product-grid-2.html" class="menu-link-text link">Product grid 2</a></li>
-                                                    <li><a href="product-stacked.html" class="menu-link-text link">Product stacked</a></li>
-                                                    <li><a href="product-right-thumbnails.html" class="menu-link-text link">Product right thumbnails</a></li>
-                                                    <li><a href="product-bottom-thumbnails.html" class="menu-link-text link">Product bottom thumbnails</a></li>
-                                                    <li><a href="product-drawer-sidebar.html" class="menu-link-text link">Product drawer sidebar</a></li>
-                                                    <li><a href="product-description-accordion.html" class="menu-link-text link">Product description accordion</a></li>
-                                                    <li><a href="product-description-list.html" class="menu-link-text link">Product description list</a></li>
-                                                    <li><a href="product-description-vertical.html" class="menu-link-text link">Product description vertical</a></li>
+                                                    <li><a href="product-stacked.html" class="menu-link-text link">Trà Đào Chanh Dây</a></li>
+                                                    <li><a href="product-right-thumbnails.html" class="menu-link-text link">Trà Đào Chanh Dây</a></li>
+                                                    <li><a href="product-bottom-thumbnails.html" class="menu-link-text link">Trà Đào Táo Đỏ </a></li>
+                                                    <li><a href="product-drawer-sidebar.html" class="menu-link-text link"> Trà Đào Mật Ong</a></li>
+                                                    <li><a href="product-description-accordion.html" class="menu-link-text link"> Trà Đào Dâu Tây</a></li>
+                                                    <li><a href="product-description-list.html" class="menu-link-text link">Trà Đào Sữa Chua</a></li>
+                                                    <li><a href="product-description-vertical.html" class="menu-link-text link">Trà Đào Gừng Ấm</a></li>
                                                 </ul>
                                             </div>
                                         </div>
                                         <div class="col-lg-2">
                                             <div class="mega-menu-item">
-                                                <div class="menu-heading">Product details</div>
+                                                <div class="menu-heading">Menu Trà Sữa</div>
                                                 <ul class="menu-list">
-                                                    <li><a href="product-inner-zoom.html" class="menu-link-text link">Product inner zoom</a></li>
-                                                    <li><a href="product-zoom-magnifier.html" class="menu-link-text link">Product zoom magnifier</a></li>
+                                                    <li><a href="product-inner-zoom.html" class="menu-link-text link">Trà Sữa Truyền Thống</a></li>
+                                                    <li><a href="product-zoom-magnifier.html" class="menu-link-text link">Trà Sữa Trân Châu Đen</a></li>
                                                     <li><a href="product-no-zoom.html" class="menu-link-text link">Product no zoom</a></li>
-                                                    <li><a href="product-photoswipe-popup.html" class="menu-link-text link">Product photoswipe popup</a></li>
-                                                    <li><a href="product-zoom-popup.html" class="menu-link-text link">Product external zoom and photoswipe popup</a></li>
-                                                    <li><a href="product-video.html" class="menu-link-text link">Product video</a></li>
-                                                    <li><a href="product-3d.html" class="menu-link-text link">Product 3D, AR models</a></li>
-                                                    <li><a href="product-options-customizer.html" class="menu-link-text link">Product options & customizer</a></li>
-                                                    <li><a href="product-advanced-types.html" class="menu-link-text link">Advanced product types</a></li>
-                                                    <li><a href="product-giftcard.html" class="menu-link-text link">Recipient information form for gift card products</a></li>
+                                                    <li><a href="product-photoswipe-popup.html" class="menu-link-text link">Trà Sữa Matcha</a></li>
+                                                    <li><a href="product-zoom-popup.html" class="menu-link-text link">Trà Sữa Oolong Kem Cheese</a></li>
+                                                    <li><a href="product-video.html" class="menu-link-text link">Trà sữa hạnh nhân</a></li>
+                                                    <li><a href="product-3d.html" class="menu-link-text link">Trà sữa matcha</a></li>
+                                                    <li><a href="product-options-customizer.html" class="menu-link-text link">Trà Sữa Thạch Cà Phê </a></li>
+                                                    <li><a href="product-advanced-types.html" class="menu-link-text link">Trà Sữa Socola</a></li>
+                                                    <li><a href="product-giftcard.html" class="menu-link-text link">Trà Sữa Khoai Môn</a></li>
                                                 </ul>
                                             </div>
                                         </div>
-                                        <div class="col-lg-2">
-                                            <div class="mega-menu-item">
-                                                <div class="menu-heading">Product swatchs</div>
-                                                <ul class="menu-list">
-                                                    <li><a href="product-color-swatch.html" class="menu-link-text link">Product color swatch</a></li>
-                                                    <li><a href="product-rectangle.html" class="menu-link-text link">Product rectangle</a></li>
-                                                    <li><a href="product-rectangle-color.html" class="menu-link-text link">Product rectangle color</a></li>
-                                                    <li><a href="product-swatch-image.html" class="menu-link-text link">Product swatch image</a></li>
-                                                    <li><a href="product-swatch-image-rounded.html" class="menu-link-text link">Product swatch image rounded</a></li>
-                                                    <li><a href="product-swatch-dropdown.html" class="menu-link-text link">Product swatch dropdown</a></li>
-                                                    <li><a href="product-swatch-dropdown-color.html" class="menu-link-text link">Product swatch dropdown color</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-2">
-                                            <div class="mega-menu-item">
-                                                <div class="menu-heading">Product features</div>
-                                                <ul class="menu-list">
-                                                    <li><a href="product-frequently-bought-together.html" class="menu-link-text link">Frequently bought together</a></li>
-                                                    <li><a href="product-frequently-bought-together-2.html" class="menu-link-text link">Frequently bought together 2</a></li>
-                                                    <li><a href="product-upsell-features.html" class="menu-link-text link">Product upsell features</a></li>
-                                                    <li><a href="product-pre-orders.html" class="menu-link-text link">Product pre-orders</a></li>
-                                                    <li><a href="product-notification.html" class="menu-link-text link">Back in stock notification</a></li>
-                                                    <li><a href="product-pickup.html" class="menu-link-text link">Product pickup</a></li>
-                                                    <li><a href="product-images-grouped.html" class="menu-link-text link">Variant images grouped</a></li>
-                                                    <li><a href="product-complimentary.html" class="menu-link-text link">Complimentary products</a></li>
-                                                    <li><a href="product-quick-order-list.html" class="menu-link-text link position-relative">Quick order list<div class="demo-label"><span class="demo-new">New</span></div></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
+
                                         <div class="col-lg-4">
                                             <div class="menu-heading">Best seller</div>
                                             <div class="hover-sw-nav hover-sw-2">
@@ -290,50 +166,30 @@
                                                             <div class="card-product">
                                                                 <div class="card-product-wrapper">
                                                                     <a href="#" class="product-img">
-                                                                        <img class="lazyload img-product" data-src="assets/Users/images/products/orange-1.jpg" src="assets/Users/images/products/orange-1.jpg" alt="image-product">
-                                                                        <img class="lazyload img-hover" data-src="assets/Users/images/products/white-1.jpg" src="assets/Users/images/products/white-1.jpg" alt="image-product">
+                                                                        <img class="lazyload img-product" data-src="https://alotoday.vn/uploads/images/202311/img_x500_6544a128a8fe67-21694491-48257096.jpg" src="https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-leyjflt0k6dza0" alt="image-product">
+                                                                        <img class="lazyload img-hover" data-src="https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-leyjflt0k6dza0" alt="image-product">
                                                                     </a>
                                                                     <div class="list-product-btn absolute-2">
-                                                                        <a href="#quick_add" data-bs-toggle="modal" class="box-icon bg_white quick-add tf-btn-loading">
+                                                                        <!-- <a href="#quick_add" data-bs-toggle="modal" class="box-icon bg_white quick-add tf-btn-loading">
                                                                             <span class="icon icon-bag"></span>
-                                                                            <span class="tooltip">Quick Add</span>
-                                                                        </a>
+                                                                            <span class="tooltip">Giỏ hàng</span>
+                                                                        </a> -->
                                                                         <a href="javascript:void(0);" class="box-icon bg_white wishlist btn-icon-action">
                                                                             <span class="icon icon-heart"></span>
-                                                                            <span class="tooltip">Add to Wishlist</span>
+                                                                            <span class="tooltip">Yêu thích</span>
                                                                             <span class="icon icon-delete"></span>
                                                                         </a>
-                                                                        <a href="#compare" data-bs-toggle="offcanvas" aria-controls="offcanvasLeft" class="box-icon bg_white compare btn-icon-action">
-                                                                            <span class="icon icon-compare"></span>
-                                                                            <span class="tooltip">Add to Compare</span>
-                                                                            <span class="icon icon-check"></span>
-                                                                        </a>
+
                                                                         <a href="#quick_view" data-bs-toggle="modal" class="box-icon bg_white quickview tf-btn-loading">
                                                                             <span class="icon icon-view"></span>
-                                                                            <span class="tooltip">Quick View</span>
+                                                                            <span class="tooltip">Xem</span>
                                                                         </a>
                                                                     </div>
                                                                 </div>
                                                                 <div class="card-product-info">
-                                                                    <a href="#" class="title link">Ribbed Tank Top</a>
-                                                                    <span class="price">$16.95</span>
-                                                                    <ul class="list-color-product">
-                                                                        <li class="list-color-item color-swatch active">
-                                                                            <span class="tooltip">Orange</span>
-                                                                            <span class="swatch-value bg_orange-3"></span>
-                                                                            <img class="lazyload" data-src="assets/Users/images/products/orange-1.jpg" src="assets/Users/images/products/orange-1.jpg" alt="image-product">
-                                                                        </li>
-                                                                        <li class="list-color-item color-swatch">
-                                                                            <span class="tooltip">Black</span>
-                                                                            <span class="swatch-value bg_dark"></span>
-                                                                            <img class="lazyload" data-src="assets/Users/images/products/black-1.jpg" src="assets/Users/images/products/black-1.jpg" alt="image-product">
-                                                                        </li>
-                                                                        <li class="list-color-item color-swatch">
-                                                                            <span class="tooltip">White</span>
-                                                                            <span class="swatch-value bg_white"></span>
-                                                                            <img class="lazyload" data-src="assets/Users/images/products/white-1.jpg" src="assets/Users/images/products/white-1.jpg" alt="image-product">
-                                                                        </li>
-                                                                    </ul>
+                                                                    <a href="#" class="title link">Trà sữa kem trứng dừa nướngnướng</a>
+                                                                    <span class="price">50.000đ</span>
+
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -341,145 +197,34 @@
                                                             <div class="card-product">
                                                                 <div class="card-product-wrapper">
                                                                     <div class="product-img">
-                                                                        <img class="lazyload img-product" data-src="assets/Users/images/products/white-3.jpg" src="assets/Users/images/products/white-3.jpg" alt="image-product">
-                                                                        <img class="lazyload img-hover" data-src="assets/Users/images/products/white-4.jpg" src="assets/Users/images/products/white-4.jpg" alt="image-product">
+                                                                        <img class="lazyload img-product" data-src="https://vietblend.vn/wp-content/uploads/2016/10/vb.web-tra-dao.jpg" src="assets/Users/images/products/white-3.jpg" alt="image-product">
+                                                                        <img class="lazyload img-hover" data-src="https://lh6.googleusercontent.com/proxy/E43e-Wl9YyJ-AwVDwlKmVsc1XT8qLmXMKZspK7HNz_XLb-6ayB35Y060wHx4yStf3aotijVVSjkZYQsDrvlssm4oA6-g-hJTGIpOWZmv" src="assets/Users/images/products/white-4.jpg" alt="image-product">
                                                                     </div>
                                                                     <div class="list-product-btn absolute-2">
-                                                                        <a href="#shoppingCart" data-bs-toggle="modal" class="box-icon bg_white quick-add tf-btn-loading">
+                                                                        <!-- <a href="#quick_add" data-bs-toggle="modal" class="box-icon bg_white quick-add tf-btn-loading">
                                                                             <span class="icon icon-bag"></span>
-                                                                            <span class="tooltip">Add to cart</span>
-                                                                        </a>
+                                                                            <span class="tooltip">Giỏ hàng</span>
+                                                                        </a> -->
                                                                         <a href="javascript:void(0);" class="box-icon bg_white wishlist btn-icon-action">
                                                                             <span class="icon icon-heart"></span>
-                                                                            <span class="tooltip">Add to Wishlist</span>
+                                                                            <span class="tooltip">Yêu thích</span>
                                                                             <span class="icon icon-delete"></span>
                                                                         </a>
-                                                                        <a href="#compare" data-bs-toggle="offcanvas" aria-controls="offcanvasLeft" class="box-icon bg_white compare btn-icon-action">
-                                                                            <span class="icon icon-compare"></span>
-                                                                            <span class="tooltip">Add to Compare</span>
-                                                                            <span class="icon icon-check"></span>
-                                                                        </a>
+
                                                                         <a href="#quick_view" data-bs-toggle="modal" class="box-icon bg_white quickview tf-btn-loading">
                                                                             <span class="icon icon-view"></span>
-                                                                            <span class="tooltip">Quick View</span>
+                                                                            <span class="tooltip">Xem</span>
                                                                         </a>
                                                                     </div>
                                                                 </div>
                                                                 <div class="card-product-info">
-                                                                    <a href="#" class="title link">Oversized Printed T-shirt</a>
-                                                                    <span class="price">$10.00</span>
+                                                                    <a href="#" class="title link">Trà đào cam sả</a>
+                                                                    <span class="price">45.000đ</span>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="swiper-slide" lazy="true">
-                                                            <div class="card-product">
-                                                                <div class="card-product-wrapper">
-                                                                    <div class="product-img">
-                                                                        <img class="lazyload img-product" data-src="assets/Users/images/products/white-2.jpg" src="assets/Users/images/products/white-2.jpg" alt="image-product">
-                                                                        <img class="lazyload img-hover" data-src="assets/Users/images/products/pink-1.jpg" src="assets/Users/images/products/pink-1.jpg" alt="image-product">
-                                                                    </div>
-                                                                    <div class="list-product-btn">
-                                                                        <a href="#quick_add" data-bs-toggle="modal" class="box-icon bg_white quick-add tf-btn-loading">
-                                                                            <span class="icon icon-bag"></span>
-                                                                            <span class="tooltip">Quick Add</span>
-                                                                        </a>
-                                                                        <a href="javascript:void(0);" class="box-icon bg_white wishlist btn-icon-action">
-                                                                            <span class="icon icon-heart"></span>
-                                                                            <span class="tooltip">Add to Wishlist</span>
-                                                                            <span class="icon icon-delete"></span>
-                                                                        </a>
-                                                                        <a href="#compare" data-bs-toggle="offcanvas" aria-controls="offcanvasLeft" class="box-icon bg_white compare btn-icon-action">
-                                                                            <span class="icon icon-compare"></span>
-                                                                            <span class="tooltip">Add to Compare</span>
-                                                                            <span class="icon icon-check"></span>
-                                                                        </a>
-                                                                        <a href="#quick_view" data-bs-toggle="modal" class="box-icon bg_white quickview tf-btn-loading">
-                                                                            <span class="icon icon-view"></span>
-                                                                            <span class="tooltip">Quick View</span>
-                                                                        </a>
-                                                                    </div>
-                                                                    <div class="size-list">
-                                                                        <span>S</span>
-                                                                        <span>M</span>
-                                                                        <span>L</span>
-                                                                        <span>XL</span>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="card-product-info">
-                                                                    <a href="#" class="title">Oversized Printed T-shirt</a>
-                                                                    <span class="price">$16.95</span>
-                                                                    <ul class="list-color-product">
-                                                                        <li class="list-color-item color-swatch active">
-                                                                            <span class="tooltip">White</span>
-                                                                            <span class="swatch-value bg_white"></span>
-                                                                            <img class="lazyload" data-src="assets/Users/images/products/white-2.jpg" src="assets/Users/images/products/white-2.jpg" alt="image-product">
-                                                                        </li>
-                                                                        <li class="list-color-item color-swatch">
-                                                                            <span class="tooltip">Pink</span>
-                                                                            <span class="swatch-value bg_purple"></span>
-                                                                            <img class="lazyload" data-src="assets/Users/images/products/pink-1.jpg" src="assets/Users/images/products/pink-1.jpg" alt="image-product">
-                                                                        </li>
-                                                                        <li class="list-color-item color-swatch">
-                                                                            <span class="tooltip">Black</span>
-                                                                            <span class="swatch-value bg_dark"></span>
-                                                                            <img class="lazyload" data-src="assets/Users/images/products/black-2.jpg" src="assets/Users/images/products/black-2.jpg" alt="image-product">
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="swiper-slide" lazy="true">
-                                                            <div class="card-product">
-                                                                <div class="card-product-wrapper">
-                                                                    <div class="product-img">
-                                                                        <img class="lazyload img-product" data-src="assets/Users/images/products/brown-2.jpg" src="assets/Users/images/products/brown-2.jpg" alt="image-product">
-                                                                        <img class="lazyload img-hover" data-src="assets/Users/images/products/brown-3.jpg" src="assets/Users/images/products/brown-3.jpg" alt="image-product">
-                                                                    </div>
-                                                                    <div class="size-list">
-                                                                        <span>S</span>
-                                                                        <span>M</span>
-                                                                        <span>L</span>
-                                                                        <span>XL</span>
-                                                                    </div>
-                                                                    <div class="list-product-btn">
-                                                                        <a href="#quick_add" data-bs-toggle="modal" class="box-icon bg_white quick-add tf-btn-loading">
-                                                                            <span class="icon icon-bag"></span>
-                                                                            <span class="tooltip">Quick Add</span>
-                                                                        </a>
-                                                                        <a href="javascript:void(0);" class="box-icon bg_white wishlist btn-icon-action">
-                                                                            <span class="icon icon-heart"></span>
-                                                                            <span class="tooltip">Add to Wishlist</span>
-                                                                            <span class="icon icon-delete"></span>
-                                                                        </a>
-                                                                        <a href="#compare" data-bs-toggle="offcanvas" aria-controls="offcanvasLeft" class="box-icon bg_white compare btn-icon-action">
-                                                                            <span class="icon icon-compare"></span>
-                                                                            <span class="tooltip">Add to Compare</span>
-                                                                            <span class="icon icon-check"></span>
-                                                                        </a>
-                                                                        <a href="#quick_view" data-bs-toggle="modal" class="box-icon bg_white quickview tf-btn-loading">
-                                                                            <span class="icon icon-view"></span>
-                                                                            <span class="tooltip">Quick View</span>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="card-product-info">
-                                                                    <a href="#" class="title link">V-neck linen T-shirt</a>
-                                                                    <span class="price">$114.95</span>
-                                                                    <ul class="list-color-product">
-                                                                        <li class="list-color-item color-swatch active">
-                                                                            <span class="tooltip">Brown</span>
-                                                                            <span class="swatch-value bg_brown"></span>
-                                                                            <img class="lazyload" data-src="assets/Users/images/products/brown-2.jpg" src="assets/Users/images/products/brown-2.jpg" alt="image-product">
-                                                                        </li>
-                                                                        <li class="list-color-item color-swatch">
-                                                                            <span class="tooltip">White</span>
-                                                                            <span class="swatch-value bg_white"></span>
-                                                                            <img class="lazyload" data-src="assets/Users/images/products/white-5.jpg" src="assets/Users/images/products/white-5.jpg" alt="image-product">
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+
+
                                                     </div>
                                                 </div>
                                                 <div class="nav-sw nav-next-slider nav-next-product-header box-icon w_46 round"><span class="icon icon-arrow-left"></span></div>
@@ -490,117 +235,29 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="menu-item position-relative">
-                            <a href="#" class="item-link">Pages<i class="icon icon-arrow-down"></i></a>
-                            <div class="sub-menu submenu-default">
-                                <ul class="menu-list">
-                                    <li>
-                                        <a href="about-us.html" class="menu-link-text link text_black-2">About us</a>
-                                    </li>
-                                    <li class="menu-item-2">
-                                        <a href="#" class="menu-link-text link text_black-2">Brands</a>
-                                        <div class="sub-menu submenu-default">
-                                            <ul class="menu-list">
-                                                <li>
-                                                    <a href="brands.html" class="menu-link-text link text_black-2 position-relative">Brands
-                                                        <div class="demo-label"><span class="demo-new">New</span></div>
-                                                    </a>
-                                                </li>
-                                                <li><a href="brands-v2.html" class="menu-link-text link text_black-2">Brand V2</a></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li class="menu-item-2">
-                                        <a href="#" class="menu-link-text link text_black-2">Contact</a>
-                                        <div class="sub-menu submenu-default">
-                                            <ul class="menu-list">
-                                                <li><a href="contact-1.html" class="menu-link-text link text_black-2">Contact 1</a></li>
-                                                <li><a href="contact-2.html" class="menu-link-text link text_black-2">Contact 2</a></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li class="menu-item-2">
-                                        <a href="#" class="menu-link-text link text_black-2">FAQ</a>
-                                        <div class="sub-menu submenu-default">
-                                            <ul class="menu-list">
-                                                <li><a href="faq-1.html" class="menu-link-text link text_black-2">FAQ 01</a></li>
-                                                <li><a href="faq-2.html" class="menu-link-text link text_black-2">FAQ 02</a></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li class="menu-item-2">
-                                        <a href="#" class="menu-link-text link text_black-2">Store</a>
-                                        <div class="sub-menu submenu-default">
-                                            <ul class="menu-list">
-                                                <li><a href="our-store.html" class="menu-link-text link text_black-2">Our store</a></li>
-                                                <li><a href="store-locations.html" class="menu-link-text link text_black-2">Store locator</a></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li><a href="timeline.html" class="menu-link-text link text_black-2 position-relative">Timeline <div class="demo-label"><span class="demo-new">New</span></div> </a></li>
-                                    <li><a href="view-cart.html" class="menu-link-text link text_black-2 position-relative">View cart</a></li>
-                                    <li><a href="checkout.html" class="menu-link-text link text_black-2 position-relative">Check out</a></li>
-                                    <li class="menu-item-2">
-                                        <a href="#" class="menu-link-text link text_black-2">Payment</a>
-                                        <div class="sub-menu submenu-default">
-                                            <ul class="menu-list">
-                                                <li><a href="payment-confirmation.html" class="menu-link-text link text_black-2">Payment Confirmation</a></li>
-                                                <li><a href="payment-failure.html" class="menu-link-text link text_black-2">Payment Failure</a></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li class="menu-item-2">
-                                        <a href="#" class="menu-link-text link text_black-2">My account</a>
-                                        <div class="sub-menu submenu-default">
-                                            <ul class="menu-list">
-                                                <li><a href="my-account.html" class="menu-link-text link text_black-2">My account</a></li>
-                                                <li><a href="my-account-orders.html" class="menu-link-text link text_black-2">My order</a></li>
-                                                <li><a href="my-account-orders-details.html" class="menu-link-text link text_black-2">My order details</a></li>
-                                                <li><a href="my-account-address.html" class="menu-link-text link text_black-2">My address</a></li>
-                                                <li><a href="my-account-edit.html" class="menu-link-text link text_black-2">My account details</a></li>
-                                                <li><a href="my-account-wishlist.html" class="menu-link-text link text_black-2">My wishlist</a></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li><a href="invoice.html" class="menu-link-text link text_black-2 position-relative">Invoice</a></li>
-                                    <li><a href="404.html" class="menu-link-text link text_black-2 position-relative">404</a></li>
 
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="menu-item position-relative">
-                            <a href="#" class="item-link">Blog<i class="icon icon-arrow-down"></i></a>
-                            <div class="sub-menu submenu-default">
-                                <ul class="menu-list">
-                                    <li><a href="blog-grid.html" class="menu-link-text link text_black-2">Grid layout</a></li>
-                                    <li><a href="blog-sidebar-left.html" class="menu-link-text link text_black-2">Left sidebar</a></li>
-                                    <li><a href="blog-sidebar-right.html" class="menu-link-text link text_black-2">Right sidebar</a></li>
-                                    <li><a href="blog-list.html" class="menu-link-text link text_black-2">Blog list</a></li>
-                                    <li><a href="blog-detail.html" class="menu-link-text link text_black-2">Single Post</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="menu-item"><a href="https://themeforest.net/item/ecomus-ultimate-html5-template/53417990?s_rank=3" class="item-link">Buy now</a></li>
+
+
                     </ul>
                 </nav>
             </div>
             <div class="col-xl-3 col-md-4 col-3">
                 <ul class="nav-icon d-flex justify-content-end align-items-center gap-20">
                     <li class="nav-search"><a href="#canvasSearch" data-bs-toggle="offcanvas" aria-controls="offcanvasLeft" class="nav-icon-item"><i class="icon icon-search"></i></a></li>
-                    
+
                     <?php if (isset($_SESSION['users'])): ?>
                         <li class="nav-account dropdown">
                             <a href="#" class="nav-icon-item dropdown-toggle" data-bs-toggle="dropdown">
                                 <i class="icon icon-account"></i>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="<?= BASE_URL?>?act=my-account" class="dropdown-item">Tài khoản</a></li>
-                                <li><a href="<?= BASE_URL?>?act=shopping-cart" class="dropdown-item">Giỏ hàng</a></li>
-                                <li><a href="<?= BASE_URL?>?act=show-order" class="dropdown-item">Đơn hàng</a></li>
-                                <li><a href="<?= BASE_URL?>?act=logout" class="dropdown-item">Đăng xuất</a></li>
+                                <li><a href="<?= BASE_URL ?>?act=my-account" class="dropdown-item">Tài khoản</a></li>
+                                <li><a href="<?= BASE_URL ?>?act=shopping-cart" class="dropdown-item">Giỏ hàng</a></li>
+                                <li><a href="<?= BASE_URL ?>?act=show-order" class="dropdown-item">Đơn hàng</a></li>
+                                <li><a href="<?= BASE_URL ?>?act=logout" class="dropdown-item">Đăng xuất</a></li>
                             </ul>
                         </li>
-                        
+
 
                         <li class="nav-wishlist"><a href="wishlist.html" class="nav-icon-item"><i class="icon icon-heart"></i><span class="count-box">0</span></a></li>
                         <li class="nav-cart"><a href="#shoppingCart" data-bs-toggle="modal" class="nav-icon-item"><i class="icon icon-bag"></i><span class="count-box">0</span></a></li>

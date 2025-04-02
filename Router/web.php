@@ -177,7 +177,7 @@ if ($role == "user") {
                 break;
             }
 
-        case 'order-detail': { // http://localhost/Douong_Pony/?role=admin&act=order-detail
+        case 'order-detail': { // http://localhost/Douong_Pony/?role=admin&act= 
                 (new OrderController())->showOrderDetail();
                 break;
             }
@@ -188,6 +188,12 @@ if ($role == "user") {
         case 'update-order': {
                 (new OrderController())->updateOrder();
                 break;
+            }
+            case 'order-tracking': {
+                (new OrderController())->orderTracking();
+                break;
+                //http://localhost/Douong_Pony/?role=admin&act=order-tracking&id=1
+
             }
 
 

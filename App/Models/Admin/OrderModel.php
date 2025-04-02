@@ -19,13 +19,11 @@ class OrderModel
             o.total, 
             o.status,
             o.created_at,
-            p.name AS product_name, 
-            p.image_main AS product_image,
-            od.quantity,
-            p.price
+            -- p.name AS product_name, 
+            -- p.image_main AS product_image,
+            -- od.quantity,
+            -- p.price
         FROM `order` o
-        LEFT JOIN `order_detail` od ON o.id = od.order_id
-        LEFT JOIN `products` p ON od.product_id = p.id
         ORDER BY o.created_at DESC";
 
         $stmt = $this->conn->prepare($sql);
@@ -41,10 +39,16 @@ class OrderModel
             o.total, 
             o.status,
             o.created_at,
+            o.payment_method,
+            o.shipping_method,
             p.name AS product_name, 
             p.image_main AS product_image,
             od.quantity,
-            p.price
+            od.price,
+            od.size,
+            od.toppings,
+            od.sweetness,
+            od.ice
         FROM `order` o
         LEFT JOIN `order_detail` od ON o.id = od.order_id
         LEFT JOIN `products` p ON od.product_id = p.id
@@ -79,7 +83,7 @@ class OrderModel
         
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([$order_id]);
-        return $stmt->fetch(PDO::FETCH_OBJ); 
+        return $stmt->fetchAll(PDO::FETCH_OBJ); 
     }
 
     public function updateOrder($order_id, $status, $customer_name, $customer_address, $phone, $email, $notes)
@@ -104,4 +108,13 @@ class OrderModel
 
         return $stmt->execute();
     }
+    public function getTrackingInfo($order_id)
+{
+    $sql = "SELECT * FROM order_tracking WHERE order_id = :order_id ORDER BY timestamp DESC";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->bindParam(':order_id', $order_id, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_OBJ);
+}
+
 }

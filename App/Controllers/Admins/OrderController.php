@@ -96,4 +96,21 @@ class OrderController
             exit();
         }
     }
+
+    public function orderTracking()
+    {
+        if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
+            die('ID đơn hàng không hợp lệ.');
+        }
+
+        $order_id = intval($_GET['id']);
+        $orderModel = new OrderModel(); 
+        $trackingInfo = $orderModel->getTrackingInfo($order_id);
+
+        if (!$trackingInfo) {
+            die('Không tìm thấy đơn hàng.');
+        }
+
+        include 'App/Views/Admin/order_tracking.php';
+    }
 }

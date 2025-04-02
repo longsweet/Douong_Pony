@@ -132,7 +132,7 @@
 
                             <div class="card-product fl-item" data-price="<?= $value->price ?>" data-color="orange black white">
                                 <div class="card-product-wrapper">
-                                    <a href="<?= BASE_URL?>?act=product-detail&product_id=<?= $value->id?>&category_id=<?= $value->category_id?>" class="product-img">
+                                    <a href="<?= BASE_URL ?>?act=product-detail&product_id=<?= $value->id ?>&category_id=<?= $value->category_id ?>" class="product-img">
                                         <img class="img-product ls-is-cached lazyloaded" data-src="<?= $value->image_main ?>" src="<?= $value->image_main ?>" alt="image-product">
                                         <img class="img-hover ls-is-cached lazyloaded" data-src="<?= $value->image_main ?>" src="<?= $value->image_main ?>" alt="image-product">
                                     </a>
@@ -157,7 +157,7 @@
                                     </div>
                                 </div>
                                 <div class="card-product-info">
-                                    <a href="<?= BASE_URL?>?act=product-detail&product_id=<?= $value->id?>&category_id=<?= $value->category_id?>" class="title link"><?= $value->name ?></a>
+                                    <a href="<?= BASE_URL ?>?act=product-detail&product_id=<?= $value->id ?>&category_id=<?= $value->category_id ?>" class="title link"><?= $value->name ?></a>
                                     <div style="display: flex;">
                                         <?php if ($value->price_sale != null): ?>
                                             <span class="price" style="margin-right: 5px; text-decoration: line-through;">
@@ -173,7 +173,7 @@
                                             </span>
                                         <?php endif; ?>
                                     </div>
-                                    
+
                                 </div>
                             </div>
                         <?php endforeach; ?>
@@ -312,7 +312,7 @@
                                 </form>
                             </div>
                         </div>
-                        
+
                         <div class="widget-facet">
                             <div class="facet-title" data-bs-target="#color" data-bs-toggle="collapse" aria-expanded="true" aria-controls="color">
                                 <span>Color</span>
@@ -1522,7 +1522,7 @@
                             </span>
                         </div>
                         <div class="tf-progress-msg">
-                            Buy <span class="price fw-6">$75.00</span> more to enjoy <span class="fw-6">Free Shipping</span>
+                            mua thêm <span class="price fw-6">35.000</span> để được <span class="fw-6">Free Ship</span>
                         </div>
                     </div>
                     <div class="tf-mini-cart-wrap">
@@ -1532,89 +1532,27 @@
                                     <div class="tf-mini-cart-item">
                                         <div class="tf-mini-cart-image">
                                             <a href="product-detail.html">
-                                                <img src="assets/Users/images/products/white-2.jpg" alt="">
+                                                <img src="http://localhost/Douong_Pony/assets/Admin/upload/6755804a8d3cc.jpg" alt="">
                                             </a>
                                         </div>
                                         <div class="tf-mini-cart-info">
-                                            <a class="title link" href="product-detail.html">T-shirt</a>
-                                            <div class="meta-variant">Light gray</div>
-                                            <div class="price fw-6">$25.00</div>
+                                            <a class="title link" href="product-detail.html">Ô long sữa trân châu ngũ cốc
+                                            </a>
+                                            <!-- <div class="meta-variant">Light gray</div> -->
+                                            <div class="price fw-6">35.000</div>
                                             <div class="tf-mini-cart-btns">
                                                 <div class="wg-quantity small">
                                                     <span class="btn-quantity minus-btn">-</span>
                                                     <input type="text" name="number" value="1">
                                                     <span class="btn-quantity plus-btn">+</span>
                                                 </div>
-                                                <div class="tf-mini-cart-remove">Remove</div>
+                                                <div class="tf-mini-cart-remove">xóa</div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="tf-mini-cart-item">
-                                        <div class="tf-mini-cart-image">
-                                            <a href="product-detail.html">
-                                                <img src="assets/Users/images/products/white-3.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="tf-mini-cart-info">
-                                            <a class="title link" href="product-detail.html">Oversized Motif T-shirt</a>
-                                            <div class="price fw-6">$25.00</div>
-                                            <div class="tf-mini-cart-btns">
-                                                <div class="wg-quantity small">
-                                                    <span class="btn-quantity minus-btn">-</span>
-                                                    <input type="text" name="number" value="1">
-                                                    <span class="btn-quantity plus-btn">+</span>
-                                                </div>
-                                                <div class="tf-mini-cart-remove">Remove</div>
-                                            </div>
-                                        </div>
-                                    </div>
+
                                 </div>
-                                <div class="tf-minicart-recommendations">
-                                    <div class="tf-minicart-recommendations-heading">
-                                        <div class="tf-minicart-recommendations-title">You may also like</div>
-                                        <div class="sw-dots small style-2 cart-slide-pagination"></div>
-                                    </div>
-                                    <div dir="ltr" class="swiper tf-cart-slide">
-                                        <div class="swiper-wrapper">
-                                            <div class="swiper-slide">
-                                                <div class="tf-minicart-recommendations-item">
-                                                    <div class="tf-minicart-recommendations-item-image">
-                                                        <a href="product-detail.html">
-                                                            <img src="assets/Users/images/products/white-3.jpg" alt="">
-                                                        </a>
-                                                    </div>
-                                                    <div class="tf-minicart-recommendations-item-infos flex-grow-1">
-                                                        <a class="title" href="product-detail.html">Loose Fit Sweatshirt</a>
-                                                        <div class="price">$25.00</div>
-                                                    </div>
-                                                    <div class="tf-minicart-recommendations-item-quickview">
-                                                        <div class="btn-show-quickview quickview hover-tooltip">
-                                                            <span class="icon icon-view"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="swiper-slide">
-                                                <div class="tf-minicart-recommendations-item">
-                                                    <div class="tf-minicart-recommendations-item-image">
-                                                        <a href="product-detail.html">
-                                                            <img src="assets/Users/images/products/white-2.jpg" alt="">
-                                                        </a>
-                                                    </div>
-                                                    <div class="tf-minicart-recommendations-item-infos flex-grow-1">
-                                                        <a class="title" href="product-detail.html">Loose Fit Hoodie</a>
-                                                        <div class="price">$25.00</div>
-                                                    </div>
-                                                    <div class="tf-minicart-recommendations-item-quickview">
-                                                        <div class="btn-show-quickview quickview hover-tooltip">
-                                                            <span class="icon icon-view"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <!--  -->
                             </div>
                         </div>
                         <div class="tf-mini-cart-bottom">
@@ -1637,11 +1575,8 @@
                                 </div>
                             </div>
                             <div class="tf-mini-cart-bottom-wrap">
-                                <div class="tf-cart-totals-discounts">
-                                    <div class="tf-cart-total">Subtotal</div>
-                                    <div class="tf-totals-total-value fw-6">$49.99 USD</div>
-                                </div>
-                                <div class="tf-cart-tax">Taxes and <a href="#">shipping</a> calculated at checkout</div>
+
+                                <!-- <div class="tf-cart-tax">Taxes and <a href="#">shipping</a> calculated at checkout</div> -->
                                 <div class="tf-mini-cart-line"></div>
                                 <div class="tf-cart-checkbox">
                                     <div class="tf-checkbox-wrapp">
@@ -1651,8 +1586,8 @@
                                         </div>
                                     </div>
                                     <label for="CartDrawer-Form_agree">
-                                        I agree with the
-                                        <a href="#" title="Terms of Service">terms and conditions</a>
+                                        tôi đồng ý
+                                        <a href="#" title="Terms of Service">với các điều khoản trên</a>
                                     </label>
                                 </div>
                                 <div class="tf-mini-cart-view-checkout">
@@ -1899,7 +1834,7 @@
                     </div>
                     <div class="tf-product-info-buy-button">
                         <form>
-                            <a class="tf-btn btn-fill justify-content-center fw-6 fs-16 flex-grow-1 animate-hover-btn btn-add-to-cart"><span>Add to cart -&nbsp;</span><span class="tf-qty-price">$18.00</span></a>
+                            <a class="tf-btn btn-fill justify-content-center fw-6 fs-16 flex-grow-1 animate-hover-btn btn-add-to-cart"><span>Thêm vào giỏ hàng -&nbsp;</span><span class="tf-qty-price">35.0000</span></a>
                             <div class="tf-product-btn-wishlist btn-icon-action">
                                 <i class="icon-heart"></i>
                                 <i class="icon-delete"></i>
@@ -1933,12 +1868,12 @@
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
                                     <div class="item">
-                                        <img src="assets/Users/images/products/orange-1.jpg" alt="">
+                                        <img src="http://localhost/Douong_Pony/assets/Admin/upload/6755804a8d3cc.jpg" alt="">
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
                                     <div class="item">
-                                        <img src="assets/Users/images/products/pink-1.jpg" alt="">
+                                        <img src="http://localhost/Douong_Pony/assets/Admin/upload/6755804a8d3cc.jpg" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -1951,7 +1886,8 @@
                         <div class="tf-product-info-list">
 
                             <div class="tf-product-info-title">
-                                <h5><a class="link" href="product-detail.html">Ribbed Tank Top</a></h5>
+                                <h5><a class="link" href="product-detail.html">Ô long sữa trân châu ngũ cốc
+                                    </a></h5>
                             </div>
                             <div class="tf-product-info-badges">
                                 <div class="badges text-uppercase">Bán chạy</div>
@@ -1961,11 +1897,11 @@
                                 </div>
                             </div>
                             <div class="tf-product-info-price">
-                                <div class="price">$18.00</div>
+                                <div class="price">35.0000</div>
                             </div>
-                            <div class="tf-product-description">
-                                <p>Nunc arcu faucibus a et lorem eu a mauris adipiscing conubia ac aptent ligula facilisis a auctor habitant parturient a a.Interdum fermentum.</p>
-                            </div>
+                            <!-- <div class="tf-product-description">
+                                    <p>Nunc arcu faucibus a et lorem eu a mauris adipiscing conubia ac aptent ligula facilisis a auctor habitant parturient a a.Interdum fermentum.</p>
+                                </div> -->
                             <div class="tf-product-info-variant-picker">
 
 
@@ -2095,26 +2031,7 @@
     <!-- auto popup  -->
     <div class="modal modalCentered fade auto-popup modal-newleter">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-top">
-                    <img class="lazyload" data-src="assets/Users/images/item/banner-newleter.jpg" src="assets/Users/images/item/banner-newleter.jpg" alt="home-01">
-                    <span class="icon icon-close btn-hide-popup" data-bs-dismiss="modal"></span>
-                </div>
-                <div class="modal-bottom">
-                    <h4 class="text-center">Don’t mis out</h4>
-                    <h6 class="text-center">Be the first one to get the new product at early bird prices.</h6>
-                    <form id="subscribe-form" action="#" class="form-newsletter" method="post" accept-charset="utf-8" data-mailchimp="true">
-                        <div id="subscribe-content">
-                            <input type="email" name="email-form" id="subscribe-email" placeholder="Email *">
-                            <button type="button" id="subscribe-button" class="tf-btn btn-fill radius-3 animate-hover-btn w-100 justify-content-center">Keep me updated</button>
-                        </div>
-                        <div id="subscribe-msg"></div>
-                    </form>
-                    <div class="text-center">
-                        <a href="#" data-bs-dismiss="modal" class="tf-btn btn-line fw-6 btn-hide-popup">Not interested</a>
-                    </div>
-                </div>
-            </div>
+
         </div>
     </div>
     <!-- /auto popup  -->

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <!--[if IE 8 ]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
@@ -705,8 +706,8 @@
                             <!-- main-content-wrap -->
                             <div class="main-content-wrap">
                                 <div class="flex items-center flex-wrap justify-between gap20 mb-30">
-                                <h3>Danh sách bình luận của <?= $product->name ?></h3>
-                                <ul class="breadcrumbs flex items-center flex-wrap justify-start gap10">
+                                    <h3>Danh sách bình luận của <?= $product->name ?></h3>
+                                    <ul class="breadcrumbs flex items-center flex-wrap justify-start gap10">
                                         <li>
                                             <a href="<?= BASE_URL ?>?role=admin&act=home">
                                                 <div class="text-tiny">Bảng điều khiển</div>
@@ -841,7 +842,7 @@
                                         <h5 class="modal-title" id="exampleModalLabel">Phản hồi bình luận</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
-                                    <form action="<?= BASE_URL?>?role=admin&act=comment-reply" method="post">
+                                    <form action="<?= BASE_URL ?>?role=admin&act=comment-reply" method="post">
                                         <input type="hidden" name="product-id" value="<?= $product->id ?>">
                                         <input type="hidden" name="comment-id" id="comment-id">
                                         <div class="modal-body">

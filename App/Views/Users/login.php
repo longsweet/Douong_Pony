@@ -1509,9 +1509,9 @@
     <!-- /modal quick_add -->
 
     <!-- modal quick_view -->
-    <div class="modal fade modalDemo" id="quick_view">
+    <!-- <div class="modal fade modalDemo" id="quick_view">
         <div class="modal-dialog modal-dialog-centered">
-            <!-- <div class="modal-content">
+            <div class="modal-content">
                 <div class="header">
                     <span class="icon-close icon-close-popup" data-bs-dismiss="modal"></span>
                 </div>
@@ -1587,9 +1587,9 @@
                         </div>
                     </div>
                 </div>
-            </div> -->
+            </div>
         </div>
-    </div>
+    </div> -->
     <!-- /modal quick_view -->
 
     <!-- modal find_size -->

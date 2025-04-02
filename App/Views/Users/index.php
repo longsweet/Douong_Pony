@@ -1552,7 +1552,7 @@
     <!-- /modal quick_add -->
 
     <!-- modal quick_view -->
-    <div class="modal fade modalDemo" id="quick_view">
+    <!-- <div class="modal fade modalDemo" id="quick_view">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="header">
@@ -1632,7 +1632,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- /modal quick_view -->
 
     <!-- modal find_size -->
@@ -1724,7 +1724,7 @@
     <!-- /modal find_size -->
 
     <!-- auto popup  -->
-    <div class="modal modalCentered fade auto-popup modal-newleter">
+    <!-- <div class="modal modalCentered fade auto-popup modal-newleter">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-top">
@@ -1747,7 +1747,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- /auto popup  -->
 
 

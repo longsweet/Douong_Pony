@@ -9,40 +9,43 @@ if ($role == "user") {
 
     switch ($act) {
 
-        case '' : {
-            (new DashboardController)->dashboard();
-            break;
-        }
+        case '': {
+                (new DashboardController)->dashboard();
+                break;
+            }
+        case 'shop': {
+                (new DashboardController)->showShop();
+                break;
+            }
 
-        case 'shop' : {
-            (new DashboardController)->showShop();
-            break;
-        }
+        case 'login': {
+                (new LoginUserController)->login();
+                break;
+            }
 
-        case 'login' : {
-            (new LoginUserController)->login();
-            break;
-        }
+        case 'post-login': {
+                (new LoginUserController)->postLogin();
+                break;
+            }
 
-        case 'post-login' : {
-            (new LoginUserController)->postLogin();
-            break;
-        }
+        case 'logout': {
+                (new LoginUserController)->logout();
+                break;
+            }
 
-        case 'logout' : {
-            (new LoginUserController)->logout();
-            break;
-        }
-
-        case 'register' : {
-            (new LoginUserController)->register();
-            break;
-        }
-        case 'post-register' : {
-            (new LoginUserController)->postRegister();
-            break;
-        }
-
+        case 'register': {
+                (new LoginUserController)->register();
+                break;
+            }
+        case 'post-register': {
+                (new LoginUserController)->postRegister();
+                break;
+            }
+        case 'product-detail': {
+                $DashboardController = new DashboardController();
+                $DashboardController->productDetail();
+                break;
+            }
     }
 } else {
 
@@ -59,7 +62,6 @@ if ($role == "user") {
                 $productController->getProductDashboard();
                 break;
             }
-
         case 'add-product': {
                 $productController = new ProductController();
                 $productController->addProduct();

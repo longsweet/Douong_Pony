@@ -61,17 +61,36 @@
             <div class="container">
                 <div class="tf-grid-layout lg-col-2 tf-login-wrap">
                     <div class="tf-login-form">
+
                         <div id="recover">
                             <h5 class="mb_24">Reset your password</h5>
-                            <p class="mb_30">We will send you an email to reset your password</p>
+                            <p class="mb_30">
+                            <div class="flat-title align-items-start gap-0 mb_30 px-0">
+                                <p class="text_black-2">Nhập email của bạn để nhận mật khẩu mới.</p>
+                                <?php
+                                // Hiển thị thông báo thành công
+                                if (isset($_SESSION['success'])) {
+                                    echo "<p style='color:green;'>" . $_SESSION['success'] . "</p>";
+                                    unset($_SESSION['success']);  // Xóa thông báo sau khi đã hiển thị
+                                }
+
+                                // Hiển thị thông báo lỗi
+                                if (isset($_SESSION['error'])) {
+                                    echo "<p style='color:red;'>" . $_SESSION['error'] . "</p>";
+                                    unset($_SESSION['error']);  // Xóa thông báo sau khi đã hiển thị
+                                }
+                                ?>
+                            </div>
+                            </p>
                             <div>
-                                <form class="" id="login-form" action="#" method="post" accept-charset="utf-8" data-mailchimp="true">
+                                <!-- Form nhập email để nhận mật khẩu mới -->
+                                <form id="login-form" action="<?= BASE_URL ?>?act=postQuenMatKhau" method="post" accept-charset="utf-8" data-mailchimp="true">
                                     <div class="tf-field style-1 mb_15">
-                                        <input class="tf-field-input tf-input" placeholder="" type="email" id="property3" name="email">
+                                        <input class="tf-field-input tf-input" placeholder="Email" type="email" id="property3" name="email" required>
                                         <label class="tf-field-label fw-4 text_black-2" for="property3">Email *</label>
                                     </div>
                                     <div class="mb_20">
-                                        <a href="#login" class="tf-btn btn-line">Cancel</a>
+                                        <a href="<?= BASE_URL ?>?act=login" class="tf-btn btn-line">Cancel</a>
                                     </div>
                                     <div class="">
                                         <button type="submit" class="tf-btn w-100 radius-3 btn-fill animate-hover-btn justify-content-center">Reset password</button>
@@ -79,6 +98,7 @@
                                 </form>
                             </div>
                         </div>
+
                         <div id="login">
                             <h5 class="mb_36">Đăng nhập</h5>
                             <?php
@@ -102,9 +122,11 @@
                                         <input class="tf-field-input tf-input" placeholder="" type="password" id="property4" name="password">
                                         <label class="tf-field-label fw-4 text_black-2" for="property4">Password *</label>
                                     </div>
+
                                     <div class="mb_20">
                                         <a href="#recover" class="tf-btn btn-line">Quên mật khẩu?</a>
                                     </div>
+
                                     <div class="">
                                         <button type="submit" class="tf-btn w-100 radius-3 btn-fill animate-hover-btn justify-content-center">Log in</button>
                                     </div>
@@ -115,7 +137,7 @@
                     <div class="tf-login-content">
                         <h5 class="mb_36">Tạo tài khoản</h5>
                         <p class="mb_20">Đăng ký để được tiếp cận chương trình khuyến mại sớm cùng với các sản phẩm mới, xu hướng và chương trình khuyến mãi riêng. Để từ chối, hãy nhấp vào hủy đăng ký trong email của chúng tôi.</p>
-                        <a href="<?= BASE_URL ?>.?act=register"" class=" tf-btn btn-line">Đăng ký<i class="icon icon-arrow1-top-left"></i></a>
+                        <a href="<?= BASE_URL ?>.?act=register" class=" tf-btn btn-line">Đăng ký<i class="icon icon-arrow1-top-left"></i></a>
                     </div>
                 </div>
             </div>
@@ -1112,31 +1134,7 @@
     </div>
     <div class="modal modalCentered fade form-sign-in modal-part-content" id="forgotPassword">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="header">
-                    <div class="demo-title">Reset your password</div>
-                    <span class="icon-close icon-close-popup" data-bs-dismiss="modal"></span>
-                </div>
-                <div class="tf-login-form">
-                    <form class="">
-                        <div>
-                            <p>Sign up for early Sale access plus tailored new arrivals, trends and promotions. To opt out, click unsubscribe in our emails</p>
-                        </div>
-                        <div class="tf-field style-1">
-                            <input class="tf-field-input tf-input" placeholder=" " type="email" name="">
-                            <label class="tf-field-label" for="">Email *</label>
-                        </div>
-                        <div>
-                            <a href="#login" data-bs-toggle="modal" class="btn-link link">Cancel</a>
-                        </div>
-                        <div class="bottom">
-                            <div class="w-100">
-                                <button type="submit" class="tf-btn btn-fill animate-hover-btn radius-3 w-100 justify-content-center"><span>Reset password</span></button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+
         </div>
     </div>
     <div class="modal modalCentered fade form-sign-in modal-part-content" id="register">
@@ -1183,7 +1181,7 @@
     <!-- /modal login -->
 
     <!-- shoppingCart -->
-    <div class="modal fullRight fade modal-shopping-cart" id="shoppingCart">
+    <!-- <div class="modal fullRight fade modal-shopping-cart" id="shoppingCart">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="header">
@@ -1442,7 +1440,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- /shoppingCart -->
 
     <!-- modal compare -->

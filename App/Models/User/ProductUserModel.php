@@ -43,14 +43,19 @@ class ProductUserModel
         return [$inStock, $outStock];
     }
 
+
+
+
     public function getDataShopName()
-    {
+    { // tìm kiếm theo tên không chính xác 
+
         $productName = $_GET['product-name'];
         $sql = "SELECT * FROM products WHERE name like '%$productName%'";
         $query = $this->db->pdo->query($sql);
         $result = $query->fetchAll();
         return $result;
     }
+    //
     public function getProductById()
     {
         if (isset($_GET['product_id'])) {
@@ -108,5 +113,46 @@ class ProductUserModel
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $result;
         }
+    }
+    public function getRating($productId)
+    {
+        $sql = "SELECT * FROM product_rating WHERE product_id=:product_id";
+        $stmt = $this->db->pdo->prepare($sql);
+        $stmt->bindParam(':product_id', $productId);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+    public function avgRating($productId)
+    {
+        $sql = "SELECT AVG(rating) as avgRating FROM product_rating WHERE product_id = :product_id";
+        $stmt = $this->db->pdo->prepare($sql);
+        $stmt->bindParam(':product_id', $productId);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return isset($result['avgRating']) ? round($result['avgRating'], 2) : 0;
+    }
+
+
+    public function getComment($productId)
+    {
+        $sql = "SELECT product_comment.*, users.name, users.image FROM `product_comment` JOIN users on product_comment.
+        user_id = users.id WHERE product_comment.product_id = :product_id";
+        $stmt = $this->db->pdo->prepare($sql);
+        $stmt->bindParam(':product_id', $productId);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        return $result;
+    }
+
+
+    public function getCommentByUser($productId, $userId)
+    {
+        $sql = "SELECT * FROM product_rating WHERE user_id = :user_id AND product_id = :product_id";
+        $stmt = $this->db->pdo->prepare($sql);
+        $stmt->bindParam(':product_id', $productId);
+        $stmt->bindParam(':user_id', $userId);
+        $stmt->execute();
+        return $stmt->fetch();
     }
 }

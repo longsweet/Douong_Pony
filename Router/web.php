@@ -46,6 +46,16 @@ if ($role == "user") {
                 $DashboardController->productDetail();
                 break;
             }
+
+        case 'formqmk': {
+                (new LoginUserController)->showForgotPasswordForm();
+                break;
+            }
+
+        case 'postQuenMatKhau': {
+                (new LoginUserController)->postQuenMatKhau();
+                break;
+            }
     }
 } else {
 
@@ -57,7 +67,7 @@ if ($role == "user") {
                 break;
             }
 
-        case 'product': {
+        case 'all-product': {
                 $productController = new ProductController();
                 $productController->getProductDashboard();
                 break;
@@ -107,9 +117,7 @@ if ($role == "user") {
 
             // form thêm danh mục
         case 'category-add': {
-                $dashBoardController = new CategoryController();
-                $dashBoardController->addCategory();
-
+                (new CategoryController)->addCategory();
                 break;
             }
             //dữ liệu để thêm một danh mục

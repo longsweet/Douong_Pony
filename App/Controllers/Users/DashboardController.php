@@ -67,12 +67,35 @@ class DashboardController
 
         include 'App/Views/Users/shop.php';
     }
+    // public function productDetail()
+    // {
+
+    //     $productModel = new ProductUserModel();
+    //     $product = $productModel->getProductById();
+    //     $varibale = $productModel->getVaribalById();
+    //     $productImage = $productModel->getProductImageById();
+    //     if (isset($_GET['category_id'])) {
+    //         $productModel = new ProductUserModel();
+    //         $category = $productModel->getProductByCategory();
+    //         //  $category = 
+    //     } else {
+    //         $category = [];
+    //     }
+    //     $ratingProduct = $productModel->getRating($product->id);
+    //     $ratingAvg = $productModel->avgRating($product->id);
+    //     // var_dump($varibale);
+    //     // die;
+
+
+
+    //     include 'App/Views/Users/product-detail.php';
+    // }
+
     public function productDetail()
     {
-
         $productModel = new ProductUserModel();
         $product = $productModel->getProductById();
-        $varibale = $productModel->getVaribalById();
+
         $productImage = $productModel->getProductImageById();
         if (isset($_GET['category_id'])) {
             $productModel = new ProductUserModel();
@@ -81,9 +104,21 @@ class DashboardController
         } else {
             $category = [];
         }
-        // var_dump($varibale);
+        $comment = $productModel->getComment($product->id);
+        foreach ($comment as $key => $value) {
+            $rating = $productModel->getCommentByUser($product->id, $value->user_id);
+            if ($rating) {
+                $comment[$key]->rating = $rating->rating;
+            } else {
+                $comment[$key]->rating = null;
+            }
+        }
+        // var_dump($productImage);die;
+        $ratingProduct = $productModel->getRating($product->id);
+        $ratingAvg = $productModel->avgRating($product->id);
+        // $ratingProduct = count($ratingProduct ) != 0 ? $ratingProduct : []; 
+        // var_dump($ratingProduct);
         // die;
-
 
 
         include 'app/Views/Users/product-detail.php';

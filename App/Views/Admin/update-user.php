@@ -1,3 +1,5 @@
+<?= include 'App/Views/Admin/layouts/header.php' ?>
+
 <div class="main-content">
     <!-- main-content-wrap -->
     <div class="main-content-inner">
@@ -115,7 +117,10 @@
         </div>
         <!-- /main-content-wrap -->
     </div>
+    <?= include 'App/Views/Admin/layouts/footer.php' ?>
+
     <!-- /main-content-wrap -->
     <!-- bottom-page -->
     <!-- /bottom-page -->
 </div>
+

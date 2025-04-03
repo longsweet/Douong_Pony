@@ -21,8 +21,8 @@
   <link rel="stylesheet" type="text/css" href="assets/Users/css/styles.css" />
 
   <!-- Favicon and Touch Icons  -->
-  <link rel="shortcut icon" href="/Douong_Pony/Assets/Users/images/logo/logomain_preview_rev.png">
-  <link rel="apple-touch-icon-precomposed" href="/Douong_Pony/Assets/Users/images/logo/logomain_preview_rev.png">
+  <link rel="shortcut icon" href="assets/Users/images/logo/logomain_preview_rev.png">
+  <link rel="apple-touch-icon-precomposed" href="assets/Users/images/logo/logomain_preview_rev.png">
   <style>
     .header-default {
       margin-bottom: 0 !important;
@@ -38,10 +38,10 @@
 
   <!-- preload -->
   <!-- <div class="preload preload-container">
-    <div class="preload-logo">
-      <div class="spinner"></div>
-    </div>
-  </div> -->
+        <div class="preload-logo">
+            <div class="spinner"></div>
+        </div>
+    </div> -->
   <!-- /preload -->
   <div id="wrapper">
 
@@ -140,12 +140,6 @@
                   <div class="tf-product-info-liveview">
                     <div class="liveview-count"><?= $product->stock ?></div>
                     <p class="fw-6">Số lượng sản phẩm tại quán có hạn! Mua nhanh tay!</p>
-                  </div>
-                  <div class="">
-                    <?php foreach ($varibale as $v):    ?>
-
-                      <?= $v['size'] ?>
-                    <?php endforeach;   ?>
                   </div>
                   <div class="tf-product-info-quantity">
                     <div class="quantity-title fw-6">Số lượng</div>
@@ -2141,16 +2135,16 @@
 
 
   <!-- Javascript -->
-  <script type="text/javascript" src="/Douong_Pony/Assets/Users/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="/Douong_Pony/Assets/Users/js/jquery.min.js"></script>
-  <script type="text/javascript" src="/Douong_Pony/Assets/Users/js/swiper-bundle.min.js"></script>
-  <script type="text/javascript" src="/Douong_Pony/Assets/Users/js/carousel.js"></script>
-  <script type="text/javascript" src="/Douong_Pony/Assets/Users/js/bootstrap-select.min.js"></script>
-  <script type="text/javascript" src="/Douong_Pony/Assets/Users/js/lazysize.min.js"></script>
-  <script type="text/javascript" src="/Douong_Pony/Assets/Users/js/count-down.js"></script>
-  <script type="text/javascript" src="/Douong_Pony/Assets/Users/js/wow.min.js"></script>
-  <script type="text/javascript" src="/Douong_Pony/Assets/Users/js/multiple-modal.js"></script>
-  <script type="text/javascript" src="/Douong_Pony/Assets/Users/js/main.js"></script>
+  <script type="text/javascript" src="assets/Users/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="assets/Users/js/jquery.min.js"></script>
+  <script type="text/javascript" src="assets/Users/js/swiper-bundle.min.js"></script>
+  <script type="text/javascript" src="assets/Users/js/carousel.js"></script>
+  <script type="text/javascript" src="assets/Users/js/bootstrap-select.min.js"></script>
+  <script type="text/javascript" src="assets/Users/js/lazysize.min.js"></script>
+  <script type="text/javascript" src="assets/Users/js/count-down.js"></script>
+  <script type="text/javascript" src="assets/Users/js/wow.min.js"></script>
+  <script type="text/javascript" src="assets/Users/js/multiple-modal.js"></script>
+  <script type="text/javascript" src="assets/Users/js/main.js"></script>
   <script>
     let price = "<?= $product->price_sale != null ? $product->price_sale : $product->price ?>"
     price = Number(price)

@@ -1134,7 +1134,7 @@
 
 
     <!-- shoppingCart -->
-    <div class="modal fullRight fade modal-shopping-cart" id="shoppingCart">
+    <!-- <div class="modal fullRight fade modal-shopping-cart" id="shoppingCart">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="header">
@@ -1393,7 +1393,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- /shoppingCart -->
 
     <!-- modal compare -->

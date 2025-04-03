@@ -38,7 +38,7 @@ class ProductUserModel {
         return [$inStock, $outStock];
     }
 
-    public function getDataShopName(){
+    public function getDataShopName(){ // tìm kiếm theo tên không chính xác 
         $productName = $_GET['product-name'];
         $sql = "SELECT * FROM products WHERE name like '%$productName%'";
         $query = $this->db->pdo->query($sql);

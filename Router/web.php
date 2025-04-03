@@ -113,9 +113,7 @@ if ($role == "user") {
 
             // form thêm danh mục
         case 'category-add': {
-                $dashBoardController = new CategoryController();
-                $dashBoardController->addCategory();
-
+                (new CategoryController)->addCategory();
                 break;
             }
             //dữ liệu để thêm một danh mục

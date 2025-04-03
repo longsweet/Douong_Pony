@@ -65,4 +65,48 @@ class LoginUserController
         }
     }
 
+    public function showForgotPasswordForm() {
+        include 'App/Views/Users/login.php';
+    }
+
+    public function postQuenMatKhau() {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // Lấy email từ form
+            $email = $_POST['email'];
+    
+            // Kiểm tra xem email có tồn tại trong database không
+            $user = (new LoginModel())->findUserByEmail($email);
+    
+            // Nếu email tồn tại, tạo mật khẩu mới và cập nhật
+            if ($user) {
+                // Tạo mật khẩu mới ngẫu nhiên (hoặc có thể yêu cầu người dùng nhập mật khẩu mới)
+                $newPassword = substr(md5(time()), 0, 8); // Tạo mật khẩu mới ngẫu nhiên (8 ký tự)
+                $hashedPassword = password_hash($newPassword, PASSWORD_BCRYPT);
+    
+                // Cập nhật mật khẩu mới vào database
+                if ((new LoginModel())->updatePassword($email, $hashedPassword)) {
+                    // Cập nhật thành công
+                    $_SESSION['success'] = "Mật khẩu mới của bạn là: <strong>$newPassword</strong>";
+                } else {
+                    // Nếu có lỗi khi cập nhật
+                    $_SESSION['error'] = "Có lỗi xảy ra khi cập nhật mật khẩu!";
+                }
+    
+            } else {
+                // Nếu email không tồn tại trong database
+                $_SESSION['error'] = "Email không tồn tại!";
+            }
+    
+            // Chuyển hướng về trang reset password và hiển thị thông báo
+            header("Location: " . BASE_URL . "?act=formqmk");
+            exit;
+        }
+    }
+    
+    
+    
+    
+    
 }
+    
+    

@@ -52,4 +52,32 @@ class LoginModel
         $stmt->bindParam(':role', $role);
         return $stmt->execute();
     }
+
+    public function findUserByEmail($email) {
+        $sql = "SELECT * FROM users WHERE email = :email";
+        $stmt = $this->db->pdo->prepare($sql);
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();   
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+
+    public function updatePassword($email, $newPassword) {
+        // Lưu mật khẩu thô (không mã hóa)
+        $sql = "UPDATE users SET password = :password WHERE email = :email";
+        $stmt = $this->db->pdo->prepare($sql);
+        $stmt->bindParam(':password', $newPassword); // Lưu mật khẩu thô
+        $stmt->bindParam(':email', $email);
+        
+        if ($stmt->execute()) {
+            return true;
+        } else {
+            return false; // Lỗi khi thực hiện câu lệnh
+        }
+    }
+    
+    
+    
+    
+    
 }

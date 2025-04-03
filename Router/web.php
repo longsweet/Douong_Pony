@@ -42,6 +42,16 @@ if ($role == "user") {
             break;
         }
 
+        case 'formqmk' : {
+            (new LoginUserController)->showForgotPasswordForm();
+            break;
+        }
+
+        case 'postQuenMatKhau' : {
+            (new LoginUserController)->postQuenMatKhau();
+            break;
+        }
+
     }
 } else {
 

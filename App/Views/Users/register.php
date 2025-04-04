@@ -13,16 +13,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <!-- font -->
-    <link rel="stylesheet" href="assets/Users/fonts/fonts.css">
-    <link rel="stylesheet" href="assets/Users/fonts/font-icons.css">
-    <link rel="stylesheet" href="assets/Users/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/Users/css/swiper-bundle.min.css">
-    <link rel="stylesheet" href="assets/Users/css/animate.css">
-    <link rel="stylesheet" type="text/css" href="assets/Users/css/styles.css" />
+    <link rel="stylesheet" href="/Douong_Pony/Assets/Users/fonts/fonts.css">
+    <link rel="stylesheet" href="/Douong_Pony/Assets/Users/fonts/font-icons.css">
+    <link rel="stylesheet" href="/Douong_Pony/Assets/Users/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/Douong_Pony/Assets/Users/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/Douong_Pony/Assets/Users/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="/Douong_Pony/Assets/Users/css/styles.css" />
 
     <!-- Favicon and Touch Icons  -->
-    <link rel="shortcut icon" href="assets/Users/images/logo/logomain_preview_rev.png">
-    <link rel="apple-touch-icon-precomposed" href="assets/Users/images/logo/logomain_preview_rev.png">
+    <link rel="shortcut icon" href="/Douong_Pony/Assets/Users/images/logo/logomain_preview_rev.png">
+    <link rel="apple-touch-icon-precomposed" href="/Douong_Pony/Assets/Users/images/logo/logomain_preview_rev.png">
     <style>
         .header-default {
             margin-bottom: 0 !important;
@@ -1665,16 +1665,16 @@
 
 
     <!-- Javascript -->
-    <script type="text/javascript" src="assets/Users/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="assets/Users/js/jquery.min.js"></script>
-    <script type="text/javascript" src="assets/Users/js/swiper-bundle.min.js"></script>
-    <script type="text/javascript" src="assets/Users/js/carousel.js"></script>
-    <script type="text/javascript" src="assets/Users/js/bootstrap-select.min.js"></script>
-    <script type="text/javascript" src="assets/Users/js/lazysize.min.js"></script>
-    <script type="text/javascript" src="assets/Users/js/count-down.js"></script>
-    <script type="text/javascript" src="assets/Users/js/wow.min.js"></script>
-    <script type="text/javascript" src="assets/Users/js/multiple-modal.js"></script>
-    <script type="text/javascript" src="assets/Users/js/main.js"></script>
+    <script type="text/javascript" src="/Douong_Pony/Assets/Users/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/Douong_Pony/Assets/Users/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/Douong_Pony/Assets/Users/js/swiper-bundle.min.js"></script>
+    <script type="text/javascript" src="/Douong_Pony/Assets/Users/js/carousel.js"></script>
+    <script type="text/javascript" src="/Douong_Pony/Assets/Users/js/bootstrap-select.min.js"></script>
+    <script type="text/javascript" src="/Douong_Pony/Assets/Users/js/lazysize.min.js"></script>
+    <script type="text/javascript" src="/Douong_Pony/Assets/Users/js/count-down.js"></script>
+    <script type="text/javascript" src="/Douong_Pony/Assets/Users/js/wow.min.js"></script>
+    <script type="text/javascript" src="/Douong_Pony/Assets/Users/js/multiple-modal.js"></script>
+    <script type="text/javascript" src="/Douong_Pony/Assets/Users/js/main.js"></script>
 </body>
 
 

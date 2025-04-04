@@ -31,4 +31,11 @@
                             <div class="text-tiny">Commets</div>
                         </a>
                     </li>
+
+                    
+                    <li>
+                        <a href="<?= BASE_URL_ADMIN  ?>act=orders">
+                            <div class="text-tiny">orders</div>
+                        </a>
+                    </li>
                 </ul>

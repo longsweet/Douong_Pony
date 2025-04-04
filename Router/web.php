@@ -52,6 +52,19 @@ if ($role == "user") {
             break;
         }
 
+        case 'my-account' : {
+            (new DashboardController)->myAccount();
+            break;
+        }
+        case 'account-detal' : {
+            (new DashboardController)->accountDetal();
+            break;
+        }
+        case 'account-update' : {
+            (new DashboardController)->accountUpdate();
+            break;
+        }
+
     }
 } else {
 

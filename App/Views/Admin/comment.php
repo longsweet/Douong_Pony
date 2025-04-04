@@ -9,7 +9,7 @@
             <div class="flex items-center flex-wrap justify-between gap20 mb-30">
                 <h3>Danh sách sản phẩm</h3>
                 <ul class="breadcrumbs flex items-center flex-wrap justify-start gap10">
-                <?= include 'App/Views/Admin/layouts/nav.php' ?>
+                    <?= include 'App/Views/Admin/layouts/nav.php' ?>
 
                 </ul>
             </div>
@@ -92,9 +92,9 @@
                                 <div class="body-text text-main-dark mt-4"><?= $value->avRating ?> <i class="icon icon-star text-warning">Danh Gia</i></div>
 
                                 <div class="body-text text-main-dark mt-4">
-                                    <?= isset($value->countComment) ? $value->countComment : 0 ?>
-                                    <i class="icon-message-square text-primary">SL</i>
-                                </div>
+    <?= isset($value->countComment) ? $value->countComment : 0 ?>
+    <i class="icon-message-square text-primary">SL</i>
+</div>
 
 
                                 <div class="list-icon-function">

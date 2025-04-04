@@ -137,5 +137,61 @@ class DashboardController
                 exit;
             }
         }
+
+    }
+
+
+    public function productDetail()
+    {
+        $productModel = new ProductUserModel();
+        $product = $productModel->getProductById();
+        $varibale = $productModel->getVaribalById();
+        $productImage = $productModel->getProductImageById();
+
+
+        $productImage = $productModel->getProductImageById();
+        if (isset($_GET['category_id'])) {
+            $productModel = new ProductUserModel();
+            $category = $productModel->getProductByCategory();
+            //  $category = 
+        } else {
+            $category = [];
+        }
+        $comment = $productModel->getComment($product->id);
+        foreach ($comment as $key => $value) {
+            $rating = $productModel->getCommentByUser($product->id, $value->user_id);
+            if ($rating) {
+                $comment[$key]->rating = $rating->rating;
+            } else {
+                $comment[$key]->rating = null;
+            }
+        }
+        // var_dump($productImage);die;
+        $ratingProduct = $productModel->getRating($product->id);
+        $ratingAvg = $productModel->avgRating($product->id);
+        // $ratingProduct = count($ratingProduct ) != 0 ? $ratingProduct : []; 
+        // var_dump($ratingProduct);
+        // die;
+
+
+        include 'App/Views/Users/product-detail.php';
+    }
+
+    public function writeReview()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $productModel = new ProductUserModel();
+            $productModel->saveRating();
+            $categoryId = $productModel->saveComment(); // Lấy category_id từ saveComment
+
+            // Kiểm tra và chuyển hướng
+            if ($categoryId !== false) {
+                $productId = $_POST['productId'];
+                header("Location: " . BASE_URL . "?act=product-detail&product_id=" . $productId . "&category_id=" . $categoryId);
+                exit();
+            } else {
+                echo "Không thể lấy được category_id.";
+            }
+        }
     }
 }

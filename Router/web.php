@@ -9,48 +9,48 @@ if ($role == "user") {
 
     switch ($act) {
 
-        case '' : {
-            (new DashboardController)->dashboard();
-            break;
-        }
-        case 'shop' : {
-            (new DashboardController)->showShop();
-            break;
-        }
+        case '': {
+                (new DashboardController)->dashboard();
+                break;
+            }
+        case 'shop': {
+                (new DashboardController)->showShop();
+                break;
+            }
 
-        case 'login' : {
-            (new LoginUserController)->login();
-            break;
-        }
+        case 'login': {
+                (new LoginUserController)->login();
+                break;
+            }
 
-        case 'post-login' : {
-            (new LoginUserController)->postLogin();
-            break;
-        }
+        case 'post-login': {
+                (new LoginUserController)->postLogin();
+                break;
+            }
 
-        case 'logout' : {
-            (new LoginUserController)->logout();
-            break;
-        }
+        case 'logout': {
+                (new LoginUserController)->logout();
+                break;
+            }
 
-        case 'register' : {
-            (new LoginUserController)->register();
-            break;
-        }
-        case 'post-register' : {
-            (new LoginUserController)->postRegister();
-            break;
-        }
+        case 'register': {
+                (new LoginUserController)->register();
+                break;
+            }
+        case 'post-register': {
+                (new LoginUserController)->postRegister();
+                break;
+            }
+        case 'product-detail': {
+                $DashboardController = new DashboardController();
+                $DashboardController->productDetail();
+                break;
+            }
 
-        case 'formqmk' : {
-            (new LoginUserController)->showForgotPasswordForm();
-            break;
-        }
-
-        case 'postQuenMatKhau' : {
-            (new LoginUserController)->postQuenMatKhau();
-            break;
-        }
+        case 'formqmk': {
+                (new LoginUserController)->showForgotPasswordForm();
+                break;
+            }
 
         case 'my-account' : {
             (new DashboardController)->myAccount();
@@ -65,6 +65,15 @@ if ($role == "user") {
             break;
         }
 
+        case 'postQuenMatKhau': {
+                (new LoginUserController)->postQuenMatKhau();
+                break;
+            }
+        case 'write-review'; {
+                $dashBoardController = new DashboardController();
+                $dashBoardController->writeReview();
+                break;
+            }
     }
 } else {
 
@@ -76,7 +85,7 @@ if ($role == "user") {
                 break;
             }
 
-        case 'product': {
+        case 'all-product': {
                 $productController = new ProductController();
                 $productController->getProductDashboard();
                 break;
@@ -150,28 +159,32 @@ if ($role == "user") {
                 break;
             }
 
-        case 'category-show'; {
+        case 'category-show': {
                 (new CategoryController())->ShowCategory();
                 break;
             }
 
             //comment 
-
-        case 'comment-all'; {
-                (new CommentRatingController())->showComment();
+        case 'comment-all': {
+                $commentRatingController = new CommentRatingController();
+                $commentRatingController->showComment();
                 break;
             }
 
-        case 'comment-detail'; {
-                (new CommentRatingController)->commentDetail();
+        case 'comment-detail': {
+                $commentRatingController = (new CommentRatingController)->commentDetail();
                 break;
             }
-        case 'comment-reply'; {
-                (new CommentRatingController)->commentReply();
+
+        case 'comment-reply': {
+                $commentRatingController = new CommentRatingController();
+                $commentRatingController->commentReply();
                 break;
             }
-        case 'comment-delete'; {
-                (new CommentRatingController)->commentDelete();
+
+        case 'comment-delete': {
+                $commentRatingController = new CommentRatingController();
+                $commentRatingController->commentDelete();
                 break;
             }
 
@@ -238,6 +251,12 @@ if ($role == "user") {
                 break;
             }
 
+            // case 'search-product': {
+            //         (new ProductController())->searchProduct();
+            //         break;
+            //     }
+
+
 
             // case 'comment-product'; {
             //         $commentRatingController = new CommentRatingController();
@@ -248,5 +267,4 @@ if ($role == "user") {
 
 
     }
-
 }

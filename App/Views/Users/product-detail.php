@@ -13,16 +13,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <!-- font -->
-  <link rel="stylesheet" href="assets/Users/fonts/fonts.css">
-  <link rel="stylesheet" href="assets/Users/fonts/font-icons.css">
-  <link rel="stylesheet" href="assets/Users/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/Users/css/swiper-bundle.min.css">
-  <link rel="stylesheet" href="assets/Users/css/animate.css">
-  <link rel="stylesheet" type="text/css" href="assets/Users/css/styles.css" />
+  <link rel="stylesheet" href="/Douong_Pony/Assets/Users/fonts/fonts.css">
+  <link rel="stylesheet" href="/Douong_Pony/Assets/Users/fonts/font-icons.css">
+  <link rel="stylesheet" href="/Douong_Pony/Assets/Users/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/Douong_Pony/Assets/Users/css/swiper-bundle.min.css">
+  <link rel="stylesheet" href="/Douong_Pony/Assets/Users/css/animate.css">
+  <link rel="stylesheet" type="text/css" href="/Douong_Pony/Assets/Users/css/styles.css" />
 
   <!-- Favicon and Touch Icons  -->
-  <link rel="shortcut icon" href="assets/Users/images/logo/logomain_preview_rev.png">
-  <link rel="apple-touch-icon-precomposed" href="assets/Users/images/logo/logomain_preview_rev.png">
+  <link rel="shortcut icon" href="/Douong_Pony/Assets/Users/images/logo/logomain_preview_rev.png">
+  <link rel="apple-touch-icon-precomposed" href="/Douong_Pony/Assets/Users/images/logo/logomain_preview_rev.png">
   <style>
     .header-default {
       margin-bottom: 0 !important;
@@ -141,7 +141,16 @@
                     <div class="liveview-count"><?= $product->stock ?></div>
                     <p class="fw-6">Số lượng sản phẩm tại quán có hạn! Mua nhanh tay!</p>
                   </div>
+
                   <div class="tf-product-info-quantity">
+                    <div class="">
+                      <?php foreach ($varibale as $v):    ?>
+                        <button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition">
+                          <?= htmlspecialchars($v['size']) ?>
+                        </button>
+
+                      <?php endforeach;   ?>
+                    </div>
                     <div class="quantity-title fw-6">Số lượng</div>
                     <div class="wg-quantity">
                       <span class="btn-quantity btn-decrease-custom">-</span>
@@ -2109,7 +2118,7 @@
   <!-- auto popup  -->
   <div class="modal modalCentered fade auto-popup modal-newleter">
     <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
+      <!-- <div class="modal-content">
         <div class="modal-top">
           <img class="lazyload" data-src="assets/Users/images/item/banner-newleter.jpg" src="assets/Users/images/item/banner-newleter.jpg" alt="home-01">
           <span class="icon icon-close btn-hide-popup" data-bs-dismiss="modal"></span>
@@ -2128,7 +2137,7 @@
             <a href="#" data-bs-dismiss="modal" class="tf-btn btn-line fw-6 btn-hide-popup">Not interested</a>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
   <!-- /auto popup  -->

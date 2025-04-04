@@ -56,6 +56,11 @@ if ($role == "user") {
                 (new LoginUserController)->postQuenMatKhau();
                 break;
             }
+        case 'write-review'; {
+                $dashBoardController = new DashboardController();
+                $dashBoardController->writeReview();
+                break;
+            }
     }
 } else {
 
@@ -147,22 +152,26 @@ if ($role == "user") {
             }
 
             //comment 
-
-        case 'comment-all'; {
-                (new CommentRatingController())->showComment();
+        case 'comment-product'; {
+                $commentRatingController = new CommentRatingController();
+                $commentRatingController->showComment();
                 break;
             }
 
         case 'comment-detail'; {
-                (new CommentRatingController)->commentDetail();
+                $commentRatingController = (new CommentRatingController)->showComment();
                 break;
             }
+
         case 'comment-reply'; {
-                (new CommentRatingController)->commentReply();
+                $commentRatingController = new CommentRatingController();
+                $commentRatingController->commentReply();
                 break;
             }
+
         case 'comment-delete'; {
-                (new CommentRatingController)->commentDelete();
+                $commentRatingController = new CommentRatingController();
+                $commentRatingController->commentDelete();
                 break;
             }
 
@@ -228,6 +237,12 @@ if ($role == "user") {
                 (new OrderController())->updateOrder();
                 break;
             }
+
+            // case 'search-product': {
+            //         (new ProductController())->searchProduct();
+            //         break;
+            //     }
+
 
 
             // case 'comment-product'; {

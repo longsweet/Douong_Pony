@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class CommentRatingController
 {
@@ -8,10 +8,10 @@ class CommentRatingController
         $listProduct = $productModel->getAllProduct();
         $comment = new CommentRatingModel();
 
-        foreach($listProduct as $key => $value)
-        // {
+        foreach ($listProduct as $key => $value)
+            // {
             $listProduct[$key]->avRating = $comment->avgRating($value->id);
-            $listProduct[$key]->countComment = $comment->countComment($value->id);
+        $listProduct[$key]->countComment = $comment->countComment($value->id);
         // }
 
         include 'App/Views/Admin/comment.php';
@@ -24,7 +24,7 @@ class CommentRatingController
 
         $commentRatingModel = new CommentRatingModel();
         $commentDetail = $commentRatingModel->showCommentDetail();
-    
+
         include 'App/Views/Admin/comment-detail.php';
     }
 
@@ -43,5 +43,4 @@ class CommentRatingController
 
         header('Location: ' .   BASE_URL    .   "?role=admin&act=comment-detail&id="    .   $_POST['productId']);
     }
-    
 }

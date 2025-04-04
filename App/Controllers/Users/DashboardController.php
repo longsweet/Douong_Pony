@@ -95,6 +95,9 @@ class DashboardController
     {
         $productModel = new ProductUserModel();
         $product = $productModel->getProductById();
+        $varibale = $productModel->getVaribalById();
+        $productImage = $productModel->getProductImageById();
+
 
         $productImage = $productModel->getProductImageById();
         if (isset($_GET['category_id'])) {
@@ -121,6 +124,24 @@ class DashboardController
         // die;
 
 
-        include 'app/Views/Users/product-detail.php';
+        include 'App/Views/Users/product-detail.php';
+    }
+
+    public function writeReview()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $productModel = new ProductUserModel();
+            $productModel->saveRating();
+            $categoryId = $productModel->saveComment(); // Lấy category_id từ saveComment
+
+            // Kiểm tra và chuyển hướng
+            if ($categoryId !== false) {
+                $productId = $_POST['productId'];
+                header("Location: " . BASE_URL . "?act=product-detail&product_id=" . $productId . "&category_id=" . $categoryId);
+                exit();
+            } else {
+                echo "Không thể lấy được category_id.";
+            }
+        }
     }
 }

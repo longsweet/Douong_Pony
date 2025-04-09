@@ -76,29 +76,31 @@ class DashboardController
     public function accountDetal()
     {
         $user = (new LoginModel())->getCurrenUser();
-    
+
         // if (!$user) {
         //     // Xử lý trường hợp chưa đăng nhập, ví dụ:
         //     header("    BASE_URL.?act=login    ");
         //     exit;
         // }
-    
+
         include 'App/Views/Users/account-detal.php';
     }
 
-    public function changePassword(){
-        if(
+    public function changePassword()
+    {
+        if (
             $_POST['current-password'] != "" &&
             $_POST['new-password'] != "" &&
             $_POST['confirm-password'] != "" &&
             $_POST['new-password'] == $_POST['confirm-password']
-        ){
+        ) {
             $userModel = (new LoginModel())->changePassword();
         }
     }
 
-    public function accountUpdate(){
-        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    public function accountUpdate()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $this->changePassword();
             $user = (new LoginModel())->getCurrenUser();
 
@@ -107,16 +109,16 @@ class DashboardController
             $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
             $destPath = $user->image;
 
-            if(!empty($_FILES['image']['name'])){
+            if (!empty($_FILES['image']['name'])) {
                 $fileTmpPath = $_FILES['image']['tmp_name'];
                 $fileType = mime_content_type($fileTmpPath);
                 $fileName = basename($_FILES['image']['name']);
                 $fileExtension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
 
                 $newFileName = uniqid() . '.' . $fileExtension;
-                if(in_array($fileType, $allowedTypes)){
+                if (in_array($fileType, $allowedTypes)) {
                     $destPath = $uploadDir . $newFileName;
-                    if(!move_uploaded_file($fileTmpPath, $destPath)){
+                    if (!move_uploaded_file($fileTmpPath, $destPath)) {
                         $destPath = "";
                     }
                     //xóa ảnh cũ
@@ -127,17 +129,16 @@ class DashboardController
             $message = (new LoginModel())->updateCurrentUser($destPath);
 
 
-            if($message){
+            if ($message) {
                 $_SESSION['message'] = "Cập nhật thành công!";
                 header("Location: " . BASE_URL . "?act=account-detal");
                 exit;
-            }else{
+            } else {
                 $_SESSION['message'] = "Cập nhật không thành công!";
                 header("Location: " . BASE_URL . "?act=account-detal");
                 exit;
             }
         }
-
     }
 
 
@@ -145,36 +146,35 @@ class DashboardController
     {
         $productModel = new ProductUserModel();
         $product = $productModel->getProductById();
-        $varibale = $productModel->getVaribalById();
+        $variable = $productModel->getVaribalById(); // SỬA Ở ĐÂY
         $productImage = $productModel->getProductImageById();
 
-
-        $productImage = $productModel->getProductImageById();
         if (isset($_GET['category_id'])) {
-            $productModel = new ProductUserModel();
             $category = $productModel->getProductByCategory();
-            //  $category = 
         } else {
             $category = [];
         }
+
         $comment = $productModel->getComment($product->id);
         foreach ($comment as $key => $value) {
             $rating = $productModel->getCommentByUser($product->id, $value->user_id);
-            if ($rating) {
-                $comment[$key]->rating = $rating->rating;
-            } else {
-                $comment[$key]->rating = null;
-            }
+            $comment[$key]->rating = $rating ? $rating->rating : null;
         }
-        // var_dump($productImage);die;
+
         $ratingProduct = $productModel->getRating($product->id);
         $ratingAvg = $productModel->avgRating($product->id);
-        // $ratingProduct = count($ratingProduct ) != 0 ? $ratingProduct : []; 
-        // var_dump($ratingProduct);
-        // die;
-
 
         include 'App/Views/Users/product-detail.php';
+    }
+
+
+    public function allCategory()
+    {
+
+        $listCategory = (new CategoryUserModel())->allCategory();
+
+
+        include 'App/Views/Users/all-category.php';
     }
 
     public function writeReview()
@@ -194,4 +194,115 @@ class DashboardController
             }
         }
     }
+
+    public function addToCart()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $cartModel = new CartUserModel();
+            $cartModel->addCartModel(); // xử lý thêm vào giỏ hàng
+
+            // Chuyển hướng sau khi thêm
+            header("Location: " . BASE_URL . "?act=shopping-cart");
+
+            exit;
+        } else {
+            echo "Truy cập không hợp lệ!";
+        }
+    }
+
+
+
+
+    public function showToCart()
+    {
+        $cartModel = new CartUserModel();
+        $data = $cartModel->showCartModel();
+        echo json_encode($data);
+    }
+    public function updateCart()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            $model = (new CartUserModel())->updateCartModel();
+        }
+
+        header("Location: " . BASE_URL . "?act=shopping-cart"); // quay lại giỏ hàng
+        exit;
+    }
+
+
+
+
+
+
+    public function showCart()
+    {
+        require_once "./App/Models/User/CartUserModel.php";
+        $model = new CartUserModel();
+        $data = $model->showCartModel();
+        require_once "./App/Views/Users/shopcart.php"; // view hiển thị giỏ hàng
+    }
+
+    public function deleteCartItem()
+    {
+        if (isset($_GET['id'])) {
+            $id = $_GET['id'];
+            require_once "./App/Models/User/CartUserModel.php";
+            $model = new CartUserModel();
+            $model->deleteCartItemModel($id);
+        }
+        header("Location: " . BASE_URL . "?act=shopcart");
+        exit;
+    }
+
+    public function shoppingCart()
+    {
+        $data = (new CartUserModel())->showCartModel();
+        include 'App/Views/Users/shopping-cart.php';
+    }
+
+    public function checkout()
+    {
+        $currentUser = (new LoginModel())->getCurrenUser();
+        $products = (new CartUserModel())->showCartModel();
+        include 'App/Views/Users/check-out.php';
+    }
+
+    public function submitCheckout()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $cartModel = new CartUserModel();
+            $products = $cartModel->showCartModel();
+
+
+            $orderModel = new OrderUserModel();
+            $addOrder = $orderModel->order($products);
+            if ($addOrder) {
+                $cartModel->deleteCartDetail();
+                header("Location: " . BASE_URL);
+            }
+        }
+    }
+
+    public function showOrder()
+    {
+        $orderModel = new OrderUserModel();
+        $orders = $orderModel->getAllOrder();
+        include 'app/Views/Users/show-order.php';
+    }
+
+    public function showOrderDetail()
+    {
+
+        $order_detail = (new OrderUserModel())->getOrderDetail();
+        include 'App/Views/Users/show-order-detail.php';
+    }
+
+    public function cancelOrder(){
+        $orderModel = new OrderUserModel();
+        $orderModel->cancelOrderModel();
+        header("location: " . BASE_URL . "?act=show-order");
+    }
+    
+    
 }

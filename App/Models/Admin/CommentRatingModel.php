@@ -36,17 +36,18 @@ class CommentRatingModel
     }
     
 
-    public function showcommentDetail()
-    {
+
+    public function showCommentDetail(){
         $product_id = $_GET['id'];
         $sql = "SELECT product_comment.*, users.name FROM `product_comment` JOIN users on product_comment.user_id = users.id 
         where product_comment.product_id = :product_id and users.role != 1";
-
         $stmt = $this->db->pdo->prepare($sql);
         $stmt->bindParam(':product_id', $product_id);
         $stmt->execute();
         return $stmt->fetchAll();
     }
+
+
     public function repComment()
     {
         $productId = $_POST['product-id'];

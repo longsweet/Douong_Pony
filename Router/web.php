@@ -52,26 +52,86 @@ if ($role == "user") {
                 break;
             }
 
-        case 'my-account' : {
-            (new DashboardController)->myAccount();
-            break;
-        }
-        case 'account-detal' : {
-            (new DashboardController)->accountDetal();
-            break;
-        }
-        case 'account-update' : {
-            (new DashboardController)->accountUpdate();
-            break;
-        }
+        case 'my-account': {
+                (new DashboardController)->myAccount();
+                break;
+            }
+        case 'account-detal': {
+                (new DashboardController)->accountDetal();
+                break;
+            }
+        case 'account-update': {
+                (new DashboardController)->accountUpdate();
+                break;
+            }
 
         case 'postQuenMatKhau': {
                 (new LoginUserController)->postQuenMatKhau();
                 break;
             }
-        case 'write-review'; {
+        case 'write-review': {
                 $dashBoardController = new DashboardController();
                 $dashBoardController->writeReview();
+                break;
+            }
+
+            //categoies
+
+        case 'all-category': {
+                (new DashboardController)->allCategory();
+                break;
+            }
+
+            // giỏ hàng 
+
+        case 'add-to-cart': {
+                (new DashboardController)->addToCart();
+                break;
+            }
+
+        case 'update-cart': {
+                (new DashboardController)->updateCart();
+                break;
+            }
+
+        case 'show-to-cart': {
+                (new DashboardController)->showToCart();
+                break;
+            }
+
+        case 'delete-cart': {
+                (new DashboardController)->deleteCartItem();
+                break;
+            }
+
+        case 'shopping-cart': {
+                (new DashboardController)->shoppingCart();
+                break;
+            }
+
+        case 'check-out': {
+                (new DashboardController)->checkout();
+                break;
+            }
+
+        case 'submit-check-out': {
+                (new DashboardController)->submitCheckout();
+                break;
+            }
+
+        case 'show-order': {
+                (new DashboardController)->showOrder();
+                break;
+            }
+
+        case 'show-order-detail': {
+                (new DashboardController)->showOrderDetail();
+                break;
+            }
+
+            case 'cancel-order'; {
+                $dashBoardController = new DashboardController();
+                $dashBoardController->cancelOrder();
                 break;
             }
     }
@@ -172,7 +232,8 @@ if ($role == "user") {
             }
 
         case 'comment-detail': {
-                $commentRatingController = (new CommentRatingController)->commentDetail();
+                $commentRatingController = new CommentRatingController();
+                $commentRatingController->commentDetail();
                 break;
             }
 

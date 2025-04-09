@@ -7,22 +7,22 @@
 
 <head>
     <meta charset="utf-8">
-    <title>MHT Tea - Shop</title>
+    <title>POLY Tea - Login</title>
 
     <meta name="author" content="themesflat.com">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <!-- font -->
-    <link rel="stylesheet" href="assets/Users/fonts/fonts.css">
-    <link rel="stylesheet" href="assets/Users/fonts/font-icons.css">
-    <link rel="stylesheet" href="assets/Users/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/Users/css/swiper-bundle.min.css">
-    <link rel="stylesheet" href="assets/Users/css/animate.css">
-    <link rel="stylesheet" type="text/css" href="assets/Users/css/styles.css" />
+    <link rel="stylesheet" href="/Douong_Pony/Assets/Users/fonts/fonts.css">
+    <link rel="stylesheet" href="/Douong_Pony/Assets/Users/fonts/font-icons.css">
+    <link rel="stylesheet" href="/Douong_Pony/Assets/Users/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/Douong_Pony/Assets/Users/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/Douong_Pony/Assets/Users/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="/Douong_Pony/Assets/Users/css/styles.css" />
 
     <!-- Favicon and Touch Icons  -->
-    <link rel="shortcut icon" href="assets/Users/images/logo/logomain_preview_rev.png">
-    <link rel="apple-touch-icon-precomposed" href="assets/Users/images/logo/logomain_preview_rev.png">
+    <link rel="shortcut icon" href="/Douong_Pony/Assets/Users/images/logo/logomain_preview_rev.png">
+    <link rel="apple-touch-icon-precomposed" href="/Douong_Pony/Assets/Users/images/logo/logomain_preview_rev.png">
     <style>
         .header-default {
             margin-bottom: 0 !important;
@@ -43,408 +43,68 @@
         </div>
     </div>
     <!-- /preload -->
+
+
     <div id="wrapper">
 
         <!-- Header -->
-        <?php include 'app/Views/Users/layouts/header.php' ?>
+        <?php include 'App/Views/Users/layouts/header.php' ?>
         <!-- /Header -->
 
         <div class="tf-page-title style-2">
             <div class="container-full">
-                <div class="heading text-center">
-                    <?php
-                    if (isset($category)) {
-                        echo $category->name;
-                    } else {
-                        echo "Tất cả sản phẩm";
-                    }
-                    ?>
-
-                </div>
+                <div class="heading text-center">Tất cả danh mục</div>
             </div>
         </div>
 
-        <section class="flat-spacing-2">
+        <section class="flat-spacing-1">
             <div class="container">
-                <div class="tf-shop-control grid-3 align-items-center">
-                    <div class="tf-control-filter">
-                        <a href="#filterShop" data-bs-toggle="offcanvas" aria-controls="offcanvasLeft" class="tf-btn-filter"><span class="icon icon-filter"></span><span class="text">lọc</span></a>
-                    </div>
-                    <ul class="tf-control-layout d-flex justify-content-center">
-                        <li class="tf-view-layout-switch sw-layout-2" data-value-grid="grid-2">
-                            <div class="item"><span class="icon icon-grid-2"></span></div>
-                        </li>
-                        <li class="tf-view-layout-switch sw-layout-3 active" data-value-grid="grid-3">
-                            <div class="item"><span class="icon icon-grid-3"></span></div>
-                        </li>
-                        <li class="tf-view-layout-switch sw-layout-4" data-value-grid="grid-4">
-                            <div class="item"><span class="icon icon-grid-4"></span></div>
-                        </li>
-                        <li class="tf-view-layout-switch sw-layout-5" data-value-grid="grid-5">
-                            <div class="item"><span class="icon icon-grid-5"></span></div>
-                        </li>
-                        <li class="tf-view-layout-switch sw-layout-6" data-value-grid="grid-6">
-                            <div class="item"><span class="icon icon-grid-6"></span></div>
-                        </li>
-                    </ul>
-                    <div class="tf-control-sorting d-flex justify-content-end">
-                        <div class="tf-dropdown-sort" data-bs-toggle="dropdown">
-                            <div class="btn-select">
-                                <span class="text-sort-value">Featured</span>
-                                <span class="icon icon-arrow-down"></span>
-                            </div>
-                            <div class="dropdown-menu">
-                                <div class="select-item active">
-                                    <span class="text-value-item">Featured</span>
-                                </div>
-                                <div class="select-item">
-                                    <span class="text-value-item">Best selling</span>
-                                </div>
-                                <div class="select-item">
-                                    <span class="text-value-item">Alphabetically, A-Z</span>
-                                </div>
-                                <div class="select-item">
-                                    <span class="text-value-item">Alphabetically, Z-A</span>
-                                </div>
-                                <div class="select-item">
-                                    <span class="text-value-item">Price, low to high</span>
-                                </div>
-                                <div class="select-item">
-                                    <span class="text-value-item">Price, high to low</span>
-                                </div>
-                                <div class="select-item">
-                                    <span class="text-value-item">Date, old to new</span>
-                                </div>
-                                <div class="select-item">
-                                    <span class="text-value-item">Date, new to old</span>
-                                </div>
+                <div class="tf-grid-layout lg-col-3 tf-col-2">
+                    <?php foreach($listCategory as $key => $value): ?>
+                    <div class="collection-item hover-img">
+                        <div class="collection-inner">
+                            <a href="<?= BASE_URL?>?act=shop&category_id=<?= $value->id?>" class="collection-image img-style">
+                                <img class=" ls-is-cached lazyloaded" data-src="assets/Admin/images/products/Oolong-Dao-Que-Hoa-Kem-Cheese.png" src="assets/Admin/images/products/Oolong-Dao-Que-Hoa-Kem-Cheese.png" alt="collection-img">
+                            </a>
+                            <div class="collection-content">
+                                <a href="<?= BASE_URL?>?act=shop&category_id=<?= $value->id?>" class="tf-btn collection-title hover-icon"><span><?= $value->name?></span><i class="icon icon-arrow1-top-left"></i></a>
                             </div>
                         </div>
-
                     </div>
+                    <?php endforeach; ?>
+                    
                 </div>
-                <div class="wrapper-control-shop">
-                    <div class="meta-filter-shop"></div>
-                    <div class="grid-layout loadmore-item wow fadeInUp" data-wow-delay="0s" data-grid="grid-4">
-                        <!-- card product 1 -->
-                        <?php
-                        foreach ($listProduct as $key => $value): ?>
-
-                            <div class="card-product fl-item" data-price="<?= $value->price ?>" data-color="orange black white">
-                                <div class="card-product-wrapper">
-                                    <a href="<?= BASE_URL?>?act=product-detail&product_id=<?= $value->id?>&category_id=<?= $value->category_id?>" class="product-img">
-                                        <img class="img-product ls-is-cached lazyloaded" data-src="<?= $value->image_main ?>" src="<?= $value->image_main ?>" alt="image-product">
-                                        <img class="img-hover ls-is-cached lazyloaded" data-src="<?= $value->image_main ?>" src="<?= $value->image_main ?>" alt="image-product">
-                                    </a>
-                                    <div class="list-product-btn absolute-2">
-                                        <a href="#quick_add" data-bs-toggle="modal" class="box-icon bg_white quick-add tf-btn-loading">
-                                            <span class="icon icon-bag"></span>
-                                            <span class="tooltip">Thêm vào giỏ hàng</span>
-                                        </a>
-                                        <a href="javascript:void(0);" class="box-icon bg_white wishlist btn-icon-action">
-                                            <span class="icon icon-heart"></span>
-                                            <span class="tooltip">Thêm vào yêu thích</span>
-                                            <span class="icon icon-delete"></span>
-                                        </a>
-
-                                        <a href="#quick_view" data-bs-toggle="modal" class="box-icon bg_white quickview tf-btn-loading">
-                                            <span class="icon icon-view"></span>
-                                            <span class="tooltip">chi tiết</span>
-                                        </a>
-                                    </div>
-                                    <div class="size-list">
-                                        <span>Độc quyền MHT Tea</span>
-                                    </div>
-                                </div>
-                                <div class="card-product-info">
-                                    <a href="<?= BASE_URL?>?act=product-detail&product_id=<?= $value->id?>&category_id=<?= $value->category_id?>" class="title link"><?= $value->name ?></a>
-                                    <div style="display: flex;">
-                                        <?php if ($value->price_sale != null): ?>
-                                            <span class="price" style="margin-right: 5px; text-decoration: line-through;">
-                                                <?= number_format($value->price) ?> VNĐ
-                                            </span>
-                                            <span class="price price-sale" style="color:red;">
-                                                <?= number_format($value->price_sale) ?> VNĐ
-                                                <i class="icon-lightning"></i>
-                                            </span>
-                                        <?php else: ?>
-                                            <span class="price" style="margin-right: 5px;">
-                                                <?= number_format($value->price) ?> VNĐ
-                                            </span>
-                                        <?php endif; ?>
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
-                    <!-- pagination -->
-                    <ul class="tf-pagination-wrap tf-pagination-list tf-pagination-btn">
-                        <li class="active">
-                            <a href="#" class="pagination-link">1</a>
-                        </li>
-                        <li>
-                            <a href="#" class="pagination-link animate-hover-btn">2</a>
-                        </li>
-                        <li>
-                            <a href="#" class="pagination-link animate-hover-btn">3</a>
-                        </li>
-                        <li>
-                            <a href="#" class="pagination-link animate-hover-btn">4</a>
-                        </li>
-                        <li>
-                            <a href="#" class="pagination-link animate-hover-btn">
-                                <span class="icon icon-arrow-right"></span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
+                <!-- pagination -->
+                <ul class="tf-pagination-wrap tf-pagination-list">
+                    <li class="active">
+                        <a href="#" class="pagination-link">1</a>
+                    </li>
+                    <li>
+                        <a href="#" class="pagination-link animate-hover-btn">2</a>
+                    </li>
+                    <li>
+                        <a href="#" class="pagination-link animate-hover-btn">3</a>
+                    </li>
+                    <li>
+                        <a href="#" class="pagination-link animate-hover-btn">4</a>
+                    </li>
+                    <li>
+                        <a href="#" class="pagination-link animate-hover-btn">
+                            <span class="icon icon-arrow-right"></span>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </section>
 
-        <!-- filter -->
-        <div class="offcanvas offcanvas-start canvas-filter" id="filterShop" aria-modal="true" role="dialog">
-            <div class="canvas-wrapper">
-                <header class="canvas-header" style="top: 0px;">
-                    <div class="filter-icon">
-                        <span class="icon icon-filter"></span>
-                        <span>LỌC</span>
-                    </div>
-                    <span class="icon-close icon-close-popup" data-bs-dismiss="offcanvas" aria-label="Close"></span>
-                </header>
-                <div class="canvas-body">
-                    <div class="widget-facet">
-                        <div class="facet-title" data-bs-target="#product-name" data-bs-toggle="collapse" aria-expanded="true" aria-controls="product-name">
-                            <span>Tên sản phẩm</span>
-                            <span class="icon icon-arrow-up"></span>
-                        </div>
-                        <div id="product-name" class="collapse show">
-                            <form action="<?php BASE_URL ?>" method="get">
-                                <div class="tf-mini-search-frm" style="margin-bottom: 2.4rem;">
-                                    <fieldset class="text">
-                                        <input type="hidden" name="act" value="shop">
-                                        <input type="text" placeholder="Search" class="" name="product-name" tabindex="0" value="" aria-required="true" required="">
-                                    </fieldset>
-                                    <button class="" type="submit"><i class="icon-search"></i></button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-
-
-                    <div class="widget-facet wd-categories">
-                        <div class="facet-title" data-bs-target="#categories" data-bs-toggle="collapse" aria-expanded="true" aria-controls="categories">
-                            <span>Danh mục sản phẩm</span>
-                            <span class="icon icon-arrow-up"></span>
-                        </div>
-                        <div id="categories" class="collapse show">
-                            <ul class="list-categoris current-scrollbar mb_36">
-                                <?php foreach ($listCategory as $key => $value): ?>
-                                    <li class="cate-item
-                                <?php if (isset($_GET['category_id']) && $_GET['category_id']  == $value->id): ?>
-                                    current
-                                <?php endif; ?>
-                                ">
-                                        <a href="<?php BASE_URL ?>?act=shop&category_id=<?= $value->id ?>">
-                                            <span><?= $value->name ?></span>
-                                        </a>
-                                    </li>
-                                <?php endforeach; ?>
-                            </ul>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="widget-facet">
-                            <div class="facet-title" data-bs-target="#availability" data-bs-toggle="collapse" aria-expanded="true" aria-controls="availability">
-                                <span>Trạng thái</span>
-                                <span class="icon icon-arrow-up"></span>
-                            </div>
-                            <div id="availability" class="collapse show">
-                                <ul class="tf-filter-group current-scrollbar mb_36">
-                                    <li class="list-item d-flex gap-12 align-items-center">
-                                        <a
-                                            <?php
-                                            if (isset($_GET['category_id'])) {
-                                                echo 'href="' . BASE_URL . '?act=shop&category_id=' . $_GET['category_id'] . '&instock=true"';
-                                            } else {
-                                                echo 'href="' . BASE_URL . '?act=shop&instock=true"';
-                                            }
-                                            ?>
-                                            class="label">
-                                            <span>Còn hàng</span>&nbsp;<span>(<?= $stock[0]->instock ?>)</span>
-                                        </a>
-                                    </li>
-                                    <li class="list-item d-flex gap-12 align-items-center">
-                                        <a
-                                            <?php
-                                            if (isset($_GET['category_id'])) {
-                                                echo 'href="' . BASE_URL . '?act=shop&category_id=' . $_GET['category_id'] . '&outstock=true"';
-                                            } else {
-                                                echo 'href="' . BASE_URL . '?act=shop&outstock=true"';
-                                            }
-                                            ?>
-                                            class="label">
-                                            <span>Hết hàng</span>&nbsp;<span>(<?= $stock[1]->outstock ?>)</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="widget-facet">
-                            <div class="facet-title" data-bs-target="#price" data-bs-toggle="collapse" aria-expanded="true" aria-controls="price">
-                                <span>Giá</span>
-                                <span class="icon icon-arrow-up"></span>
-                            </div>
-                            <div id="price" class="collapse show">
-                                <form action="<?= BASE_URL ?>" method="get">
-                                    <div class="widget-price filter-price">
-                                        <div class="d-flex">
-                                            <input type="hidden" name="act" value="shop">
-                                            <input type="number" placeholder="Min" style="margin-right: 3px;" class="me-3" name="min">
-                                            <input type="number" placeholder="Max" name="max">
-                                        </div>
-                                        <div class="d-flex justify-content-end">
-                                            <button class="btn btn-primary mt-2 btn-sm">Tìm</button>
-                                        </div>
-
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        
-                        <div class="widget-facet">
-                            <div class="facet-title" data-bs-target="#color" data-bs-toggle="collapse" aria-expanded="true" aria-controls="color">
-                                <span>Color</span>
-                                <span class="icon icon-arrow-up"></span>
-                            </div>
-                            <div id="color" class="collapse show">
-                                <ul class="tf-filter-group filter-color current-scrollbar mb_36">
-                                    <li class="list-item d-flex gap-12 align-items-center">
-                                        <input type="checkbox" name="color" class="tf-check-color bg_beige" id="beige" value="beige">
-                                        <label for="beige" class="label"><span>Beige</span>&nbsp;<span>(3)</span></label>
-                                    </li>
-                                    <li class="list-item d-flex gap-12 align-items-center">
-                                        <input type="checkbox" name="color" class="tf-check-color bg_dark" id="black" value="black">
-                                        <label for="black" class="label"><span>Black</span>&nbsp;<span>(18)</span></label>
-                                    </li>
-                                    <li class="list-item d-flex gap-12 align-items-center">
-                                        <input type="checkbox" name="color" class="tf-check-color bg_blue-2" id="blue" value="blue">
-                                        <label for="blue" class="label"><span>Blue</span>&nbsp;<span>(3)</span></label>
-                                    </li>
-                                    <li class="list-item d-flex gap-12 align-items-center">
-                                        <input type="checkbox" name="color" class="tf-check-color bg_brown" id="brown" value="brown">
-                                        <label for="brown" class="label"><span>Brown</span>&nbsp;<span>(3)</span></label>
-                                    </li>
-                                    <li class="list-item d-flex gap-12 align-items-center">
-                                        <input type="checkbox" name="color" class="tf-check-color bg_cream" id="cream" value="cream">
-                                        <label for="cream" class="label"><span>Cream</span>&nbsp;<span>(1)</span></label>
-                                    </li>
-                                    <li class="list-item d-flex gap-12 align-items-center">
-                                        <input type="checkbox" name="color" class="tf-check-color bg_dark-beige" id="dark-beige" value="dark-beige">
-                                        <label for="dark-beige" class="label"><span>Dark Beige</span>&nbsp;<span>(1)</span></label>
-                                    </li>
-                                    <li class="list-item d-flex gap-12 align-items-center">
-                                        <input type="checkbox" name="color" class="tf-check-color bg_dark-blue" id="dark-blue" value="dark-blue">
-                                        <label for="dark-blue" class="label"><span>Dark Blue</span>&nbsp;<span>(3)</span></label>
-                                    </li>
-                                    <li class="list-item d-flex gap-12 align-items-center">
-                                        <input type="checkbox" name="color" class="tf-check-color bg_dark-green" id="dark-green" value="dark-green">
-                                        <label for="dark-green" class="label"><span>Dark Green</span>&nbsp;<span>(1)</span></label>
-                                    </li>
-                                    <li class="list-item d-flex gap-12 align-items-center">
-                                        <input type="checkbox" name="color" class="tf-check-color bg_dark-grey" id="dark-grey" value="dark-grey">
-                                        <label for="dark-grey" class="label"><span>Dark Grey</span>&nbsp;<span>(1)</span></label>
-                                    </li>
-                                    <li class="list-item d-flex gap-12 align-items-center">
-                                        <input type="checkbox" name="color" class="tf-check-color bg_grey" id="grey" value="grey">
-                                        <label for="grey" class="label"><span>Grey</span>&nbsp;<span>(2)</span></label>
-                                    </li>
-                                    <li class="list-item d-flex gap-12 align-items-center">
-                                        <input type="checkbox" name="color" class="tf-check-color bg_light-blue" id="light-blue" value="light-blue">
-                                        <label for="light-blue" class="label"><span>Light Blue</span>&nbsp;<span>(5)</span></label>
-                                    </li>
-                                    <li class="list-item d-flex gap-12 align-items-center">
-                                        <input type="checkbox" name="color" class="tf-check-color bg_light-green" id="light-green" value="light-green">
-                                        <label for="light-green" class="label"><span>Light Green</span>&nbsp;<span>(3)</span></label>
-                                    </li>
-                                    <li class="list-item d-flex gap-12 align-items-center">
-                                        <input type="checkbox" name="color" class="tf-check-color bg_light-grey" id="light-grey" value="light-grey">
-                                        <label for="light-grey" class="label"><span>Light Grey</span>&nbsp;<span>(1)</span></label>
-                                    </li>
-                                    <li class="list-item d-flex gap-12 align-items-center">
-                                        <input type="checkbox" name="color" class="tf-check-color bg_light-pink" id="light-pink" value="light-pink">
-                                        <label for="light-pink" class="label"><span>Light Pink</span>&nbsp;<span>(2)</span></label>
-                                    </li>
-                                    <li class="list-item d-flex gap-12 align-items-center">
-                                        <input type="checkbox" name="color" class="tf-check-color bg_purple" id="light-purple" value="light-purple">
-                                        <label for="light-purple" class="label"><span>Light Purple</span>&nbsp;<span>(2)</span></label>
-                                    </li>
-                                    <li class="list-item d-flex gap-12 align-items-center">
-                                        <input type="checkbox" name="color" class="tf-check-color bg_light-yellow" id="light-yellow" value="light-yellow">
-                                        <label for="light-yellow" class="label"><span>Light Yellow</span>&nbsp;<span>(1)</span></label>
-                                    </li>
-                                    <li class="list-item d-flex gap-12 align-items-center">
-                                        <input type="checkbox" name="color" class="tf-check-color bg_orange" id="orange" value="orange">
-                                        <label for="orange" class="label"><span>Orange</span>&nbsp;<span>(1)</span></label>
-                                    </li>
-                                    <li class="list-item d-flex gap-12 align-items-center">
-                                        <input type="checkbox" name="color" class="tf-check-color bg_pink" id="pink" value="pink">
-                                        <label for="pink" class="label"><span>Pink</span>&nbsp;<span>(2)</span></label>
-                                    </li>
-                                    <li class="list-item d-flex gap-12 align-items-center">
-                                        <input type="checkbox" name="color" class="tf-check-color bg_taupe" id="taupe" value="taupe">
-                                        <label for="taupe" class="label"><span>Taupe</span>&nbsp;<span>(1)</span></label>
-                                    </li>
-                                    <li class="list-item d-flex gap-12 align-items-center">
-                                        <input type="checkbox" name="color" class="tf-check-color bg_white" id="white" value="white">
-                                        <label for="white" class="label"><span>White</span>&nbsp;<span>(14)</span></label>
-                                    </li>
-                                    <li class="list-item d-flex gap-12 align-items-center">
-                                        <input type="checkbox" name="color" class="tf-check-color bg_yellow" id="yellow" value="yellow">
-                                        <label for="yellow" class="label"><span>Yellow</span>&nbsp;<span>(1)</span></label>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="widget-facet">
-                            <div class="facet-title" data-bs-target="#size" data-bs-toggle="collapse" aria-expanded="true" aria-controls="size">
-                                <span>Size</span>
-                                <span class="icon icon-arrow-up"></span>
-                            </div>
-                            <div id="size" class="collapse show">
-                                <ul class="tf-filter-group current-scrollbar">
-                                    <li class="list-item d-flex gap-12 align-items-center">
-                                        <input type="radio" name="size" class="tf-check tf-check-size" value="s" id="s">
-                                        <label for="s" class="label"><span>S</span>&nbsp;<span>(7)</span></label>
-                                    </li>
-                                    <li class="list-item d-flex gap-12 align-items-center">
-                                        <input type="radio" name="size" class="tf-check tf-check-size" value="m" id="m">
-                                        <label for="m" class="label"><span>M</span>&nbsp;<span>(8)</span></label>
-                                    </li>
-                                    <li class="list-item d-flex gap-12 align-items-center">
-                                        <input type="radio" name="size" class="tf-check tf-check-size" value="l" id="l">
-                                        <label for="l" class="label"><span>L</span>&nbsp;<span>(8)</span></label>
-                                    </li>
-                                    <li class="list-item d-flex gap-12 align-items-center">
-                                        <input type="radio" name="size" class="tf-check tf-check-size" value="xl" id="xl">
-                                        <label for="xl" class="label"><span>XL</span>&nbsp;<span>(6)</span></label>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
 
         <!-- Footer -->
-        <?php include 'app/Views/Users/layouts/footer.php' ?>
+        <?php include 'App/Views/Users/layouts/footer.php' ?>
         <!-- /Footer -->
 
     </div>
+
+
 
 
 
@@ -1503,7 +1163,7 @@
     <!-- /modal login -->
 
     <!-- shoppingCart -->
-    <div class="modal fullRight fade modal-shopping-cart" id="shoppingCart">
+    <!-- <div class="modal fullRight fade modal-shopping-cart" id="shoppingCart">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="header">
@@ -1762,7 +1422,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- /shoppingCart -->
 
     <!-- modal compare -->
@@ -1823,105 +1483,13 @@
     <!-- modal quick_add -->
     <div class="modal fade modalDemo" id="quick_add">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="header">
-                    <span class="icon-close icon-close-popup" data-bs-dismiss="modal"></span>
-                </div>
-                <div class="wrap">
-                    <div class="tf-product-info-item">
-                        <div class="image">
-                            <img src="assets/Users/images/products/orange-1.jpg" alt="">
-                        </div>
-                        <div class="content">
-                            <a href="product-detail.html">Ribbed Tank Top</a>
-                            <div class="tf-product-info-price">
-                                <!-- <div class="price-on-sale">$8.00</div>
-                                <div class="compare-at-price">$10.00</div>
-                                <div class="badges-on-sale"><span>20</span>% OFF</div> -->
-                                <div class="price">$18.00</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tf-product-info-variant-picker mb_15">
-                        <div class="variant-picker-item">
-                            <div class="variant-picker-label">
-                                Color: <span class="fw-6 variant-picker-label-value">Orange</span>
-                            </div>
-                            <div class="variant-picker-values">
-                                <input id="values-orange" type="radio" name="color" checked>
-                                <label class="hover-tooltip radius-60" for="values-orange" data-value="Orange">
-                                    <span class="btn-checkbox bg-color-orange"></span>
-                                    <span class="tooltip">Orange</span>
-                                </label>
-                                <input id="values-black" type="radio" name="color">
-                                <label class=" hover-tooltip radius-60" for="values-black" data-value="Black">
-                                    <span class="btn-checkbox bg-color-black"></span>
-                                    <span class="tooltip">Black</span>
-                                </label>
-                                <input id="values-white" type="radio" name="color">
-                                <label class="hover-tooltip radius-60" for="values-white" data-value="White">
-                                    <span class="btn-checkbox bg-color-white"></span>
-                                    <span class="tooltip">White</span>
-                                </label>
-                            </div>
-                        </div>
-                        <div class="variant-picker-item">
-                            <div class="variant-picker-label">
-                                Size: <span class="fw-6 variant-picker-label-value">S</span>
-                            </div>
-                            <div class="variant-picker-values">
-                                <input type="radio" name="size" id="values-s" checked>
-                                <label class="style-text" for="values-s" data-value="S">
-                                    <p>S</p>
-                                </label>
-                                <input type="radio" name="size" id="values-m">
-                                <label class="style-text" for="values-m" data-value="M">
-                                    <p>M</p>
-                                </label>
-                                <input type="radio" name="size" id="values-l">
-                                <label class="style-text" for="values-l" data-value="L">
-                                    <p>L</p>
-                                </label>
-                                <input type="radio" name="size" id="values-xl">
-                                <label class="style-text" for="values-xl" data-value="XL">
-                                    <p>XL</p>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tf-product-info-quantity mb_15">
-                        <div class="quantity-title fw-6">Quantity</div>
-                        <div class="wg-quantity">
-                            <span class="btn-quantity minus-btn">-</span>
-                            <input type="text" name="number" value="1">
-                            <span class="btn-quantity plus-btn">+</span>
-                        </div>
-                    </div>
-                    <div class="tf-product-info-buy-button">
-                        <form>
-                            <a class="tf-btn btn-fill justify-content-center fw-6 fs-16 flex-grow-1 animate-hover-btn btn-add-to-cart"><span>Add to cart -&nbsp;</span><span class="tf-qty-price">$18.00</span></a>
-                            <div class="tf-product-btn-wishlist btn-icon-action">
-                                <i class="icon-heart"></i>
-                                <i class="icon-delete"></i>
-                            </div>
-                            <a href="#compare" data-bs-toggle="offcanvas" aria-controls="offcanvasLeft" class="tf-product-btn-wishlist box-icon bg_white compare btn-icon-action">
-                                <span class="icon icon-compare"></span>
-                                <span class="icon icon-check"></span>
-                            </a>
-                            <div class="w-100">
-                                <a href="#" class="btns-full">Buy with <img src="assets/Users/images/payments/paypal.png" alt=""></a>
-                                <a href="#" class="payment-more-option">More payment options</a>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+
         </div>
     </div>
     <!-- /modal quick_add -->
 
     <!-- modal quick_view -->
-    <div class="modal fade modalDemo" id="quick_view">
+    <!-- <div class="modal fade modalDemo" id="quick_view">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="header">
@@ -2001,7 +1569,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- /modal quick_view -->
 
     <!-- modal find_size -->
@@ -2093,44 +1661,21 @@
     <!-- /modal find_size -->
 
     <!-- auto popup  -->
-    <div class="modal modalCentered fade auto-popup modal-newleter">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-top">
-                    <img class="lazyload" data-src="assets/Users/images/item/banner-newleter.jpg" src="assets/Users/images/item/banner-newleter.jpg" alt="home-01">
-                    <span class="icon icon-close btn-hide-popup" data-bs-dismiss="modal"></span>
-                </div>
-                <div class="modal-bottom">
-                    <h4 class="text-center">Don’t mis out</h4>
-                    <h6 class="text-center">Be the first one to get the new product at early bird prices.</h6>
-                    <form id="subscribe-form" action="#" class="form-newsletter" method="post" accept-charset="utf-8" data-mailchimp="true">
-                        <div id="subscribe-content">
-                            <input type="email" name="email-form" id="subscribe-email" placeholder="Email *">
-                            <button type="button" id="subscribe-button" class="tf-btn btn-fill radius-3 animate-hover-btn w-100 justify-content-center">Keep me updated</button>
-                        </div>
-                        <div id="subscribe-msg"></div>
-                    </form>
-                    <div class="text-center">
-                        <a href="#" data-bs-dismiss="modal" class="tf-btn btn-line fw-6 btn-hide-popup">Not interested</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
     <!-- /auto popup  -->
 
 
     <!-- Javascript -->
-    <script type="text/javascript" src="assets/Users/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="assets/Users/js/jquery.min.js"></script>
-    <script type="text/javascript" src="assets/Users/js/swiper-bundle.min.js"></script>
-    <script type="text/javascript" src="assets/Users/js/carousel.js"></script>
-    <script type="text/javascript" src="assets/Users/js/bootstrap-select.min.js"></script>
-    <script type="text/javascript" src="assets/Users/js/lazysize.min.js"></script>
-    <script type="text/javascript" src="assets/Users/js/count-down.js"></script>
-    <script type="text/javascript" src="assets/Users/js/wow.min.js"></script>
-    <script type="text/javascript" src="assets/Users/js/multiple-modal.js"></script>
-    <script type="text/javascript" src="assets/Users/js/main.js"></script>
+    <script type="text/javascript" src="/Douong_Pony/Assets/Users/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/Douong_Pony/Assets/Users/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/Douong_Pony/Assets/Users/js/swiper-bundle.min.js"></script>
+    <script type="text/javascript" src="/Douong_Pony/Assets/Users/js/carousel.js"></script>
+    <script type="text/javascript" src="/Douong_Pony/Assets/Users/js/bootstrap-select.min.js"></script>
+    <script type="text/javascript" src="/Douong_Pony/Assets/Users/js/lazysize.min.js"></script>
+    <script type="text/javascript" src="/Douong_Pony/Assets/Users/js/count-down.js"></script>
+    <script type="text/javascript" src="/Douong_Pony/Assets/Users/js/wow.min.js"></script>
+    <script type="text/javascript" src="/Douong_Pony/Assets/Users/js/multiple-modal.js"></script>
+    <script type="text/javascript" src="/Douong_Pony/Assets/Users/js/main.js"></script>
 </body>
 
 

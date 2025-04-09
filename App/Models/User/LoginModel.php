@@ -130,6 +130,9 @@ class LoginModel
         $stmt->bindParam(':id', $_SESSION['users']['id']);
         return $stmt->execute();
     }
+
+    
+
     
     
     

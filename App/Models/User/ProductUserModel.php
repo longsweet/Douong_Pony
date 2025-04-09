@@ -223,6 +223,7 @@ class ProductUserModel
         $stmt = $this->db->pdo->prepare($sql);
         $stmt->bindParam(':product_id', $productId);
         $stmt->execute();
-        return round($stmt->fetch()->avgRating, 2);
+        $avg = $stmt->fetch()->avgRating ?? 0; // Gán 0 nếu null
+        return round($avg, 2);
     }
 }

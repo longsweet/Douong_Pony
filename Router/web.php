@@ -52,8 +52,86 @@ if ($role == "user") {
                 break;
             }
 
+        case 'my-account': {
+                (new DashboardController)->myAccount();
+                break;
+            }
+        case 'account-detal': {
+                (new DashboardController)->accountDetal();
+                break;
+            }
+        case 'account-update': {
+                (new DashboardController)->accountUpdate();
+                break;
+            }
+
         case 'postQuenMatKhau': {
                 (new LoginUserController)->postQuenMatKhau();
+                break;
+            }
+        case 'write-review': {
+                $dashBoardController = new DashboardController();
+                $dashBoardController->writeReview();
+                break;
+            }
+
+            //categoies
+
+        case 'all-category': {
+                (new DashboardController)->allCategory();
+                break;
+            }
+
+            // giỏ hàng 
+
+        case 'add-to-cart': {
+                (new DashboardController)->addToCart();
+                break;
+            }
+
+        case 'update-cart': {
+                (new DashboardController)->updateCart();
+                break;
+            }
+
+        case 'show-to-cart': {
+                (new DashboardController)->showToCart();
+                break;
+            }
+
+        case 'delete-cart': {
+                (new DashboardController)->deleteCartItem();
+                break;
+            }
+
+        case 'shopping-cart': {
+                (new DashboardController)->shoppingCart();
+                break;
+            }
+
+        case 'check-out': {
+                (new DashboardController)->checkout();
+                break;
+            }
+
+        case 'submit-check-out': {
+                (new DashboardController)->submitCheckout();
+                break;
+            }
+
+        case 'show-order': {
+                (new DashboardController)->showOrder();
+                break;
+            }
+
+        case 'show-order-detail': {
+                (new DashboardController)->showOrderDetail();
+                break;
+            }
+
+            case 'cancel-order'; {
+                $dashBoardController = new DashboardController();
+                $dashBoardController->cancelOrder();
                 break;
             }
     }
@@ -141,28 +219,33 @@ if ($role == "user") {
                 break;
             }
 
-        case 'category-show'; {
+        case 'category-show': {
                 (new CategoryController())->ShowCategory();
                 break;
             }
 
             //comment 
-
-        case 'comment-all'; {
-                (new CommentRatingController())->showComment();
+        case 'comment-all': {
+                $commentRatingController = new CommentRatingController();
+                $commentRatingController->showComment();
                 break;
             }
 
-        case 'comment-detail'; {
-                (new CommentRatingController)->commentDetail();
+        case 'comment-detail': {
+                $commentRatingController = new CommentRatingController();
+                $commentRatingController->commentDetail();
                 break;
             }
-        case 'comment-reply'; {
-                (new CommentRatingController)->commentReply();
+
+        case 'comment-reply': {
+                $commentRatingController = new CommentRatingController();
+                $commentRatingController->commentReply();
                 break;
             }
-        case 'comment-delete'; {
-                (new CommentRatingController)->commentDelete();
+
+        case 'comment-delete': {
+                $commentRatingController = new CommentRatingController();
+                $commentRatingController->commentDelete();
                 break;
             }
 
@@ -228,6 +311,12 @@ if ($role == "user") {
                 (new OrderController())->updateOrder();
                 break;
             }
+
+            // case 'search-product': {
+            //         (new ProductController())->searchProduct();
+            //         break;
+            //     }
+
 
 
             // case 'comment-product'; {

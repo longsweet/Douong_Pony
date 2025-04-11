@@ -241,4 +241,17 @@ class ProductController
 
         include 'App/Views/Admin/show-product.php';
     }
+    // public function searchProduct()
+    // {
+    //     if (isset($_GET['keyword']) && $_GET['keyword'] != '') {
+    //         $keyword = $_GET['keyword'];
+    //         $productModel = new ProductModel();
+    //         $listProduct = $productModel->searchProductByName($keyword);
+    //     } else {
+    //         $productModel = new ProductModel();
+    //         $listProduct = $productModel->getAllProduct();
+    //     }
+
+    //     include 'App/Views/Users/search.php';
+    // }
 }

@@ -32,7 +32,8 @@ include 'App/Controllers/Admins/UserController.php';
 //controller Model
 include 'App/Controllers/Users/LoginUserController.php';
 include 'App/Controllers/Users/DashboardController.php';
-
+include 'App/Models/User/CartUserModel.php';
+include 'App/Models/User/OrderUserModel.php';
 
 
 

@@ -5,6 +5,13 @@ class CategoryUserModel {
         $this->db = new Database();
     }
 
+    public function allCategory(){
+        $sql = "SELECT * FROM categories";
+        $query = $this->db->pdo->query($sql);
+        $result = $query->fetchAll();
+        return $result;
+    }
+
     public function getCategoryDashboard() {
         $sql = "SELECT * FROM categories";
         $query = $this->db->pdo->query($sql);

@@ -15,7 +15,8 @@ class ProductModel
         return $result;
     }
 
-    public function getAllProduct(){
+    public function getAllProduct()
+    {
         $sql = "SELECT products.id, products.name, products.price, products.price_sale, products.category_id, products.stock,
          products.image_main, categories.name AS categoryName FROM `products` join categories on products.category_id = categories.id";
         $query = $this->db->pdo->query($sql);
@@ -23,12 +24,13 @@ class ProductModel
         return $result;
     }
 
-    public function getProductByID(){
+    public function getProductByID()
+    {
         $id = $_GET['id'];
         $sql = "SELECT * FROM products WHERE id = :id";
         $stmt = $this->db->pdo->prepare($sql);
         $stmt->bindParam(':id', $id);
-        if($stmt->execute()){
+        if ($stmt->execute()) {
             return $stmt->fetch();
         }
         return false;
@@ -157,11 +159,30 @@ class ProductModel
         return $stmt->execute();
     }
 
-    public function getDataShopName(){
+    public function getDataShopName()
+    {
         $productName = $_GET['product-name'];
         $sql = "SELECT * FROM products WHERE name like '%$productName%'";
         $query = $this->db->pdo->query($sql);
         $result = $query->fetchAll();
         return $result;
     }
+    // public function searchProductByName($keyword)
+    // {
+    //     $sql = "SELECT products.id, products.name, products.price, products.price_sale, products.category_id, products.stock,
+    //         products.image_main, categories.name AS categoryName 
+    //         FROM products 
+    //         JOIN categories ON products.category_id = categories.id 
+    //         WHERE products.name LIKE :keyword";
+
+    //     $stmt = $this->db->pdo->prepare($sql);
+    //     $likeKeyword = "%" . $keyword . "%";
+    //     $stmt->bindParam(':keyword', $likeKeyword, PDO::PARAM_STR);
+
+    //     if ($stmt->execute()) {
+    //         return $stmt->fetchAll();
+    //     }
+
+    //     return [];
+    // }
 }

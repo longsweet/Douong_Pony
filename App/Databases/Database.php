@@ -7,7 +7,7 @@ class Database
     public function __construct()
     {
         $host = 'localhost';
-        $db_name = 'douong';
+        $db_name = 'long123';
         $user = 'root';
         $password = '';
         $port = '3306';

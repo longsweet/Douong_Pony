@@ -163,7 +163,7 @@ $orderInfo = $orderDetail[0];
                                                     <div class="text">Order list</div>
                                                 </a>
                                             </li>
-                                
+
                                             <li class="sub-menu-item">
                                                 <a href="oder-tracking.html" class="">
                                                     <div class="text">Order tracking</div>
@@ -707,7 +707,7 @@ $orderInfo = $orderDetail[0];
                     <!-- /header-dashboard -->
                     <!-- main-content -->
                     <div class="main-content">
-                        <!-- main-content-wrap -->
+                        <!-- main-content-wrap- inner -->
                         <div class="main-content-inner">
                             <!-- main-content-wrap -->
                             <div class="main-content-wrap">
@@ -727,9 +727,7 @@ $orderInfo = $orderDetail[0];
                                         </li>
                                     </ul>
                                 </div>
-                            </div> <!-- Thêm thẻ đóng để tránh lỗi giao diện -->
-
-
+                            </div>
                             <div class="wg-order-detail">
                                 <div class="left flex-grow">
                                     <div class="wg-box mb-20">
@@ -739,35 +737,55 @@ $orderInfo = $orderDetail[0];
                                                     <div class="body-title">Tất cả sản phẩm</div>
                                                 </li>
                                             </ul>
-                                            <ul class="flex flex-column">
+                                            <ul class="flex flex-column gap10">
                                                 <?php foreach ($orderDetail as $item): ?>
-                                                    <li class="wg-product">
-                                                        <div class="name">
-                                                            <div class="image">
-                                                                <img src="<?= htmlspecialchars($item->product_image) ?>" alt="<?= htmlspecialchars($item->product_name) ?>">
+                                                    <li class="wg-product flex flex-wrap gap20 p-3 border rounded bg-white shadow-sm">
+                                                        <!-- Hình ảnh + Tên sản phẩm -->
+                                                        <div class="flex items-start gap10" style="min-width: 220px; flex: 1;">
+                                                            <div class="image" style="width: 80px; height: 80px; flex-shrink: 0;">
+                                                                <img src="<?= htmlspecialchars($item->product_image) ?>" alt="<?= htmlspecialchars($item->product_name) ?>" style="width: 100%; height: 100%; object-fit: cover; border-radius: 6px;">
                                                             </div>
                                                             <div>
                                                                 <div class="text-tiny">Tên sản phẩm</div>
-                                                                <div class="title">
-                                                                    <a href="#" class="body-title-2"><?= htmlspecialchars($item->product_name) ?></a>
-                                                                </div>
+                                                                <div class="body-title-2"><?= htmlspecialchars($item->product_name) ?></div>
                                                             </div>
                                                         </div>
-                                                        <div>
+
+                                                        <!-- Số lượng -->
+                                                        <div style="min-width: 120px;">
                                                             <div class="text-tiny">Số lượng</div>
-                                                            <div class="title">
-                                                                <div class="body-title-2"><?= htmlspecialchars($item->quantity) ?></div>
-                                                            </div>
+                                                            <div class="body-title-2"><?= htmlspecialchars($item->quantity) ?></div>
                                                         </div>
-                                                        <div>
+
+                                                        <!-- Giá -->
+                                                        <div style="min-width: 150px;">
                                                             <div class="text-tiny">Giá</div>
-                                                            <div class="title">
-                                                                <div class="body-title-2"><?= number_format($item->price, 0, ',', '.') ?> VNĐ</div>
+                                                            <div class="body-title-2"><?= number_format($item->price, 0, ',', '.') ?> VNĐ</div>
+                                                        </div>
+
+                                                        <!-- Biến thể -->
+                                                        <div style="flex: 1; min-width: 200px;">
+                                                            <div class="text-tiny">Phân loại</div>
+                                                            <div class="body-text">
+                                                                <?php if ($item->variant): ?>
+                                                                    <div class="body-title-2">
+                                                                        <strong>Kích thước:</strong> <?= !empty($item->size) ? htmlspecialchars($item->size) : 'Không có' ?><br>
+                                                                        <strong>Toppings:</strong> <?= !empty($item->toppings) ? htmlspecialchars($item->toppings) : 'Không có' ?><br>
+                                                                        <strong>Độ ngọt:</strong> <?= !empty($item->sweetness) ? htmlspecialchars($item->sweetness) : 'Không có' ?><br>
+                                                                        <strong>Đá:</strong> <?= !empty($item->ice) ? htmlspecialchars($item->ice) : 'Không có' ?><br>
+                                                                    </div>
+
+
+                                                                <?php else: ?>
+                                                                    Sản phẩm này chưa có phân loại
+                                                                <?php endif; ?>
                                                             </div>
                                                         </div>
                                                     </li>
                                                 <?php endforeach; ?>
                                             </ul>
+
+
                                         </div>
                                     </div>
 
@@ -832,12 +850,10 @@ $orderInfo = $orderDetail[0];
                                 </div>
                             </div>
                         </div>
-
-                        <!-- /order-list -->
                     </div>
-                    <!-- /main-content-wrap -->
+                    <!-- /main-content-wrap-inner -->
                 </div>
-                <!-- /main-content-wrap -->
+                <!-- /main-content -->
                 <!-- bottom-page -->
                 <div class="bottom-page">
                     <div class="body-text">Copyright © 2024 <a href="https://themesflat.co/html/ecomus/index.html">Poly Tea</a></div>

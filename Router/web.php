@@ -61,7 +61,7 @@ if ($role == "user") {
 
     switch ($act) {
 
-        //?role=admin&act=login-admin Vidu chạychạy
+        //   Vidu chạychạy
         case 'home': {
                 (new HomeController)->long();
                 break;

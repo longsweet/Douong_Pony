@@ -13,7 +13,7 @@
     <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
     <title> Admin Dashboard </title>
 
-    
+
 
     <meta name="author" content="themesflat.com">
 
@@ -708,47 +708,93 @@
                         <div class="main-content-inner">
                             <!-- main-content-wrap -->
                             <div class="main-content-wrap">
-                                <?php if (!empty($order)): ?>
-                                    <h3>Chỉnh sửa đơn hàng #<?= htmlspecialchars($order->order_id) ?></h3>
-                                <?php else: ?>
+                                <?php
+                                // Đảm bảo thay thế null bằng 'Không có' trước khi sử dụng htmlspecialchars
+                                $orderHeader = $order[0] ?? null;
+
+                                ?>
+
+                                <?php if (!$orderHeader): ?>
                                     <p>Không tìm thấy đơn hàng.</p>
+                                <?php else: ?>
+                                    <h2>Chỉnh sửa trạng thái đơn hàng #<?= htmlspecialchars($orderHeader->order_id ?? 'Không có') ?></h2>
+
+                                    <!-- Form chỉnh sửa trạng thái -->
+                                    <form action="?role=admin&act=update-order" method="POST">
+                                        <input type="hidden" name="order_id" value="<?= htmlspecialchars($orderHeader->order_id ?? 'Không có') ?>">
+
+                                        <!-- Trạng thái đơn hàng -->
+                                        <!-- Dropdown hiển thị 5 trạng thái -->
+                                        <div>
+                                            <label>Trạng thái đơn hàng:</label>
+                                            <select name="status" style="border: 2px solid #333; padding: 5px;">
+                                                <option value="pending" <?= $orderHeader->status === 'pending' ? 'selected' : '' ?>>Chờ xử lý</option>
+                                                <option value="canceled" <?= $orderHeader->status === 'canceled' ? 'selected' : '' ?>>Đã hủy</option>
+                                                <option value="completed" <?= $orderHeader->status === 'completed' ? 'selected' : '' ?>>Hoàn thành</option>
+                                                <option value="in_progress" <?= $orderHeader->status === 'in_progress' ? 'selected' : '' ?>>Đang xử lý</option>
+                                                <option value="shipped" <?= $orderHeader->status === 'shipped' ? 'selected' : '' ?>>Đã giao hàng</option>
+                                            </select>
+                                        </div>
+
+
+                                        <!-- Các trường thông tin khách hàng (không cho phép chỉnh sửa) -->
+                                        <div>
+                                            <label>Họ và tên:</label>
+                                            <input type="text" name="customer_name" value="<?= htmlspecialchars($orderHeader->customer_name ?? 'Không có') ?>" readonly style="border: 1px solid #333; padding: 5px; background-color: #f0f0f0;">
+                                        </div>
+                                        <div>
+                                            <label>Địa chỉ:</label>
+                                            <input type="text" name="customer_address" value="<?= htmlspecialchars($orderHeader->address ?? 'Không có') ?>" readonly style="border: 1px solid #333; padding: 5px; background-color: #f0f0f0;">
+                                        </div>
+                                        <div>
+                                            <label>Số điện thoại:</label>
+                                            <input type="text" name="phone" value="<?= htmlspecialchars($orderHeader->phone ?? 'Không có') ?>" readonly style="border: 1px solid #333; padding: 5px; background-color: #f0f0f0;">
+                                        </div>
+                                        <div>
+                                            <label>Email:</label>
+                                            <input type="text" name="email" value="<?= htmlspecialchars($orderHeader->email ?? 'Không có') ?>" readonly style="border: 1px solid #333; padding: 5px; background-color: #f0f0f0;">
+                                        </div>
+
+                                        <button type="submit" style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none;">Cập nhật trạng thái</button>
+                                    </form>
+
+                                    <hr>
+
+                                    <h3>Chi tiết sản phẩm</h3>
+                                    <table border="1" cellpadding="8" cellspacing="0">
+                                        <tr>
+                                            <th>Sản phẩm</th>
+                                            <th>Hình ảnh</th>
+                                            <th>Giá</th>
+                                            <th>Số lượng</th>
+                                            <th>Size</th>
+                                            <th>Toppings</th>
+                                            <th>Sweetness</th>
+                                            <th>Ice</th>
+                                            <th>Tổng</th>
+                                        </tr>
+                                        <?php foreach ($order as $item): ?>
+                                            <?php
+                                            $price = $item->price;
+                                            if (isset($item->variant) && $item->variant) {
+                                                $price = $item->variant->price;
+                                            }
+                                            $total = $price * $item->quantity;
+                                            ?>
+                                            <tr>
+                                                <td><?= htmlspecialchars($item->product_name ?? 'Không có') ?></td>
+                                                <td><img src="<?= htmlspecialchars($item->product_image ?? 'Không có') ?>" width="60"></td>
+                                                <td><?= number_format($price, 0, ',', '.') ?>đ</td>
+                                                <td><?= $item->quantity ?></td>
+                                                <td><?= htmlspecialchars($item->size ?? 'Không có') ?></td>
+                                                <td><?= htmlspecialchars($item->toppings ?? 'Không có') ?></td>
+                                                <td><?= htmlspecialchars($item->sweetness ?? 'Không có') ?></td>
+                                                <td><?= htmlspecialchars($item->ice ?? 'Không có') ?></td>
+                                                <td><?= number_format($total, 0, ',', '.') ?>đ</td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    </table>
                                 <?php endif; ?>
-
-                                <form action="?role=admin&act=update-order" method="POST">
-                                
-
-                                    <input type="hidden" name="order_id" value="<?= htmlspecialchars($order->order_id) ?>">
-
-                                    <label for="customer_name">Tên khách hàng:</label>
-                                    <input type="text" name="customer_name" value="<?= htmlspecialchars($order->customer_name) ?>" required>
-
-                                    <label for="customer_address">Địa chỉ:</label>
-                                    <input type="text" name="customer_address" value="<?= htmlspecialchars($order->customer_address ?? '') ?>" required>
-
-                                    <label for="phone">Số điện thoại:</label>
-                                    <input type="text" name="phone" value="<?= htmlspecialchars($order->phone ?? '') ?>" required>
-
-                                    <label for="email">Email:</label>
-                                    <input type="email" name="email" value="<?= htmlspecialchars($order->email ?? '') ?>">
-
-                                    <label for="shipping_method">Phương thức giao hàng:</label>
-                                    <input type="text" name="shipping_method" value="<?= htmlspecialchars($order->shipping_method ?? '') ?>" required>
-
-                                    <label for="status">Trạng thái:</label>
-                                    <select name="status">
-                                        <option value="pending" <?= $order->status == 'pending' ? 'selected' : '' ?>>Đang xử lý</option>
-                                        <option value="completed" <?= $order->status == 'completed' ? 'selected' : '' ?>>Hoàn thành</option>
-                                        <option value="canceled" <?= $order->status == 'canceled' ? 'selected' : '' ?>>Hủy</option>
-                                    </select>
-
-                                    <label for="notes">Ghi chú:</label>
-                                    <textarea name="notes"> <?= htmlspecialchars($order->notes ?? '') ?> </textarea>
-
-                                    <button type="submit" class="btn btn-primary">Cập nhật đơn hàng</button>
-                                    <a href="?role=admin&act=order" class="btn btn-secondary">Hủy</a>
-                                </form>
-
-
 
                             </div>
 

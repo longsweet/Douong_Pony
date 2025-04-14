@@ -13,7 +13,7 @@ class OrderController
     {
         if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
             $_SESSION['error'] = 'ID đơn hàng không hợp lệ.';
-            header("Location: ?role=admin&act=order");
+            header("Location: ?role=admin&act=orders");
             exit();
         }
 
@@ -24,7 +24,7 @@ class OrderController
         $order = $orderModel->getOrderDetailById($order_id);
         if (!$order) {
             $_SESSION['error'] = 'Không tìm thấy đơn hàng.';
-            header("Location: ?role=admin&act=order");
+            header("Location: ?role=admin&act=orders");
             exit();
         }
         
@@ -61,7 +61,7 @@ class OrderController
     {
         if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
             $_SESSION['error'] = 'ID đơn hàng không hợp lệ.';
-            header("Location: ?role=admin&act=order");
+            header("Location: ?role=admin&act=orders");
             exit();
         }
 
@@ -69,9 +69,10 @@ class OrderController
         $orderModel = new OrderModel();
         $order = $orderModel->getOrderDetailById($order_id);
 
+
         if (!$order) {
             $_SESSION['error'] = 'Không tìm thấy đơn hàng.';
-            header("Location: ?role=admin&act=order");
+            header("Location: ?role=admin&act=orders");
             exit();
         }
 
@@ -81,26 +82,20 @@ class OrderController
     public function updateOrder()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            if (!isset($_POST['order_id'], $_POST['status'], $_POST['customer_name'], $_POST['customer_address'])) {
+            if (!isset($_POST['order_id'], $_POST['status'])) {
                 $_SESSION['error'] = 'Thiếu dữ liệu cập nhật đơn hàng.';
-                header("Location: ?role=admin&act=order");
+                header("Location: ?role=admin&act=orders");
                 exit();
             }
 
             $order_id = intval($_POST['order_id']);
             $status = trim($_POST['status']);
-            $customer_name = trim($_POST['customer_name']);
-            $customer_address = trim($_POST['customer_address']);
-            $phone = trim($_POST['phone'] ?? '');
-            $email = trim($_POST['email'] ?? '');
-            $notes = trim($_POST['notes'] ?? '');
-
             $orderModel = new OrderModel();
-            $success = $orderModel->updateOrder($order_id, $status, $customer_name, $customer_address, $phone, $email, $notes);
+            $success = $orderModel->updateOrderStatus($order_id, $status);
 
             if ($success) {
-                $_SESSION['success'] = 'Cập nhật đơn hàng thành công!';
-                header("Location: ?role=admin&act=order");
+                $_SESSION['success'] = 'Cập nhật trạng thái đơn hàng thành công!';
+                header("Location: ?role=admin&act=orders");
             } else {
                 $_SESSION['error'] = 'Cập nhật đơn hàng thất bại, vui lòng thử lại!';
                 header("Location: ?role=admin&act=edit-order&id=$order_id");
@@ -108,4 +103,28 @@ class OrderController
             exit();
         }
     }
+
+    public function deleteOrder()
+{
+    if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
+        $_SESSION['error'] = 'ID đơn hàng không hợp lệ.';
+        header("Location: ?role=admin&act=orders");
+        exit();
+    }
+
+    $order_id = intval($_GET['id']);
+    $orderModel = new OrderModel();
+
+    $deleted = $orderModel->deleteOrderById($order_id);
+
+    if ($deleted) {
+        $_SESSION['success'] = 'Xóa đơn hàng thành công!';
+    } else {
+        $_SESSION['error'] = 'Xóa đơn hàng thất bại hoặc đơn hàng không tồn tại!';
+    }
+
+    header("Location: ?role=admin&act=orders");
+    exit();
+}
+
 }

@@ -126,5 +126,46 @@ od.ice,
         $stmt->execute();
 
         return $stmt->fetch(PDO::FETCH_OBJ); // Kiểm tra xem dữ liệu có trả về không
-    }   
+    }
+
+    public function updateOrderStatus($order_id, $status)
+    {
+        $sql = "UPDATE `order` 
+            SET status = :status 
+            WHERE id = :order_id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':order_id', $order_id, PDO::PARAM_INT);
+        $stmt->bindParam(':status', $status, PDO::PARAM_STR);
+
+        return $stmt->execute();
+    }
+
+    public function deleteOrderById($order_id)
+{
+    try {
+        // Bắt đầu transaction
+        $this->conn->beginTransaction();
+
+        // Xóa chi tiết đơn hàng trước
+        $sqlDetail = "DELETE FROM order_detail WHERE order_id = :order_id";
+        $stmtDetail = $this->conn->prepare($sqlDetail);
+        $stmtDetail->bindParam(':order_id', $order_id, PDO::PARAM_INT);
+        $stmtDetail->execute();
+
+        // Xóa đơn hàng
+        $sqlOrder = "DELETE FROM `order` WHERE id = :order_id";
+        $stmtOrder = $this->conn->prepare($sqlOrder);
+        $stmtOrder->bindParam(':order_id', $order_id, PDO::PARAM_INT);
+        $stmtOrder->execute();
+
+        // Hoàn tất
+        $this->conn->commit();
+        return true;
+    } catch (Exception $e) {
+        // Có lỗi, rollback lại
+        $this->conn->rollBack();
+        return false;
+    }
+}
+
 }

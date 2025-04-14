@@ -8,7 +8,7 @@
                         <i class="icon-chevron-right"></i>
                     </li>
                     <li>
-                        <a href="<?= BASE_URL_ADMIN  ?>act=product">
+                        <a href="<?= BASE_URL_ADMIN  ?>act=all-product">
                             <div class="text-tiny">Sản phẩm</div>
                         </a>
                     </li>
@@ -28,7 +28,7 @@
 
                     <li>
                         <a href="<?= BASE_URL_ADMIN  ?>act=comment-all">
-                            <div class="text-tiny">Commets</div>
+                            <div class="text-tiny">Comments</div>
                         </a>
                     </li>
 

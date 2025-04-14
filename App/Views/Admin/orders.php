@@ -808,8 +808,12 @@
 
                                                         </div>
                                                         <div class="item trash">
-                                                            <a href="<?= BASE_URL ?>?role=admin&act=delete-order&id=<?= $order->order_id ?>" onclick="return confirm('Xóa đơn hàng này?')">
+                                                            <a href="<?= BASE_URL ?>?role=admin&act=delete-order&id=<?= $order->order_id ?>"
+                                                                onclick="return confirm('Bạn có chắc muốn xóa đơn hàng này không?')"
+                                                                title="Xóa đơn hàng">
                                                                 <i class="icon-trash-2"></i>
+                                                            </a>
+
                                                             </a>
                                                         </div>
                                                     </div>

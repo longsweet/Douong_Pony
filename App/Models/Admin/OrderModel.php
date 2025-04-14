@@ -140,32 +140,4 @@ od.ice,
         return $stmt->execute();
     }
 
-    public function deleteOrderById($order_id)
-{
-    try {
-        // Bắt đầu transaction
-        $this->conn->beginTransaction();
-
-        // Xóa chi tiết đơn hàng trước
-        $sqlDetail = "DELETE FROM order_detail WHERE order_id = :order_id";
-        $stmtDetail = $this->conn->prepare($sqlDetail);
-        $stmtDetail->bindParam(':order_id', $order_id, PDO::PARAM_INT);
-        $stmtDetail->execute();
-
-        // Xóa đơn hàng
-        $sqlOrder = "DELETE FROM `order` WHERE id = :order_id";
-        $stmtOrder = $this->conn->prepare($sqlOrder);
-        $stmtOrder->bindParam(':order_id', $order_id, PDO::PARAM_INT);
-        $stmtOrder->execute();
-
-        // Hoàn tất
-        $this->conn->commit();
-        return true;
-    } catch (Exception $e) {
-        // Có lỗi, rollback lại
-        $this->conn->rollBack();
-        return false;
-    }
-}
-
 }

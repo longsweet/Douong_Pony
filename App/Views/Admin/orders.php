@@ -111,7 +111,7 @@
 
 
                                     </div>
-                                    <div class="item trash">
+                                    <!-- <div class="item trash">
                                         <a href="<?= BASE_URL ?>?role=admin&act=delete-order&id=<?= $order->order_id ?>"
                                             onclick="return confirm('Bạn có chắc muốn xóa đơn hàng này không?')"
                                             title="Xóa đơn hàng">
@@ -119,7 +119,7 @@
                                         </a>
 
                                         </a>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </li>
                         <?php endforeach; ?>

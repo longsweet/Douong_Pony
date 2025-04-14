@@ -104,27 +104,5 @@ class OrderController
         }
     }
 
-    public function deleteOrder()
-{
-    if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
-        $_SESSION['error'] = 'ID đơn hàng không hợp lệ.';
-        header("Location: ?role=admin&act=orders");
-        exit();
-    }
-
-    $order_id = intval($_GET['id']);
-    $orderModel = new OrderModel();
-
-    $deleted = $orderModel->deleteOrderById($order_id);
-
-    if ($deleted) {
-        $_SESSION['success'] = 'Xóa đơn hàng thành công!';
-    } else {
-        $_SESSION['error'] = 'Xóa đơn hàng thất bại hoặc đơn hàng không tồn tại!';
-    }
-
-    header("Location: ?role=admin&act=orders");
-    exit();
-}
-
+    
 }

@@ -8,7 +8,6 @@
             <div class="flex items-center flex-wrap justify-between gap20 mb-30">
 
                 <h3>Tất cả User & Admin</h3>
-                <?= include 'App/Views/Admin/layouts/nav.php'?>
             </div>
 
             <div class="wg-box">

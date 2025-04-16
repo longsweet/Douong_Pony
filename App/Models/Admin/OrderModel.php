@@ -126,5 +126,18 @@ od.ice,
         $stmt->execute();
 
         return $stmt->fetch(PDO::FETCH_OBJ); // Kiểm tra xem dữ liệu có trả về không
-    }   
+    }
+
+    public function updateOrderStatus($order_id, $status)
+    {
+        $sql = "UPDATE `order` 
+            SET status = :status 
+            WHERE id = :order_id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':order_id', $order_id, PDO::PARAM_INT);
+        $stmt->bindParam(':status', $status, PDO::PARAM_STR);
+
+        return $stmt->execute();
+    }
+
 }

@@ -1,26 +1,26 @@
 <div class="bottom-page">
-                            <div class="body-text">Copyright © 2024 <a href="https://themesflat.co/html/ecomus/index.html">Poly Tea</a>.</div>
-                        </div>
-                        <!-- /bottom-page -->
-                    </div>
-                    <!-- /main-content -->
-                </div>
-                <!-- /section-content-right -->
-            </div>
-            <!-- /layout-wrap -->
-        </div>
-        <!-- /#page -->
-    </div>
-    <!-- /#wrapper -->
+    <div class="body-text">Copyright © 2024 <a href="https://themesflat.co/html/ecomus/index.html">Poly Tea</a>.</div>
+</div>
+<!-- /bottom-page -->
+</div>
+<!-- /main-content -->
+</div>
+<!-- /section-content-right -->
+</div>
+<!-- /layout-wrap -->
+</div>
+<!-- /#page -->
+</div>
+<!-- /#wrapper -->
 
-    <!-- Javascript -->
-    <script src="/Douong_Pony/Assets/Admin/js/jquery.min.js"></script>
-    <script src="/Douong_Pony/Assets/Admin/js/bootstrap.min.js"></script>
-    <script src="/Douong_Pony/Assets/Admin/js/bootstrap-select.min.js"></script>
-    <script src="/Douong_Pony/Assets/Admin/js/zoom.js"></script>
-    <script src="/Douong_Pony/Assets/Admin/js/switcher.js"></script>
-    <script defer src="js/theme-settings.js"></script>
-    <script defer src="js/main.js"></script>
+<!-- Javascript -->
+<script src="/Douong_Pony/Assets/Admin/js/jquery.min.js"></script>
+<script src="/Douong_Pony/Assets/Admin/js/bootstrap.min.js"></script>
+<script src="/Douong_Pony/Assets/Admin/js/bootstrap-select.min.js"></script>
+<script src="/Douong_Pony/Assets/Admin/js/zoom.js"></script>
+<script src="/Douong_Pony/Assets/Admin/js/switcher.js"></script>
+<script defer src="js/theme-settings.js"></script>
+<script defer src="js/main.js"></script>
 
 </body>
 

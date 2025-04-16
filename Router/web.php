@@ -311,11 +311,6 @@ if ($role == "user") {
                 (new OrderController())->updateOrder();
                 break;
             }
-        case 'delete-order': {
-            (new OrderController())->deleteOrder();
-            break;
-        }
-
             // case 'search-product': {
             //         (new ProductController())->searchProduct();
             //         break;

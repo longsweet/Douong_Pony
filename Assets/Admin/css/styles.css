@@ -5685,5 +5685,132 @@ select option {
     max-height: unset;
   }
 }
+/* Căn chỉnh bảng và các phần tử bên trong */
 
-/*# sourceMappingURL=styles.css.map */
+/* Container chính của bảng */
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-size: 14px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+/* Header của bảng */
+.custom-table-header {
+  display: flex;
+  background-color: #f4f4f4;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.custom-table-header li {
+  flex: 1; /* Chia đều không gian giữa các cột */
+  padding: 10px;
+  text-align: center;
+}
+
+/* Body của bảng */
+.custom-table-body {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.custom-table-row {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+  align-items: center;
+}
+
+.custom-table-row div {
+  flex: 1; /* Chia đều không gian giữa các cột */
+  padding: 10px;
+  text-align: center;
+}
+
+/* Hành động (Xóa, Sửa, Xem) */
+.actions a {
+  display: inline-block;
+  margin: 0 5px;
+  padding: 5px 10px;
+  font-size: 12px;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 3px;
+}
+
+.actions .btn-delete {
+  background-color: #e74c3c;
+}
+
+.actions .btn-edit {
+  background-color: #3498db;
+}
+
+.actions .btn-show {
+  background-color: #2ecc71;
+}
+
+/* Hover hiệu ứng */
+.actions a:hover {
+  opacity: 0.8;
+}
+
+/* Responsive (nếu cần) */
+@media (max-width: 768px) {
+  .custom-table-header li,
+  .custom-table-row div {
+      font-size: 12px;
+      padding: 5px;
+  }
+}
+
+.table-category {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-category-header {
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.table-category-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.table-category-cell {
+  flex: 1;
+  text-align: center;
+  padding: 5px;
+}
+
+.list-icon-function {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.list-icon-function .item a {
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.list-icon-function .item i {
+  margin-right: 5px;
+}
+
+

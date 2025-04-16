@@ -7,27 +7,6 @@
         <div class="main-content-wrap">
             <div class="flex items-center flex-wrap justify-between gap20 mb-30">
                 <h3>Danh sách đơn hàng</h3>
-                <ul class="breadcrumbs flex items-center flex-wrap justify-start gap10">
-                    <li>
-                        <a href="index.html">
-                            <div class="text-tiny">Trang chủ</div>
-                        </a>
-                    </li>
-                    <li>
-                        <i class="icon-chevron-right"></i>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <div class="text-tiny">Đơn hàng</div>
-                        </a>
-                    </li>
-                    <li>
-                        <i class="icon-chevron-right"></i>
-                    </li>
-                    <li>
-                        <div class="text-tiny">Danh sách đơn hàng</div>
-                    </li>
-                </ul>
             </div>
             <!-- order-list -->
             <div class="wg-box">
@@ -109,17 +88,7 @@
                                             <i class="icon-edit-3"></i>
                                         </a>
 
-
                                     </div>
-                                    <!-- <div class="item trash">
-                                        <a href="<?= BASE_URL ?>?role=admin&act=delete-order&id=<?= $order->order_id ?>"
-                                            onclick="return confirm('Bạn có chắc muốn xóa đơn hàng này không?')"
-                                            title="Xóa đơn hàng">
-                                            <i class="icon-trash-2"></i>
-                                        </a>
-
-                                        </a>
-                                    </div> -->
                                 </div>
                             </li>
                         <?php endforeach; ?>
@@ -131,8 +100,6 @@
                 </ul>
 
             </div>
-            <div class="divider"></div>
-            <div class="flex items-center justify-between flex-wrap gap10">
                 <div class="text-tiny">Showing 10 entries</div>
                 <ul class="wg-pagination">
                     <li>

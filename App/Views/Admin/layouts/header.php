@@ -68,13 +68,13 @@
                         <div class="center">
                             <div class="center-item">
                                 <ul class="">
-                                    <li class="menu-item has-children active">
+                                <li class="menu-item has-children <?= ($_GET['act'] == 'all-product') ? 'active' : '' ?>">
                                     <a href="<?= BASE_URL_ADMIN ?>act=all-product" class="menu-item-button">
                                             <div class="icon"><i class="icon-file-plus"></i></div>
                                             <div class="text">Sản phẩm</div>
                                         </a>
                                     </li>
-                                    <li class="menu-item has-children">
+                                    <li class="menu-item has-children <?= ($_GET['act'] == 'category') ? 'active' : '' ?>">
                                         <a href="<?= BASE_URL_ADMIN  ?>act=category" class="menu-item-button">
                                             <div class="icon"><i class="icon-layers"></i></div>
                                             <div class="text">Danh mục</div>
@@ -82,7 +82,7 @@
             
                                     </li>
         
-                                    <li class="menu-item has-children">
+                                    <li class="menu-item has-children <?= ($_GET['act'] == 'orders') ? 'active' : '' ?>">
                                         <a href="<?= BASE_URL_ADMIN  ?>act=orders" class="menu-item-button">
                                             <div class="icon">
                                                 <svg width="24" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -92,7 +92,8 @@
                                             <div class="text">Đơn hàng</div>
                                         </a>
                                     </li>
-                                    <li class="menu-item has-children">
+                                    <li class="menu-item has-children <?= ($_GET['act'] == 'user-all') ? 'active' : '' ?>">
+
                                         <a href="<?= BASE_URL_ADMIN  ?>act=user-all" class="menu-item-button">
                                             <div class="icon"><i class="icon-user"></i></div>
                                             <div class="text">Người dùng</div>

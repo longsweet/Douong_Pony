@@ -49,6 +49,9 @@
 
     <div id="wrapper">
 
+    <?php include 'App/Views/Users/layouts/header.php' ?>  
+
+
         <!-- Header -->
 
         <div class="tf-page-title style-2">

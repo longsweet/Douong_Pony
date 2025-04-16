@@ -134,12 +134,15 @@ if ($role == "user") {
                 $dashBoardController->cancelOrder();
                 break;
             }
+
+
+
     }
 } else {
 
     switch ($act) {
 
-        //?role=admin&act=login-admin Vidu chạychạy
+        //   Vidu chạychạy
         case 'home': {
                 (new HomeController)->long();
                 break;

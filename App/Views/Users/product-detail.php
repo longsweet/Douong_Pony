@@ -85,122 +85,117 @@
 
 
     <section class="flat-spacing-4 pt_0">
-      <div class="tf-main-product section-image-zoom">
-        <div class="container">
-          <div class="row">
-            <!-- Hình ảnh sản phẩm -->
-            <div class="col-md-6">
-              <div class="tf-product-media-wrap wrapper-gallery-scroll">
-                <div class="mb_10">
-                  <a href="<?= htmlspecialchars($product->image_main) ?>" target="_blank" class="item item-img-color" data-pswp-width="770px" data-pswp-height="1075px">
-                    <img class="tf-image-zoom lazyloaded"
-                      data-zoom="<?= htmlspecialchars($product->image_main) ?>"
-                      data-src="<?= htmlspecialchars($product->image_main) ?>"
-                      src="<?= htmlspecialchars($product->image_main) ?>"
-                      alt="<?= htmlspecialchars($product->name) ?>">
-                  </a>
-                </div>
-
-                <div class="d-grid grid-template-columns-2 gap-10" id="gallery-started">
-                  <?php foreach ($productImage as $key => $value): ?>
-                    <a href="<?= htmlspecialchars($value->image) ?>" target="_blank" class="item item-img-color" data-pswp-width="770px" data-pswp-height="1075px">
-                      <img class="radius-10 tf-image-zoom lazyloaded"
-                        data-zoom="<?= htmlspecialchars($value->image) ?>"
-                        data-src="<?= htmlspecialchars($value->image) ?>"
-                        src="<?= htmlspecialchars($value->image) ?>"
-                        alt="<?= htmlspecialchars($product->name) ?> - Hình <?= $key + 1 ?>">
-                    </a>
-                  <?php endforeach; ?>
-                </div>
-              </div>
+  <div class="tf-main-product section-image-zoom">
+    <div class="container">
+      <div class="row">
+        <!-- Hình ảnh sản phẩm -->
+        <div class="col-md-6">
+          <div class="tf-product-media-wrap wrapper-gallery-scroll">
+            <div class="mb_10">
+              <a href="<?= htmlspecialchars($product->image_main) ?>" target="_blank" class="item item-img-color" data-pswp-width="770px" data-pswp-height="1075px">
+                <img class="tf-image-zoom lazyloaded"
+                  data-zoom="<?= htmlspecialchars($product->image_main) ?>"
+                  data-src="<?= htmlspecialchars($product->image_main) ?>"
+                  src="<?= htmlspecialchars($product->image_main) ?>"
+                  alt="<?= htmlspecialchars($product->name) ?>">
+              </a>
             </div>
 
-            <!-- Thông tin sản phẩm -->
-            <div class="col-md-6">
-              <div class="tf-product-info-wrap sticky-top">
-                <div class="tf-product-info-list other-image-zoom">
-                  <div class="tf-product-info-title">
-                    <h5><?= htmlspecialchars($product->name) ?></h5>
-                  </div>
+            <div class="d-grid grid-template-columns-2 gap-10" id="gallery-started">
+              <?php foreach ($productImage as $key => $value): ?>
+                <a href="<?= htmlspecialchars($value->image) ?>" target="_blank" class="item item-img-color" data-pswp-width="770px" data-pswp-height="1075px">
+                  <img class="radius-10 tf-image-zoom lazyloaded"
+                    data-zoom="<?= htmlspecialchars($value->image) ?>"
+                    data-src="<?= htmlspecialchars($value->image) ?>"
+                    src="<?= htmlspecialchars($value->image) ?>"
+                    alt="<?= htmlspecialchars($product->name) ?> - Hình <?= $key + 1 ?>">
+                </a>
+              <?php endforeach; ?>
+            </div>
+          </div>
+        </div>
 
-                  <div class="tf-product-info-badges">
-                    <div class="badges">Độc quyền</div>
-                    <div class="product-status-content">
-                      <i class="icon-lightning"></i>
-                      <p class="fw-6">Sản phẩm độc quyền bán chạy trên khắp cả nước.</p>
-                    </div>
-                  </div>
+        <!-- Thông tin sản phẩm -->
+        <div class="col-md-6">
+          <div class="tf-product-info-wrap sticky-top">
+            <div class="tf-product-info-list other-image-zoom">
+              <div class="tf-product-info-title">
+                <h5><?= htmlspecialchars($product->name) ?></h5>
+              </div>
 
-                  <div class="tf-product-info-price">
-                    <?php if (!empty($product->price_sale)): ?>
-                      <div class="price-on-sale"><?= number_format($product->price_sale, 0, ',', '.') ?> VNĐ</div>
-                      <div class="compare-at-price"><?= number_format($product->price, 0, ',', '.') ?> VNĐ</div>
-                      <div class="badges-on-sale">
-                        <span><?= round((($product->price - $product->price_sale) / $product->price) * 100, 2) ?></span>% OFF
-                      </div>
-                    <?php else: ?>
-                      <div class="price-on-sale"><?= number_format($product->price, 0, ',', '.') ?> VNĐ</div>
-                    <?php endif; ?>
-                  </div>
-
-                  <div class="tf-product-info-liveview">
-                    <div class="liveview-count"><?= (int)$product->stock ?></div>
-                    <p class="fw-6">Số lượng sản phẩm tại quán có hạn! Mua nhanh tay!</p>
-                  </div>
-
-                  <div class="tf-product-info-quantity">
-                    <div class="mb-2">
-                      <?php foreach ($variable as $v): ?>
-                        <button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition">
-                          <?= htmlspecialchars($v['size']) ?>
-                        </button>
-                      <?php endforeach; ?>
-                    </div>
-
-                    <div class="quantity-title fw-6">Số lượng</div>
-                    <div class="wg-quantity">
-                      <span class="btn-quantity btn-decrease-custom">-</span>
-                      <input type="text" class="quantity-product" name="number" value="1">
-                      <span class="btn-quantity btn-increase-custom">+</span>
-                    </div>
-                  </div>
-
-                  <div class="tf-product-info-buy-button">
-                    <?php if (isset($_SESSION['users'])): ?>
-                      <form action="<?= BASE_URL ?>?act=add-to-cart" method="POST">
-                        <!-- TÊN input PHẢI là product_id để khớp với model -->
-                        <input type="hidden" name="product_id" value="<?= $product->id ?>">
-                        <input type="hidden" name="quantity" value="1">
-
-                        <button type="submit" class="tf-btn btn-fill justify-content-center fw-6 fs-16 flex-grow-1 animate-hover-btn">
-                          <span>Thêm vào giỏ hàng - </span>
-                          <span class="tf-qty-price total-price">
-                            <?= number_format($product->price_sale ?? $product->price, 0, ',', '.') ?> VNĐ
-                          </span>
-                        </button>
-                      </form>
-                    <?php else: ?>
-                      <button onclick="alert('Bạn cần đăng nhập trước')" class="tf-btn btn-fill justify-content-center fw-6 fs-16 flex-grow-1 animate-hover-btn">
-                        <span>Thêm vào giỏ hàng - </span>
-                        <span class="tf-qty-price total-price">
-                          <?= number_format($product->price_sale ?? $product->price, 0, ',', '.') ?> VNĐ
-                        </span>
-                      </button>
-                    <?php endif; ?>
-
-
-                  </div>
-
-                  <!-- Các phần còn lại như pickup, extra links, delivery,... vẫn giữ nguyên nếu không có lỗi -->
-                  <!-- ... -->
-
+              <div class="tf-product-info-badges">
+                <div class="badges">Độc quyền</div>
+                <div class="product-status-content">
+                  <i class="icon-lightning"></i>
+                  <p class="fw-6">Sản phẩm độc quyền bán chạy trên khắp cả nước.</p>
                 </div>
               </div>
+
+              <div class="tf-product-info-price">
+                <?php if (!empty($product->price_sale)): ?>
+                  <div class="price-on-sale"><?= number_format($product->price_sale, 0, ',', '.') ?> VNĐ</div>
+                  <div class="compare-at-price"><?= number_format($product->price, 0, ',', '.') ?> VNĐ</div>
+                  <div class="badges-on-sale">
+                    <span><?= round((($product->price - $product->price_sale) / $product->price) * 100, 2) ?></span>% OFF
+                  </div>
+                <?php else: ?>
+                  <div class="price-on-sale"><?= number_format($product->price, 0, ',', '.') ?> VNĐ</div>
+                <?php endif; ?>
+              </div>
+
+              <div class="tf-product-info-liveview">
+                <div class="liveview-count"><?= (int)$product->stock ?></div>
+                <p class="fw-6">Số lượng sản phẩm tại quán có hạn! Mua nhanh tay!</p>
+              </div>
+
+              <div class="quantity-title fw-6">Số lượng</div>
+              <div class="wg-quantity">
+                <span class="btn-quantity btn-decrease-custom">-</span>
+                <input
+                  type="number"
+                  class="quantity-product form-control text-center"
+                  name="quantity"
+                  value="1"
+                  min="1"
+                  max="<?= (int)$product->stock ?>"
+                  id="quantity-input"
+                  style="width: 60px;"
+                >
+                <span class="btn-quantity btn-increase-custom">+</span>
+              </div>
+
+              <div class="tf-product-info-buy-button">
+                <?php if (isset($_SESSION['users'])): ?>
+                  <form action="<?= BASE_URL ?>?act=add-to-cart" method="POST">
+                    <input type="hidden" name="product_id" value="<?= $product->id ?>">
+
+                    <!-- Số lượng sẽ được lấy từ input -->
+                    <input type="hidden" name="quantity" id="hidden-quantity" value="1">
+
+                    <button type="submit" class="tf-btn btn-fill justify-content-center fw-6 fs-16 flex-grow-1 animate-hover-btn">
+                      <span>Thêm vào giỏ hàng - </span>
+                      <span class="tf-qty-price total-price">
+                        <?= number_format($product->price_sale ?? $product->price, 0, ',', '.') ?> VNĐ
+                      </span>
+                    </button>
+                  </form>
+                <?php else: ?>
+                  <button onclick="alert('Bạn cần đăng nhập trước')" class="tf-btn btn-fill justify-content-center fw-6 fs-16 flex-grow-1 animate-hover-btn">
+                    <span>Thêm vào giỏ hàng - </span>
+                    <span class="tf-qty-price total-price">
+                      <?= number_format($product->price_sale ?? $product->price, 0, ',', '.') ?> VNĐ
+                    </span>
+                  </button>
+                <?php endif; ?>
+              </div>
+
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
 
 
@@ -2098,112 +2093,48 @@
   <script type="text/javascript" src="assets/Users/js/wow.min.js"></script>
   <script type="text/javascript" src="assets/Users/js/multiple-modal.js"></script>
   <script type="text/javascript" src="assets/Users/js/main.js"></script>
-  <script>
-    let price = "<?= $product->price_sale != null ? $product->price_sale : $product->price ?>"
-    price = Number(price)
-    document.querySelector(".btn-decrease-custom").addEventListener("click", function() {
-      let quantity = document.querySelector(".quantity-product")
-      if (Number(quantity.value) > 1) {
-        quantity.value = Number(quantity.value) - 1
-        let total = price * Number(quantity.value)
-        document.querySelector(".total-price").textContent = total.toLocaleString() + " VNĐ"
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const minusBtn = document.querySelector(".btn-decrease-custom");
+    const plusBtn = document.querySelector(".btn-increase-custom");
+    const quantityInput = document.querySelector("#quantity-input");
+    const hiddenQuantityInput = document.querySelector("#hidden-quantity");
+    const maxQty = parseInt(quantityInput.getAttribute("max"));
+    const minQty = parseInt(quantityInput.getAttribute("min"));
+
+    // Giới hạn giá trị cho số lượng khi bấm nút -
+    minusBtn.addEventListener("click", function () {
+      let current = parseInt(quantityInput.value) || 1;
+      if (current > minQty) {
+        quantityInput.value = current - 1;
+        hiddenQuantityInput.value = quantityInput.value;
       }
-    })
-    document.querySelector(".btn-increase-custom").addEventListener("click", function() {
-      let quantity = document.querySelector(".quantity-product")
-      quantity.value = Number(quantity.value) + 1
-      let total = price * Number(quantity.value)
-      document.querySelector(".total-price").textContent = total.toLocaleString() + " VNĐ"
-    })
-  </script>
-  <script>
-    const btnAddToCart = document.querySelector(".btnAddToCart")
-    btnAddToCart.addEventListener("click", function() {
-      let productId = "<?= $_GET['product_id'] ?>"
-      let quantity = document.querySelector(".quantity-product").value
-      let formData = new FormData();
-      formData.append('productId', productId)
-      formData.append('quantity', quantity)
-      fetch('<?= BASE_URL ?>?act=add-to-cart', {
-          method: "POST",
-          body: formData
+    });
 
-        })
-        .then(response => response.json())
-        .then(data => {
-          showCart(data)
-        })
-      var myModal = new bootstrap.Modal(document.getElementById('shoppingCart'));
-      myModal.show();
-    })
-    const exampleModal = document.getElementById('shoppingCart')
-    exampleModal.addEventListener('show.bs.modal', event => {
-
-      fetch('<?= BASE_URL ?>?act=show-to-cart')
-
-        .then(response => response.json())
-        .then(data => {
-          showCart(data)
-        })
-    })
-
-    function showCart(data) {
-      $("count_product").text(`(${data.length})`);
-      $(".tf-mini-cart-items").empty();
-      let UI = '';
-      let tong = 0
-      data.forEach(item => {
-        UI += `
-                            <div class="tf-mini-cart-item">
-                                <div class="tf-mini-cart-image">
-                                    <a href="<?= BASE_URL ?>?act=product-detail&product_id=${item.product_id}">
-                                        <img src="${item.image_main}" alt="">
-                                    </a>
-                                </div>
-                                <div class="tf-mini-cart-info">
-                                    <a class="title link" href="<?= BASE_URL ?>?act=product-detail&product_id=${item.product_id}">${item.name}</a>
-                                    <div class="price fw-6">${item.price_sale != null ? item.price_sale.toLocaleString() : item.price.toLocaleString()}vnđ</div>
-                                    <div class="tf-mini-cart-btns">
-                                        <div class="wg-quantity small">
-                                            <span class="btn-quantity minus-btn" onclick="handleUpdate('${item.id}','decrease')">-</span>
-                                            <input type="text" name="number" value="${item.quantity}">
-                                            <span class="btn-quantity plus-btn" onclick="handleUpdate('${item.id}','increase')">+</span>
-                                        </div>
-                                        <div class="tf-mini-cart-remove" onclick="handleUpdate('${item.id}','deleted')">Remove</div>
-                                    </div>
-                                </div>
-                            </div>
-                        `
-        let price = item.price_sale != null ? Number(item.price_sale) : Number(item.price)
-        let quantity = Number(item.quantity)
-        tong = tong + (price * quantity)
-      })
-      $(".tf-mini-cart-items").append(UI)
-      $(".tf-totals-total-value").empty();
-      $(".tf-totals-total-value").text(tong.toLocaleString() + " vnđ")
-    }
-
-    function handleUpdate(cartDetailId, action) {
-      if (action == "deleted") {
-        let check = confirm("Bạn có muốn xóa không")
-        if (!check) {
-          return
-        }
+    // Giới hạn giá trị cho số lượng khi bấm nút +
+    plusBtn.addEventListener("click", function () {
+      let current = parseInt(quantityInput.value) || 1;
+      if (current < maxQty) {
+        quantityInput.value = current + 1;
+        hiddenQuantityInput.value = quantityInput.value;
       }
-      let formData = new FormData();
-      formData.append('cart_detail_id', cartDetailId)
-      formData.append('action', action)
-      fetch('<?= BASE_URL ?>?act=update-cart', {
-          method: "POST",
-          body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-          showCart(data)
-        })
+    });
 
-    }
-  </script>
+    // Kiểm tra giới hạn khi người dùng nhập thủ công
+    quantityInput.addEventListener("input", function () {
+      let val = parseInt(this.value) || 1;
+      if (val < minQty) {
+        this.value = minQty;
+        hiddenQuantityInput.value = minQty;
+      } else if (val > maxQty) {
+        this.value = maxQty;
+        hiddenQuantityInput.value = maxQty;
+      } else {
+        hiddenQuantityInput.value = val;
+      }
+    });
+  });
+</script>
 </body>
 
 

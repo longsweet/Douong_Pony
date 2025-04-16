@@ -44,7 +44,13 @@ class OrderModel
             p.name AS product_name, 
             p.image_main AS product_image,
             od.quantity,
-            p.price
+            p.price,
+            od.size,
+od.toppings,
+od.sweetness,
+od.ice,
+
+            od.product_variants_id
         FROM `order` o
         LEFT JOIN `order_detail` od ON o.id = od.order_id
         LEFT JOIN `products` p ON od.product_id = p.id
@@ -71,15 +77,20 @@ class OrderModel
             p.image_main AS product_image,
             od.quantity,
             od.price,
+            od.size,
+            od.toppings,
+            od.sweetness,
+            od.ice,
+            od.product_variants_id,
             (od.quantity * od.price) AS total
         FROM `order` o
         JOIN `order_detail` od ON o.id = od.order_id
         JOIN `products` p ON od.product_id = p.id
         WHERE o.id = ?";
-        
+
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([$order_id]);
-        return $stmt->fetch(PDO::FETCH_OBJ); 
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
     public function updateOrder($order_id, $status, $customer_name, $customer_address, $phone, $email, $notes)
@@ -104,4 +115,16 @@ class OrderModel
 
         return $stmt->execute();
     }
+
+    public function getProductVariants($product_variants_id)
+    {
+        if (!$product_variants_id) return null;
+
+        $sql = "SELECT * FROM product_variants WHERE id = :product_variants_id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':product_variants_id', $product_variants_id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return $stmt->fetch(PDO::FETCH_OBJ); // Kiểm tra xem dữ liệu có trả về không
+    }   
 }

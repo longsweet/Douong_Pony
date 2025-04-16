@@ -1,6 +1,6 @@
 <?php 
 
-        class HomeController
+        class HomeController  
         {
             public function long()
             {

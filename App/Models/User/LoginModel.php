@@ -8,7 +8,7 @@ class LoginModel
     }
     public function checkLogin($email,$password){
 
-        $sql = "SELECT * FROM users WHERE email = :email and role = 1";
+        $sql = "SELECT * FROM users WHERE email = :email ";
         $stmt = $this->db->pdo->prepare($sql);
         $stmt->bindParam(':email', $email);
         $stmt->execute();   
@@ -25,7 +25,7 @@ class LoginModel
         $email = $_POST['email'];
         $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
         $now = date('Y-m-d H:i:s');
-        $role = "1";
+        $role = "2";
 
         //check email > 1
         $sqlCheck = "SELECT * FROM users WHERE email = :email";

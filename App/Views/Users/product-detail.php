@@ -165,7 +165,7 @@
               </div>
 
               <div class="tf-product-info-buy-button">
-                <?php if (isset($_SESSION['users'])): ?>
+              <?php if (isset($_SESSION['users'])): ?>
                   <form action="<?= BASE_URL ?>?act=add-to-cart" method="POST">
                     <input type="hidden" name="product_id" value="<?= $product->id ?>">
 
@@ -175,7 +175,6 @@
                     <button type="submit" class="tf-btn btn-fill justify-content-center fw-6 fs-16 flex-grow-1 animate-hover-btn">
                       <span>Thêm vào giỏ hàng - </span>
                       <span class="tf-qty-price total-price">
-                        <?= number_format($product->price_sale ?? $product->price, 0, ',', '.') ?> VNĐ
                       </span>
                     </button>
                   </form>
@@ -183,10 +182,10 @@
                   <button onclick="alert('Bạn cần đăng nhập trước')" class="tf-btn btn-fill justify-content-center fw-6 fs-16 flex-grow-1 animate-hover-btn">
                     <span>Thêm vào giỏ hàng - </span>
                     <span class="tf-qty-price total-price">
-                      <?= number_format($product->price_sale ?? $product->price, 0, ',', '.') ?> VNĐ
                     </span>
                   </button>
                 <?php endif; ?>
+                
               </div>
 
             </div>

@@ -23,76 +23,81 @@
                     <ul class="box-nav-ul d-flex align-items-center justify-content-center gap-30">
 
                         <li class="menu-item">
-                            <a href="" class="tf-btn collection-title hover-icon">
+                            <a href="<?= BASE_URL ?>" class="tf-btn collection-title hover-icon">
                                 <span>Home</span>
                                 <i class="icon icon-arrow1-top-left"></i>
                             </a>
                         </li>
 
                         <li class="menu-item">
-                            <a href="<?=    BASE_URL    ?>?act=shop&category_id=11" class="tf-btn collection-title hover-icon">
-                                <span>Trà sửa</span>
+                            <a href="<?= BASE_URL ?>?act=shop&category_id=11" class="tf-btn collection-title hover-icon">
+                                <span>Trà sữa</span>
                                 <i class="icon icon-arrow1-top-left"></i>
                             </a>
                         </li>
 
                         <li class="menu-item">
-                            <a href="http://localhost/Douong_Pony/?act=shop&category_id=12" class="tf-btn collection-title hover-icon">
+                            <a href="<?= BASE_URL ?>?act=shop&category_id=12" class="tf-btn collection-title hover-icon">
                                 <span>Cà Phê</span>
                                 <i class="icon icon-arrow1-top-left"></i>
                             </a>
                         </li>
 
                         <li class="menu-item">
-                            <a href="http://localhost/Douong_Pony/?act=shop&category_id=13" class="tf-btn collection-title hover-icon">
+                            <a href="<?= BASE_URL ?>?act=shop&category_id=13" class="tf-btn collection-title hover-icon">
                                 <span>Ice Cream</span>
                                 <i class="icon icon-arrow1-top-left"></i>
                             </a>
                         </li>
 
-                        <li class="menu-item" type="">
-                            <a href="" class="tf-btn collection-title hover-icon">
-                                <span></span>
-                            </a>
-                        </li>
                     </ul>
                 </nav>
             </div>
 
-
-
-
+            <!-- Account & Cart -->
+            <!-- Account & Cart -->
             <!-- Account & Cart -->
             <div class="col-xl-3 col-md-4 col-3">
                 <ul class="nav-icon d-flex justify-content-end align-items-center gap-20">
-                    <li class="nav-search"><a href="#canvasSearch" data-bs-toggle="offcanvas" aria-controls="offcanvasLeft" class="nav-icon-item"><i class="icon icon-search"></i></a></li>
+                    <li class="nav-search">
+                        <a href="#canvasSearch" data-bs-toggle="offcanvas" aria-controls="offcanvasLeft" class="nav-icon-item">
+                            <i class="icon icon-search"></i>
+                        </a>
+                    </li>
 
                     <?php if (isset($_SESSION['users'])): ?>
                         <li class="nav-account dropdown">
                             <a href="#" class="nav-icon-item dropdown-toggle" data-bs-toggle="dropdown">
                                 <i class="icon icon-account"></i>
                             </a>
-
                             <ul class="dropdown-menu">
+                                <?php if (!empty($_SESSION['users']['role']) && $_SESSION['users']['role'] == 2): ?>
+                                    <li>
+                                        <a href="" class="dropdown-item">Người dùng</a>
+                                    </li>
+                                <?php endif; ?>
+                                <li>
+                                    <a href="#" class="dropdown-item">
+                                    <a href="#" class="dropdown-item"><?= $_SESSION['users']['name']?></a>
+                                    </a>
+                                </li>
                                 <li><a href="<?= BASE_URL ?>?act=my-account" class="dropdown-item">Tài khoản</a></li>
                                 <li><a href="<?= BASE_URL ?>?act=shopping-cart" class="dropdown-item">Giỏ hàng</a></li>
                                 <li><a href="<?= BASE_URL ?>?act=show-order" class="dropdown-item">Đơn hàng</a></li>
- 
-
-                                                <li><a href="<?= BASE_URL ?>?act=logout" class="dropdown-item">Đăng xuất</a></li>
-
-
-
+                                <li><a href="<?= BASE_URL ?>?act=logout" class="dropdown-item">Đăng xuất</a></li>
                             </ul>
                         </li>
-
-                        <li class="nav-wishlist"><a href="wishlist.html" class="nav-icon-item"><i class="icon icon-heart"></i><span class="count-box">0</span></a></li>
-                        <li class="nav-cart"><a href="#shoppingCart" data-bs-toggle="modal" class="nav-icon-item"><i class="icon icon-bag"></i><span class="count-box">0</span></a></li>
                     <?php else: ?>
-                        <li class="nav-account"><a href="<?= BASE_URL ?>?act=login" class="nav-icon-item"><i class="icon icon-account"></i></a></li>
+                        <li class="nav-account">
+                            <a href="<?= BASE_URL ?>?act=login" class="nav-icon-item">
+                                <i class="icon icon-account"></i>
+                            </a>
+                        </li>
                     <?php endif; ?>
                 </ul>
             </div>
+
+
         </div>
     </div>
 </header>

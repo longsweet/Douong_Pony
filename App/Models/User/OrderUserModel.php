@@ -63,14 +63,29 @@ class OrderUserModel
         return $stmt->fetchAll();
     }
 
-    public function getOrderDetail(){
-        $order_id = $_GET['order_id'];
-        $sql = "SELECT order_detail.*, products.name, products.image_main, (order_detail.quantity * order_detail.price) AS total FROM `order_detail` JOIN products on order_detail.product_id = products.id WHERE order_detail.order_id = :order_id";
-        $stmt = $this->db->pdo->prepare($sql);
-        $stmt->bindParam(':order_id', $order_id );
-        $stmt->execute();
-        return $stmt->fetchAll();
-    }
+public function getOrderDetail() {
+    $order_id = $_GET['order_id'];
+
+    $sql = "SELECT 
+                order_detail.*, 
+                products.name AS product_name, 
+                products.image_main, 
+                (order_detail.quantity * order_detail.price) AS total,
+                `order`.name AS customer_name,
+                `order`.address,
+                `order`.notes
+            FROM order_detail 
+            JOIN products ON order_detail.product_id = products.id 
+            JOIN `order` ON order_detail.order_id = `order`.id 
+            WHERE order_detail.order_id = :order_id";
+
+    $stmt = $this->db->pdo->prepare($sql);
+    $stmt->bindParam(':order_id', $order_id );
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_OBJ);
+}
+
+
 
     public function cancelOrderModel(){
         $order_id = $_GET['order_id'];

@@ -83,11 +83,7 @@
                                             <i class="icon-edit-3" style="color: green;">edit</i>
                                         </a>
                                     </div>
-                                    <div class="item trash">
-                                        <a href="<?= BASE_URL ?>?role=admin&act=user-delete&id=<?= $value->id ?>">
-                                            <i class="icon-trash-2" style="color: red;">xoa</i>
-                                        </a>
-                                    </div>
+
                                 </div>
 
                             </li>

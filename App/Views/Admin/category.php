@@ -35,13 +35,7 @@
                                 <div class="body-text text-main-dark mt-4"><?= $key + 1 ?></div>
                                 <div class="body-text text-main-dark mt-4"><?= htmlspecialchars($value->name) ?></div>
                                 <div class="list-icon-function">
-                                    <div class="item trash">
-                                        <a
-                                            onclick="return confirm('Bạn có muốn xóa không?')"
-                                            href="<?= BASE_URL ?>?role=admin&act=category-delete&id=<?= $value->id ?>">
-                                            <i class="icon-trash-2" style="color: red;"></i>
-                                        </a>
-                                    </div>
+          
                                     <div class="item edit">
                                         <a
                                             href="<?= BASE_URL ?>?role=admin&act=category-form&id=<?= $value->id ?>">

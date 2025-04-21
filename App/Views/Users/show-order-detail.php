@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="/Douong_Pony/Assets/Users/css/bootstrap.min.css">
     <link rel="stylesheet" href="/Douong_Pony/Assets/Users/css/swiper-bundle.min.css">
     <link rel="stylesheet" href="/Douong_Pony/Assets/Users/css/animate.css">
-    <link rel="stylesheet" type="text/css" href="/Douong_Pony/Assets/Users/css/styles.css" />
+    <link rel="stylesheet" href="http://localhost/Douong_Pony/Assets/Users/css/styles.css" />
 
     <!-- Favicon and Touch Icons  -->
     <link rel="shortcut icon" href="/Douong_Pony/Assets/Users/images/logo/logomain_preview_rev.png">
@@ -27,7 +27,12 @@
         .header-default {
             margin-bottom: 0 !important;
         }
+        .table-hover tbody tr:hover {
+            background-color: #ff9800 !important;
+            color: white !important;
+        }
     </style>
+
 </head>
 
 <body class="preload-wrapper popup-loader">
@@ -57,42 +62,61 @@
             </div>
         </div>
 
-        <section class="flat-spacing-11">
+        <section class="flat-spacing-11 py-4">
             <div class="container">
-                <table class="tf-table-page-cart">
-                    <thead>
-                        <tr>
-                            <th>STT</th>
-                            <th>Product Name</th>
-                            <th>Product Image</th>
-                            <th>Quantity</th>
-                            <th>Product Price</th>
-                            <th>Total</th>
-                            
-
-                        </tr>
-                    </thead>
-                    <?php foreach($order_detail as $key => $value): ?>
-                        <tr>
-                            <td class="text-center"><?=$key+1?></td>
-                            <td class="text-center"><?=$value->name?></td>
-                            <td class="text-center"><img src="<?=$value->image_main?>" alt="" width="50"></td>
-                            <td class="text-center"><?=$value->quantity?></td>
-                            <td class="text-center"><?=number_format($value->price)?>vnđ</td>
-                            <td class="text-end">
-                            <?=number_format($value->total)?>vnđ
-                            </td>
-                        </tr>
-                        <?php endforeach; ?>
-                </table>
+                <div class="table-responsive">
+                    <table class="table table-bordered text-center align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th>STT</th>
+                                <th>Người mua</th>
+                                <th>Địa chỉ</th>
+                                <th>Ghi Chú</th>
+                                <th>Tên sản phẩm</th>
+                                <th>Hình ảnh</th>
+                                <th>Số lượng</th>
+                                <th>Giá</th>
+                                <th>Thành tiền</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $grand_total = 0;
+                            foreach ($order_detail as $key => $value):
+                                $grand_total += $value->total;
+                            ?>
+                                <tr class="table-hover text-dark">
+                                    <td><?= $key + 1 ?></td>
+                                    <td><?= $value->customer_name ?></td>
+                                    <td><?= $value->address ?></td>
+                                    <td><?= $value->notes ?></td>
+                                    <td><?= $value->product_name ?></td>
+                                    <td><img src="<?= $value->image_main ?>" alt="Ảnh sản phẩm" class="img-fluid" width="50"></td>
+                                    <td><?= $value->quantity ?></td>
+                                    <td><?= number_format($value->price) ?> vnđ</td>
+                                    <td><?= number_format($value->total) ?> vnđ</td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                        <tfoot>
+                            <tr class="table-info">
+                                <td colspan="8" class="text-end"><strong>Tổng cộng:</strong></td>
+                                <td><strong><?= number_format($grand_total) ?> vnđ</strong></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
             </div>
         </section>
-        
 
 
-        <!-- Footer -->
-        <?php include 'App/Views/Users/layouts/footer.php' ?>
-        <!-- /Footer -->
+
+
+
+
+    <!-- Footer -->
+    <?php include 'App/Views/Users/layouts/footer.php' ?>
+    <!-- /Footer -->
 
     </div>
 

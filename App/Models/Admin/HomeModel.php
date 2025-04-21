@@ -15,7 +15,7 @@
         // $password = $_POST['password'];
     
         // Chọn các cột cần thiết thay vì SELECT *
-        $sql = "SELECT * FROM users WHERE email = :email and role = 2";
+        $sql = "SELECT * FROM users WHERE email = :email and role = 1";
         $stmt = $this->db->pdo->prepare($sql);
         $stmt->bindParam(':email', $email);
         $stmt->execute();   

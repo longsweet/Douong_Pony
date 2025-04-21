@@ -102,23 +102,23 @@
                                             <td class="tf-cart-item_quantity" cart-data-title="Quantity">
                                                 <div class="cart-quantity">
                                                     <div class="wg-quantity">
-                                                        <!-- Giảm -->
-                                                        <form method="POST" action="<?= BASE_URL ?>?act=update-cart" style="display:inline;">
-                                                            <input type="hidden" name="cart_detail_id" value="<?= $value->id ?>">
+                                                        <!-- Giảm
+                                                        <form method="POST" action="?act=update-cart" style="display:inline;">
+                                                            <input type="hidden" name="cart_detail_id" value="">
                                                             <input type="hidden" name="action" value="decrease">
                                                             <button type="submit" style="background: none; border: none; cursor: pointer;">
                                                                 <svg class="d-inline-block" width="9" height="1" viewBox="0 0 9 1" fill="currentColor">
                                                                     <path d="M9 1H0V0H9V1Z"></path>
                                                                 </svg>
                                                             </button>
-                                                        </form>
+                                                        </form> -->
 
                                                         <!-- Số lượng hiện tại -->
                                                         <input type="text" name="number" value="<?= $value->quantity ?>" readonly>
 
                                                         <!-- Tăng -->
-                                                        <form method="POST" action="<?= BASE_URL ?>?act=update-cart" style="display:inline;">
-                                                            <input type="hidden" name="cart_detail_id" value="<?= $value->id ?>">
+                                                        <!-- <form method="POST" action="?act=update-cart" style="display:inline;">
+                                                            <input type="hidden" name="cart_detail_id" value="">
                                                             <input type="hidden" name="action" value="increase">
                                                             <button type="submit" style="background: none; border: none; cursor: pointer;">
                                                                 <svg class="d-inline-block" width="9" height="9" viewBox="0 0 9 9" fill="currentColor">
@@ -126,7 +126,7 @@
                                                                 </svg>
                                                             </button>
                                                         </form>
-                                                    </div>
+                                                    </div> -->
                                                 </div>
                                             </td>
 

@@ -19,7 +19,7 @@ class OrderController
 
         $order_id = intval($_GET['id']);
         $orderModel = new OrderModel();
-        
+
         // Lấy thông tin đơn hàng
         $order = $orderModel->getOrderDetailById($order_id);
         if (!$order) {
@@ -27,21 +27,20 @@ class OrderController
             header("Location: ?role=admin&act=orders");
             exit();
         }
-        
-        // Tính tổng tiền sản phẩm
+        //lấy ctiet đơn hàng
+        $orderDetail = $orderModel->getOrderDetail($order_id);
+        foreach ($orderDetail as $item) {
+            $item->variant = $orderModel->getProductVariants($item->product_variants_id);
+        }
+
         $orderTotal = 0;
         if (!empty($orderDetail)) {
-            $orderTotal = array_sum(array_map(function ($item) use ($orderModel) {
-                $variantPrice = $item->price; // Mặc định giá là price từ order_detail
-
-                if (isset($item->product_variants_id) && $item->product_variants_id) {
-                    $variant = $orderModel->getProductVariants($item->product_variants_id);
-                    if ($variant) {
-                        $variantPrice = $variant->price;
-                    }
+            $orderTotal = array_sum(array_map(function ($item) {
+                $price = $item->price; // Mặc định giá là price từ order_detail
+                if (isset($item->variant) && $item->variant) {
+                    $price = $item->variant->price;
                 }
-                
-                return $item->quantity * $variantPrice;
+                return $item->quantity * $price;
             }, $orderDetail));
         }
 
@@ -78,7 +77,6 @@ class OrderController
 
         include __DIR__ . '/../../Views/Admin/edit-order.php';
     }
-
     public function updateOrder()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -103,6 +101,4 @@ class OrderController
             exit();
         }
     }
-
-    
 }

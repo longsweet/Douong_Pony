@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class Database
 {
@@ -7,20 +7,20 @@ class Database
     public function __construct()
     {
         $host = 'localhost';
-        $db_name = 'long123';
+        $db_name = 'douong';
         $user = 'root';
         $password = '';
         $port = '3306';
 
         $dsn = "mysql:host=$host;dbname=$db_name;port=$port;charset=UTF8";
-        try{
+        try {
             $this->pdo = new PDO($dsn, $user, $password);
-            if($this->pdo){
-                $this->pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_OBJ);
+            if ($this->pdo) {
+                $this->pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
                 // echo "Kết nối database thành công!"; // Hiển thị thông báo thành công
 
             }
-        }catch(PDOException $e){
+        } catch (PDOException $e) {
             echo $e->getMessage();
         }
     }

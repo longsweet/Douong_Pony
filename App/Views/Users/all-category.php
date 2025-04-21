@@ -60,19 +60,19 @@
         <section class="flat-spacing-1">
             <div class="container">
                 <div class="tf-grid-layout lg-col-3 tf-col-2">
-                    <?php foreach($listCategory as $key => $value): ?>
-                    <div class="collection-item hover-img">
-                        <div class="collection-inner">
-                            <a href="<?= BASE_URL?>?act=shop&category_id=<?= $value->id?>" class="collection-image img-style">
-                                <img class=" ls-is-cached lazyloaded" data-src="assets/Admin/images/products/Oolong-Dao-Que-Hoa-Kem-Cheese.png" src="assets/Admin/images/products/Oolong-Dao-Que-Hoa-Kem-Cheese.png" alt="collection-img">
-                            </a>
-                            <div class="collection-content">
-                                <a href="<?= BASE_URL?>?act=shop&category_id=<?= $value->id?>" class="tf-btn collection-title hover-icon"><span><?= $value->name?></span><i class="icon icon-arrow1-top-left"></i></a>
+                    <?php foreach ($listCategory as $key => $value): ?>
+                        <div class="collection-item hover-img">
+                            <div class="collection-inner">
+                                <a href="<?= BASE_URL ?>?act=shop&category_id=<?= $value->id ?>" class="collection-image img-style">
+                                    <img class=" ls-is-cached lazyloaded" data-src="assets/Admin/images/products/Oolong-Dao-Que-Hoa-Kem-Cheese.png" src="assets/Admin/images/products/Oolong-Dao-Que-Hoa-Kem-Cheese.png" alt="collection-img">
+                                </a>
+                                <div class="collection-content">
+                                    <a href="<?= BASE_URL ?>?act=shop&category_id=<?= $value->id ?>" class="tf-btn collection-title hover-icon"><span><?= $value->name ?></span><i class="icon icon-arrow1-top-left"></i></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     <?php endforeach; ?>
-                    
+
                 </div>
                 <!-- pagination -->
                 <ul class="tf-pagination-wrap tf-pagination-list">

@@ -2,15 +2,16 @@
 
 class DashboardController
 {
-    public function dashboard() {
+    public function dashboard()
+    {
         // Khởi tạo mô hình danh mục
         $categoryModel = new CategoryUserModel();
         $listCategory = $categoryModel->getCategoryDashboard();
-    
+
         // Khởi tạo mô hình sản phẩm
         $productModel = new ProductUserModel(); // Thực tế nên gọi vào ProductUserModel
         $listProduct = $productModel->getProductDashboard();
-    
+
         // Lấy từ khóa tìm kiếm từ GET request
         $keyword = isset($_GET['keyword']) ? trim($_GET['keyword']) : '';
         $products = [];
@@ -27,11 +28,11 @@ class DashboardController
         // Bao gồm view để hiển thị
         include 'App/Views/Users/index.php';
     }
-    
-    
 
 
-    
+
+
+
 
     public function showShop()
     {
@@ -254,7 +255,7 @@ class DashboardController
     public function showCart()
     {
         require_once "./App/Models/User/CartUserModel.php";
-        
+
         $model = new CartUserModel();
         $data = $model->showCartModel();
         require_once "./App/Views/Users/shopcart.php"; // view hiển thị giỏ hàng
@@ -305,7 +306,7 @@ class DashboardController
 
     public function showOrder()
     {
-        
+
         $orderModel = new OrderUserModel();
         $orders = $orderModel->getAllOrder();
 
@@ -320,16 +321,10 @@ class DashboardController
         include 'App/Views/Users/show-order-detail.php';
     }
 
-    public function cancelOrder(){
+    public function cancelOrder()
+    {
         $orderModel = new OrderUserModel();
         $orderModel->cancelOrderModel();
         header("location: " . BASE_URL . "?act=show-order");
     }
-
-
-    
-    
 }
-
-    
-    

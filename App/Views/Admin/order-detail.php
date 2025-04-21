@@ -143,13 +143,6 @@ $orderInfo = $orderDetail[0];
                     <div class="body-title">Phương thức giao hàng</div>
                     <div class="body-text"><?= htmlspecialchars($orderDetail[0]->shipping_method ?? 'Chưa cập nhật') ?></div>
                 </div>
-                <div class="wg-box gap10">
-                    <div class="body-title">Ngày dự kiến ​​giao hàng</div>
-                    <div class="body-title-2 tf-color-2">20/11/2023</div>
-                    <a class="tf-button style-1 w-full" href="order-tracking.php?id=<?= htmlspecialchars($_GET['id']) ?>">
-                        <i class="icon-truck"></i>Theo dõi đơn hàng
-                    </a>
-                </div>
             </div>
         </div>
     </div>

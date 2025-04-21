@@ -74,85 +74,103 @@ foreach ($products as $key => $value) {
                 <input type="hidden" name="total" value="<?= $total ?>">
 
                 <div class="tf-page-cart-item">
-                    <h5 class="fw-5 mb_20">Billing details</h5>
+                    <h5 class="fw-bold mb-4 text-primary">Thông tin thanh toán</h5>
 
-                    <div class="box grid-2">
-                        <fieldset class="fieldset">
-                            <label for="first-name">Name</label>
-                            <input type="text" id="first-name" name="name" placeholder="Name" value="<?= $currentUser->name ?>">
-                        </fieldset>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="first-name" class="form-label">Tên người đặt</label>
+                                <input type="text" id="first-name" name="name" class="form-control shadow-sm" placeholder="Nhập tên của bạn" value="<?= $currentUser->name ?>" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="address" class="form-label">Địa chỉ giao hàng</label>
+                                <input type="text" id="address" name="address" class="form-control shadow-sm" value="<?= $currentUser->address ?>" required>
+                            </div>
+                        </div>
                     </div>
 
-                    <fieldset class="box fieldset">
-                        <label for="address">Address</label>
-                        <input type="text" id="address" name="address" value="<?= $currentUser->address ?>">
-                    </fieldset>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Số điện thoại</label>
+                        <input type="number" id="phone" name="phone" class="form-control shadow-sm" value="<?= $currentUser->phone ?>" required>
+                    </div>
 
-                    <fieldset class="box fieldset">
-                        <label for="phone">Phone Number</label>
-                        <input type="number" id="phone" name="phone" value="<?= $currentUser->phone ?>">
-                    </fieldset>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" id="email" name="email" class="form-control shadow-sm" value="<?= $currentUser->email ?>" required>
+                    </div>
 
-                    <fieldset class="box fieldset">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" value="<?= $currentUser->email ?>">
-                    </fieldset>
+                    <!-- Thêm trường "Ngày giao hàng" -->
+                    <div class="mb-3">
+                        <label for="delivery-date" class="form-label">Ngày giao hàng</label>
+                        <input type="date" id="delivery-date" name="delivery_date" class="form-control shadow-sm" required>
+                    </div>
 
-                    <fieldset class="box fieldset">
-                        <label for="note">Order notes (optional)</label>
-                        <textarea name="note" id="note"></textarea>
-                    </fieldset>
+                    <!-- Thêm trường "Tên người nhận" nếu khác người đặt hàng -->
+                    <div class="mb-3">
+                        <label for="recipient-name" class="form-label">Tên người nhận (Nếu khác)</label>
+                        <input type="text" id="recipient-name" name="recipient_name" class="form-control shadow-sm" placeholder="Tên người nhận">
+                    </div>
+
+                    <!-- Thêm trường "Yêu cầu đặc biệt" -->
+                    <div class="mb-3">
+                        <label for="special-request" class="form-label">Yêu cầu đặc biệt (Tùy chọn)</label>
+                        <textarea name="special_request" id="special-request" class="form-control shadow-sm" placeholder="Nhập yêu cầu đặc biệt của bạn"></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="note" class="form-label">Ghi chú đơn hàng (Tùy chọn)</label>
+                        <textarea name="note" id="note" class="form-control shadow-sm" placeholder="Nhập ghi chú của bạn"></textarea>
+                    </div>
                 </div>
 
                 <div class="tf-page-cart-footer">
                     <div class="tf-cart-footer-inner">
-                        <h5 class="fw-5 mb_20">Your order</h5>
+                        <h5 class="fw-bold mb-4 text-success">Đơn hàng của bạn</h5>
                         <div class="tf-page-cart-checkout widget-wrap-checkout">
                             <ul class="wrap-checkout-product">
                                 <?php foreach ($products as $value): ?>
-                                    <li class="checkout-product-item">
-                                        <figure class="img-product">
-                                            <img src="<?= $value->image_main ?>" alt="product">
-                                            <span class="quantity"><?= $value->quantity ?></span>
+                                    <li class="checkout-product-item d-flex align-items-center mb-3">
+                                        <figure class="img-product me-3">
+                                            <img src="<?= $value->image_main ?>" alt="product" class="img-fluid">
+                                            <span class="quantity badge bg-info"><?= $value->quantity ?></span>
                                         </figure>
                                         <div class="content">
                                             <div class="info">
-                                                <p class="name"><?= $value->name ?></p>
+                                                <p class="name fw-bold"><?= $value->name ?></p>
                                             </div>
-                                            <span class="price">
-                                                <?php
-                                                echo number_format($value->price_sale ?? $value->price) . " vnđ";
-                                                ?>
+                                            <span class="price text-danger">
+                                                <?= number_format($value->price_sale ?? $value->price, 0, ',', '.') ?> VNĐ
                                             </span>
                                         </div>
                                     </li>
                                 <?php endforeach; ?>
                             </ul>
 
-                            <div class="d-flex justify-content-between line pb_20">
-                                <h6 class="fw-5">Total</h6>
-                                <h6 class="total fw-5"><?= number_format($total) ?> vnđ</h6>
+                            <div class="d-flex justify-content-between align-items-center py-3">
+                                <h6 class="fw-bold">Tổng tiền</h6>
+                                <h6 class="total fw-bold text-success"><?= number_format($total, 0, ',', '.') ?> VNĐ</h6>
                             </div>
 
                             <div class="wd-check-payment">
-                                <div class="fieldset-radio mb_20">
-                                    <input type="radio" name="payment" value="bank" id="bank" class="tf-check" checked>
-                                    <label for="bank">Direct bank transfer</label>
+                                <div class="fieldset-radio mb-3">
+                                    <input type="radio" name="payment" value="bank" id="bank" class="tf-check form-check-input" checked>
+                                    <label for="bank" class="form-check-label">Chuyển khoản ngân hàng</label>
                                 </div>
-                                <div class="fieldset-radio mb_20">
-                                    <input type="radio" name="payment" value="cod" id="delivery" class="tf-check">
-                                    <label for="delivery">Cash on delivery</label>
+                                <div class="fieldset-radio mb-3">
+                                    <input type="radio" name="payment" value="cod" id="delivery" class="tf-check form-check-input">
+                                    <label for="delivery" class="form-check-label">Thanh toán khi nhận hàng</label>
                                 </div>
-                                <p class="text_black-2 mb_20">Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our <a href="privacy-policy.html" class="text-decoration-underline">privacy policy</a>.</p>
-                                <div class="box-checkbox fieldset-radio mb_20">
-                                    <input type="checkbox" name="agree" id="check-agree" class="tf-check" required>
-                                    <label for="check-agree" class="text_black-2">I have read and agree to the website <a href="terms-conditions.html" class="text-decoration-underline">terms and conditions</a>.</label>
+                                <p class="text-black-50 mb-4">Dữ liệu cá nhân của bạn sẽ được sử dụng để xử lý đơn hàng của bạn, hỗ trợ trải nghiệm của bạn trên trang web này, và cho các mục đích khác theo <a href="privacy-policy.html" class="text-decoration-underline">chính sách bảo mật</a>.</p>
+                                <div class="box-checkbox fieldset-radio mb-3">
+                                    <input type="checkbox" name="agree" id="check-agree" class="tf-check form-check-input" required>
+                                    <label for="check-agree" class="text-black-50">Tôi đã đọc và đồng ý với <a href="terms-conditions.html" class="text-decoration-underline">điều khoản và điều kiện</a> của website.</label>
                                 </div>
                             </div>
 
-                            <button type="submit" id="btn-check-out"
-                                class="tf-btn radius-3 btn-fill btn-icon animate-hover-btn justify-content-center">
-                                Place order
+                            <button type="submit" id="btn-check-out" class="tf-btn btn-fill btn-primary animate-hover-btn w-100">
+                                Đặt hàng ngay
                             </button>
                         </div>
                     </div>
@@ -161,6 +179,7 @@ foreach ($products as $key => $value) {
         </div>
     </div>
 </section>
+
 
 
 

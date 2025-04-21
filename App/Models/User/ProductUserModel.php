@@ -223,12 +223,33 @@ class ProductUserModel
         $stmt = $this->db->pdo->prepare($sql);
         $stmt->bindParam(':product_id', $productId);
         $stmt->execute();
-    
+
+
         return round($stmt->fetch()->avgRating ?? 0, 2);
-
-        $avg = $stmt->fetch()->avgRating ?? 0; // Gán 0 nếu null
-        return round($avg, 2);
-
     }
+
+    public function getProductsByCategoryName($categoryName)
+    {
+        $sql = "
+            SELECT products.*
+            FROM products
+            INNER JOIN categories ON products.category_id = categories.id
+            WHERE categories.name = :name
+        ";
     
-}
+        $stmt = $this->db->pdo->prepare($sql);
+        $stmt->bindValue(':name', $categoryName, PDO::PARAM_STR);
+    
+        try {
+            $stmt->execute();
+            $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $products;
+        } catch (Exception $e) {
+            echo 'Lỗi: ' . $e->getMessage();
+            return [];
+        }
+    }
+
+
+    
+};

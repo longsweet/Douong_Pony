@@ -9,6 +9,8 @@ class LoginUserController
     }
     public function login()
     {
+        $categoryModel = new CategoryUserModel();
+        $listCategory = $categoryModel->getCategoryDashboard();
         include 'App/Views/Users/login.php';
     }
 
@@ -48,6 +50,8 @@ class LoginUserController
 
     public function register()
     {
+        $categoryModel = new CategoryUserModel();
+        $listCategory = $categoryModel->getCategoryDashboard();
         include 'App/Views/Users/register.php';
     }
 

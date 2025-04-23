@@ -13,6 +13,7 @@ class OrderModel
 
     public function getAllOrders()
     {
+        //truy vấn all đơn hàng
         $sql = "SELECT 
             o.id AS order_id,
             o.name AS customer_name,
@@ -24,12 +25,15 @@ class OrderModel
             od.quantity,
             p.price
         FROM `order` o
-        LEFT JOIN `order_detail` od ON o.id = od.order_id
+        -- lấy ctiet sl sp
+        LEFT JOIN `order_detail` od ON o.id = od.order_id 
+        -- lấy tên & ảnh sp
         LEFT JOIN `products` p ON od.product_id = p.id
         ORDER BY o.created_at DESC";
 
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
+        // trả về toàn bộ ds dưới dạng obj
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
@@ -46,10 +50,9 @@ class OrderModel
             od.quantity,
             p.price,
             od.size,
-od.toppings,
-od.sweetness,
-od.ice,
-
+            od.toppings,
+            od.sweetness,
+            od.ice,
             od.product_variants_id
         FROM `order` o
         LEFT JOIN `order_detail` od ON o.id = od.order_id
@@ -105,6 +108,7 @@ od.ice,
                 WHERE id = :order_id";
 
         $stmt = $this->conn->prepare($sql);
+        //bindParam để gán giá trị từng tham số vào câu lệnh SQL.
         $stmt->bindParam(':order_id', $order_id, PDO::PARAM_INT);
         $stmt->bindParam(':status', $status, PDO::PARAM_STR);
         $stmt->bindParam(':customer_name', $customer_name, PDO::PARAM_STR);
@@ -116,6 +120,7 @@ od.ice,
         return $stmt->execute();
     }
 
+    //truy vấn bthe sp
     public function getProductVariants($product_variants_id)
     {
         if (!$product_variants_id) return null;
@@ -128,6 +133,7 @@ od.ice,
         return $stmt->fetch(PDO::FETCH_OBJ); // Kiểm tra xem dữ liệu có trả về không
     }
 
+    //update status (nhớ làm đơn hàng ttcong k cho sửa nữa)
     public function updateOrderStatus($order_id, $status)
     {
         $sql = "UPDATE `order` 
@@ -139,5 +145,4 @@ od.ice,
 
         return $stmt->execute();
     }
-
 }

@@ -2,21 +2,24 @@
 
 class ProductController
 {
-    //Lấy danh sách danh mục
+    // Lấy danh sách sản phẩm từ dashboard
     public function getProductDashboard()
     {
         $productModel =  new  ProductModel();
         $listProduct = $productModel->getProductDashboard();
-        include 'App/Views/Admin/products.php';
+        include 'App/Views/Admin/products.php'; // Hiển thị danh sách sản phẩm trên giao diện admin
     }
-    public function addProduct()  // da xong
+
+    // Thêm sản phẩm mới (form)
+    public function addProduct()  
     {
         $categoryModel = new CategoryModel();
-        $listCategory = $categoryModel->allCategory();
+        $listCategory = $categoryModel->allCategory(); // Lấy danh sách các danh mục sản phẩm
 
-        include 'App/Views/Admin/add-product.php';
+        include 'App/Views/Admin/add-product.php'; // Hiển thị form thêm sản phẩm
     }
 
+    // Kiểm tra dữ liệu nhập vào trong form
     public function checkValidate()
     {
         $name = $_POST['name'];
@@ -27,19 +30,21 @@ class ProductController
         if ($name != "" && $category != "" && $price != "" && $stock != "") {
             return true;
         } else {
-            $_SESSION['error'] = "Bạn nhập thiếu thông tin!";
+            $_SESSION['error'] = "Bạn nhập thiếu thông tin!"; // Thông báo nếu thiếu thông tin
             return false;
         }
     }
 
+    // Xử lý thêm sản phẩm vào cơ sở dữ liệu
     public function addPostProduct()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            if (!$this->checkValidate()) {
+            if (!$this->checkValidate()) { // Kiểm tra dữ liệu nhập vào
                 header("Location: " . BASE_URL . "?role=admin&act=add-product");
                 exit;
             }
-            //thêm ảnh main
+
+            // Thêm ảnh chính
             $uploadDir = 'assets/Admin/upload/';
             $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
             $destPath = "";
@@ -59,7 +64,7 @@ class ProductController
             }
 
             $productModel = new ProductModel();
-            $idProduct = $productModel->addProductToDB($destPath);
+            $idProduct = $productModel->addProductToDB($destPath); // Thêm sản phẩm vào DB
 
             if (!$idProduct) {
                 $_SESSION['message'] = "Thêm mới không thành công!";
@@ -67,7 +72,7 @@ class ProductController
                 exit;
             }
 
-            //Thêm thư viện ảnh
+            // Thêm thư viện ảnh cho sản phẩm
             if (isset($_FILES['image'])) {
                 foreach ($_FILES['image']['name'] as $key => $name) {
                     $destPathImage = "";
@@ -84,15 +89,17 @@ class ProductController
                             }
                         }
                     }
-                    $productModel->addGararyImage($destPathImage, $idProduct);
+                    $productModel->addGararyImage($destPathImage, $idProduct); // Thêm ảnh vào thư viện
                 }
             }
+
             $_SESSION['message'] = "Thêm mới thành công!";
             header("Location: " . BASE_URL . "?role=admin&act=all-product");
             exit;
         }
     }
 
+    // Xóa sản phẩm
     public function deleteProduct()
     {
         if (!isset($_GET['id'])) {
@@ -100,25 +107,25 @@ class ProductController
             header("Location: " . BASE_URL . "?role=admin&act=all-product");
             exit;
         }
+        
         $productModel = new ProductModel();
-        //xóa ảnh chính 
+        // Xóa ảnh chính
         $product = $productModel->getProductByID();
         if ($product->image_main != null) {
-
             if (file_exists($product->image_main)) {
-                unlink($product->image_main);
-            };
-        }
-
-        //xóa ảnh trong product_image
-        $listImage = $productModel->getProductImageByID();
-        foreach ($listImage as $key => $value) {
-            if ($value->image != null) {
-                unlink($value->image);
+                unlink($product->image_main); // Xóa ảnh chính khỏi thư mục
             }
         }
 
-        $message = $productModel->deleteProductToDB();
+        // Xóa ảnh trong thư viện ảnh sản phẩm
+        $listImage = $productModel->getProductImageByID();
+        foreach ($listImage as $key => $value) {
+            if ($value->image != null) {
+                unlink($value->image); // Xóa ảnh trong thư viện
+            }
+        }
+
+        $message = $productModel->deleteProductToDB(); // Xóa sản phẩm khỏi DB
 
         if ($message) {
             $_SESSION['message'] = "Xóa thành công!";
@@ -131,9 +138,7 @@ class ProductController
         }
     }
 
-
-
-
+    // Cập nhật thông tin sản phẩm
     public function updateProduct()
     {
         if (!isset($_GET['id'])) {
@@ -143,15 +148,16 @@ class ProductController
         }
 
         $categoryModel = new CategoryModel();
-        $listCategory = $categoryModel->allCategory();
+        $listCategory = $categoryModel->allCategory(); // Lấy danh sách các danh mục sản phẩm
 
         $productModel = new ProductModel();
-        $product = $productModel->getProductByID();
-        $listProductImage = $productModel->getProductImageByID();
+        $product = $productModel->getProductByID(); // Lấy sản phẩm cần chỉnh sửa
+        $listProductImage = $productModel->getProductImageByID(); // Lấy ảnh sản phẩm
 
-        include 'app/Views/Admin/update-product.php';
+        include 'app/Views/Admin/update-product.php'; // Hiển thị form cập nhật sản phẩm
     }
 
+    // Xử lý cập nhật sản phẩm
     public function updatePostProduct()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -161,13 +167,14 @@ class ProductController
                 exit;
             }
 
-            if (!$this->checkValidate()) {
+            if (!$this->checkValidate()) { // Kiểm tra dữ liệu đầu vào
                 header("Location: " . BASE_URL . "?role=admin&act=update-product&id=" . $_GET['id']);
                 exit;
             }
+
             $productModel = new ProductModel();
             $product = $productModel->getProductByID();
-            //chỉnh sửa ảnh main
+            // Xử lý ảnh chính
             $uploadDir = 'assets/Admin/upload/';
             $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
             $destPath = $product->image_main;
@@ -183,12 +190,11 @@ class ProductController
                     if (!move_uploaded_file($fileTmpPath, $destPath)) {
                         $destPath = "";
                     }
-                    unlink($product->image_main);
+                    unlink($product->image_main); // Xóa ảnh cũ
                 }
             }
 
-            $productModel = new ProductModel();
-            $message = $productModel->updateProductToDB($destPath);
+            $message = $productModel->updateProductToDB($destPath); // Cập nhật thông tin sản phẩm
 
             if (!$message) {
                 $_SESSION['message'] = "Sửa không thành công!";
@@ -196,15 +202,15 @@ class ProductController
                 exit;
             }
 
-            //Thêm thư viện ảnh
+            // Xử lý thư viện ảnh
             if (isset($_FILES['image']) && count($_FILES['image']) > 0) {
                 $listImage = $productModel->getProductImageByID();
                 foreach ($listImage as $key => $value) {
                     if ($value->image != null) {
-                        unlink($value->image);
+                        unlink($value->image); // Xóa ảnh cũ trong thư viện
                     }
                 }
-                $productModel->deleteImageGarary();
+                $productModel->deleteImageGarary(); // Xóa ảnh trong thư viện trước khi thêm mới
                 foreach ($_FILES['image']['name'] as $key => $name) {
                     $destPathImage = "";
                     if (!empty($name)) {
@@ -220,7 +226,7 @@ class ProductController
                             }
                         }
                     }
-                    $productModel->addGararyImage($destPathImage, $_GET['id']);
+                    $productModel->addGararyImage($destPathImage, $_GET['id']); // Thêm ảnh vào thư viện
                 }
             }
             $_SESSION['message'] = "Sửa thành công!";
@@ -229,6 +235,7 @@ class ProductController
         }
     }
 
+    // Xem chi tiết sản phẩm
     public function showProduct()
     {
         if (!isset($_GET['id'])) {
@@ -236,22 +243,11 @@ class ProductController
             header("Location: " . BASE_URL . "?role=admin&act=all-product");
             exit;
         }
+
         $productModel = new ProductModel();
-        $product = $productModel->getProductByID();
+        $product = $productModel->getProductByID(); // Lấy thông tin sản phẩm theo ID
 
-        include 'App/Views/Admin/show-product.php';
+        include 'App/Views/Admin/show-product.php'; // Hiển thị chi tiết sản phẩm
     }
-    // public function searchProduct()
-    // {
-    //     if (isset($_GET['keyword']) && $_GET['keyword'] != '') {
-    //         $keyword = $_GET['keyword'];
-    //         $productModel = new ProductModel();
-    //         $listProduct = $productModel->searchProductByName($keyword);
-    //     } else {
-    //         $productModel = new ProductModel();
-    //         $listProduct = $productModel->getAllProduct();
-    //     }
-
-    //     include 'App/Views/Users/search.php';
-    // }
 }
+?>

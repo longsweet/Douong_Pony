@@ -2,11 +2,14 @@
 class ProductUserModel
 {
     public $db;
+
+    // Khởi tạo đối tượng Database để kết nối cơ sở dữ liệu
     public function __construct()
     {
         $this->db = new Database();
     }
 
+    // Lấy 12 sản phẩm ngẫu nhiên từ cơ sở dữ liệu để hiển thị trên dashboard
     public function getProductDashboard()
     {
         $sql = "SELECT * FROM products ORDER BY rand() LIMIT 12";
@@ -15,11 +18,12 @@ class ProductUserModel
         return $result;
     }
 
+    // Lấy tất cả sản phẩm, có thể lọc theo category_id nếu có
     public function getDataShop()
     {
         $sql = "SELECT * FROM `products`";
         if (isset($_GET['category_id'])) {
-            $sql = $sql . " WHERE category_id=:category_id";
+            $sql .= " WHERE category_id=:category_id";
             $stmt = $this->db->pdo->prepare($sql);
             $stmt->bindParam(':category_id', $_GET['category_id']);
         } else {
@@ -27,10 +31,10 @@ class ProductUserModel
         }
 
         $stmt->execute();
-        $result = $stmt->fetchAll();
-        return $result;
+        return $stmt->fetchAll();
     }
 
+    // Lấy số lượng sản phẩm còn hàng và hết hàng
     public function getProductStock()
     {
         $sql1 = "SELECT COUNT(id) as instock FROM `products` WHERE stock > 0";
@@ -40,22 +44,20 @@ class ProductUserModel
         $sql2 = "SELECT COUNT(id) as outstock FROM `products` WHERE stock = 0";
         $query2 = $this->db->pdo->query($sql2);
         $outStock = $query2->fetch();
-        return [$inStock, $outStock];
+
+        return [$inStock, $outStock]; // Trả về số lượng sản phẩm còn và hết hàng
     }
 
-
-
-
+    // Tìm kiếm sản phẩm theo tên không chính xác
     public function getDataShopName()
-    { // tìm kiếm theo tên không chính xác 
-
+    {
         $productName = $_GET['product-name'];
         $sql = "SELECT * FROM products WHERE name like '%$productName%'";
         $query = $this->db->pdo->query($sql);
-        $result = $query->fetchAll();
-        return $result;
+        return $query->fetchAll();
     }
-    //
+
+    // Lấy thông tin sản phẩm theo product_id
     public function getProductById()
     {
         if (isset($_GET['product_id'])) {
@@ -63,11 +65,11 @@ class ProductUserModel
             $stmt = $this->db->pdo->prepare($sql);
             $stmt->bindParam(':id', $_GET['product_id']);
             $stmt->execute();
-            $result = $stmt->fetch();
-            return $result;
+            return $stmt->fetch();
         }
     }
 
+    // Lấy hình ảnh của sản phẩm theo product_id
     public function getProductImageById()
     {
         if (isset($_GET['product_id'])) {
@@ -75,65 +77,58 @@ class ProductUserModel
             $stmt = $this->db->pdo->prepare($sql);
             $stmt->bindParam(':id', $_GET['product_id']);
             $stmt->execute();
-            $result = $stmt->fetchAll();
-            return $result;
+            return $stmt->fetchAll();
         }
     }
 
+    // Lấy các sản phẩm cùng category với sản phẩm hiện tại, ngoại trừ sản phẩm đang xem
     public function getProductByCategory()
     {
         if (isset($_GET['category_id']) && isset($_GET['product_id'])) {
             $sql = "SELECT * FROM products WHERE category_id = :category_id AND id != :product_id";
-            // var_dump($_GET['category_id']);
-            // var_dump($_GET['product_id']);
-            // die;
-
             $stmt = $this->db->pdo->prepare($sql);
             $stmt->bindParam(':category_id', $_GET['category_id']);
             $stmt->bindParam(':product_id', $_GET['product_id']);
-
             $stmt->execute();
-            $result = $stmt->fetchAll();
-            return $result;
+            return $stmt->fetchAll();
         }
     }
+
+    // Lấy các biến thể của sản phẩm theo product_id
     public function getVaribalById()
     {
         if (isset($_GET['product_id'])) {
-            $sql = "SELECT * FROM product_variants WHERE  product_id = :product_id";
-            // var_dump($_GET['category_id']);
-            // var_dump($_GET['product_id']);
-            // die;
-
+            $sql = "SELECT * FROM product_variants WHERE product_id = :product_id";
             $stmt = $this->db->pdo->prepare($sql);
-
             $stmt->bindParam(':product_id', $_GET['product_id']);
-
             $stmt->execute();
-            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            return $result;
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
     }
+
+    // Lấy các bình luận của sản phẩm
     public function getComment($productId)
     {
-        $sql = "SELECT product_comment.*, users.name, users.image FROM `product_comment` JOIN users on product_comment.
-        user_id = users.id WHERE product_comment.product_id = :product_id";
+        $sql = "SELECT product_comment.*, users.name, users.image 
+                FROM product_comment 
+                JOIN users ON product_comment.user_id = users.id 
+                WHERE product_comment.product_id = :product_id";
         $stmt = $this->db->pdo->prepare($sql);
         $stmt->bindParam(':product_id', $productId);
         $stmt->execute();
-        $result = $stmt->fetchAll();
-        return $result;
+        return $stmt->fetchAll();
     }
 
+    // Lưu đánh giá của người dùng cho sản phẩm
     public function saveRating()
     {
         $sql = "SELECT * FROM product_rating WHERE user_id = :user_id AND product_id = :product_id";
         $stmt = $this->db->pdo->prepare($sql);
         $stmt->bindParam(':user_id', $_SESSION['users']['id']);
         $stmt->bindParam(':product_id', $_POST['productId']);
-
         $stmt->execute();
-        if ($stmt->fetch()) {
+
+        if ($stmt->fetch()) {  // Nếu đã đánh giá, cập nhật đánh giá
             $sql = "UPDATE `product_rating` SET `rating`= :rating WHERE user_id = :user_id AND product_id = :product_id";
             $stmt = $this->db->pdo->prepare($sql);
             $stmt->bindParam(':user_id', $_SESSION['users']['id']);
@@ -142,15 +137,13 @@ class ProductUserModel
             return $stmt->execute();
         }
 
-
-
-
+        // Nếu chưa đánh giá, chèn đánh giá mới vào cơ sở dữ liệu
         $productId = $_POST['productId'];
         $rate = $_POST['rate'];
         $userid = $_SESSION['users']['id'];
         $now = date('Y-m-d H:i:s');
-        $sql = "INSERT INTO `product_rating`(`product_id`, `user_id`, `rating`,`created_at`) VALUES 
-        (:product_id,:user_id,:rating,:created_at)";
+        $sql = "INSERT INTO `product_rating`(`product_id`, `user_id`, `rating`,`created_at`) 
+                VALUES (:product_id, :user_id, :rating, :created_at)";
         $stmt = $this->db->pdo->prepare($sql);
         $stmt->bindParam(':product_id', $productId);
         $stmt->bindParam(':user_id', $userid);
@@ -159,6 +152,7 @@ class ProductUserModel
         return $stmt->execute();
     }
 
+    // Lưu bình luận của người dùng cho sản phẩm
     public function saveComment()
     {
         // Lấy dữ liệu từ form
@@ -198,6 +192,7 @@ class ProductUserModel
         }
     }
 
+    // Lấy đánh giá của người dùng cho sản phẩm
     public function getCommentByUser($productId, $userId)
     {
         $sql = "SELECT * FROM product_rating WHERE user_id = :user_id AND product_id = :product_id";
@@ -208,6 +203,7 @@ class ProductUserModel
         return $stmt->fetch();
     }
 
+    // Lấy tất cả đánh giá của sản phẩm
     public function getRating($productId)
     {
         $sql = "SELECT * FROM product_rating WHERE product_id=:product_id";
@@ -217,6 +213,7 @@ class ProductUserModel
         return $stmt->fetchAll();
     }
 
+    // Tính điểm trung bình của các đánh giá sản phẩm
     public function avgRating($productId)
     {
         $sql = "SELECT avg(rating) as avgRating FROM `product_rating` WHERE product_id = :product_id";
@@ -224,10 +221,10 @@ class ProductUserModel
         $stmt->bindParam(':product_id', $productId);
         $stmt->execute();
 
-
         return round($stmt->fetch()->avgRating ?? 0, 2);
     }
 
+    // Lấy sản phẩm theo tên danh mục
     public function getProductsByCategoryName($categoryName)
     {
         $sql = "
@@ -249,7 +246,5 @@ class ProductUserModel
             return [];
         }
     }
-
-
-    
 };
+?>
